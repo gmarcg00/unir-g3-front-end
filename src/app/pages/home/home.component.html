@@ -1,1 +1,79 @@
-<p>home works!</p>
+<div class="container bg-white">
+  <div class="row">
+    <div class="col-xl-9 bg-danger text-dark">
+      <div class="row m-3 text-center">
+        <div class="col">
+          <h2>PROFESORES CERCA DE TI</h2>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center gap-3 my-3 text-center">
+        <div class="col-xl-7 d-flex align-items-center">
+          <div class="input-group input-group-lg">
+            <span class="input-group-text">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-search"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+                />
+              </svg>
+            </span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Ciudad, dirección, código postal"
+              aria-label="location"
+              aria-describedby="basic-addon1"
+            />
+          </div>
+        </div>
+        <div class="col-xl-4">
+          <button type="button" class="btn btn-success btn-lg text-dark w-75">
+            BUSCAR
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="col-xl-3 bg-warning d-flex flex-column justify-content-center align-items-center gap-3"
+    >
+      <div class="row w-100">
+        <div class="col d-flex justify-content-center">
+          <button type="button" class="btn btn-success text-dark btn-lg w-75">
+            INICIA SESION
+          </button>
+        </div>
+      </div>
+      <div class="row w-100">
+        <div class="col d-flex justify-content-center">
+          <button type="button" class="btn btn-success text-dark btn-lg w-75">
+            REGISTRATE
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="p-0 my-3">
+      <app-map></app-map>
+    </div>
+    <div class="mt-2 text-dark bg-light">
+      <h2>PROFESORES MEJOR VALORADOS</h2>
+      <hr />
+      <div class="d-flex flex-wrap justify-content-center gap-3 mb-3">
+        <app-profile-preview> </app-profile-preview>
+        <app-profile-preview> </app-profile-preview>
+        <app-profile-preview> </app-profile-preview>
+        <app-profile-preview> </app-profile-preview>
+      </div>
+      <div class="d-flex justify-content-center my-3">
+        <button type="button" class="btn btn-success text-dark btn-lg w-25">
+          VER TODOS
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
