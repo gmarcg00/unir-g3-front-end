@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container bg-white">
   <div class="row">
-    <div class="col-xl-9 text-bg-danger">
+    <div class="col-xl-9 bg-danger text-dark">
       <div class="row m-3 text-center">
         <div class="col">
           <h2>PROFESORES CERCA DE TI</h2>
         </div>
       </div>
-      <div class="row m-3 text-center">
-        <div class="col-xl-8 d-flex align-items-center">
+      <div class="row d-flex justify-content-center gap-3 my-3 text-center">
+        <div class="col-xl-7 d-flex align-items-center">
           <div class="input-group input-group-lg">
             <span class="input-group-text">
               <svg
@@ -26,35 +26,53 @@
             <input
               type="text"
               class="form-control"
-              placeholder="Location"
+              placeholder="Ciudad, dirección, código postal"
               aria-label="location"
               aria-describedby="basic-addon1"
             />
           </div>
         </div>
         <div class="col-xl-4">
-          <button type="button" class="btn btn-success btn-lg w-75">
+          <button type="button" class="btn btn-success btn-lg text-dark w-75">
             BUSCAR
           </button>
         </div>
       </div>
     </div>
     <div
-      class="col-xl-3 bg-dark d-flex flex-column justify-content-center align-items-center gap-3"
+      class="col-xl-3 bg-warning d-flex flex-column justify-content-center align-items-center gap-3"
     >
       <div class="row w-100">
         <div class="col d-flex justify-content-center">
-          <button type="button" class="btn btn-success btn-lg w-75">
+          <button type="button" class="btn btn-success text-dark btn-lg w-75">
             INICIA SESION
           </button>
         </div>
       </div>
       <div class="row w-100">
         <div class="col d-flex justify-content-center">
-          <button type="button" class="btn btn-success btn-lg w-75">
+          <button type="button" class="btn btn-success text-dark btn-lg w-75">
             REGISTRATE
           </button>
         </div>
+      </div>
+    </div>
+    <div class="p-0 my-3">
+      <app-map></app-map>
+    </div>
+    <div class="mt-2 text-dark bg-light">
+      <h2>PROFESORES MEJOR VALORADOS</h2>
+      <hr />
+      <div class="d-flex flex-wrap justify-content-center gap-3 mb-3">
+        <app-profile-preview> </app-profile-preview>
+        <app-profile-preview> </app-profile-preview>
+        <app-profile-preview> </app-profile-preview>
+        <app-profile-preview> </app-profile-preview>
+      </div>
+      <div class="d-flex justify-content-center my-3">
+        <button type="button" class="btn btn-success text-dark btn-lg w-25">
+          VER TODOS
+        </button>
       </div>
     </div>
   </div>
