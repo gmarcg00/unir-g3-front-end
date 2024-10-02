@@ -1,1 +1,44 @@
-<p>sign-up works!</p>
+<div class="container">
+  <div class="row d-flex gap-2 py-4 bg-danger">
+    <div class="row">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <h2>UNETE A NUESTRA COMUNIDAD</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div
+        class="col-12 d-flex flex-column flex-sm-row justify-content-center gap-5"
+      >
+        <button
+          class="btn text-dark btn-lg w-25"
+          [ngClass]="{
+            'btn-success': isStudentSelected(),
+            'btn-outline-success': !isStudentSelected()
+          }"
+          (click)="selectOption('STUDENT')"
+        >
+          ESTUDIANTE
+        </button>
+        <button
+          class="btn text-dark btn-lg w-25"
+          [ngClass]="{
+            'btn-success': isTeacherSelected(),
+            'btn-outline-success': !isTeacherSelected()
+          }"
+          (click)="selectOption('TEACHER')"
+        >
+          PROFESOR
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row bg-info">
+    <div class="col d-flex justify-content-center">
+      @if(selectedForm === 'STUDENT'){
+      <app-student-form></app-student-form>
+      } @if(selectedForm === 'TEACHER'){
+      <app-teacher-form></app-teacher-form>
+      }
+    </div>
+  </div>
+</div>
