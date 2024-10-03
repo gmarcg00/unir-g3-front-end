@@ -1,1 +1,26 @@
-<p>teacher-form works!</p>
+<form
+  [formGroup]="modelForm"
+  (ngSubmit)="signUp()"
+  class="d-flex flex-column p-3 w-100 bg-light shadow"
+>
+  <div class="my-2">
+    <label for="name" class="form-label">Nombre</label>
+    <input type="text" id="name" class="form-control" formControlName="name" />
+  </div>
+  <div class="my-2">
+    <label for="surname" class="form-label">Apellidos</label>
+    <input
+      type="text"
+      id="surname"
+      class="form-control"
+      formControlName="surname"
+    />
+  </div>
+  <button
+    type="submit"
+    class="btn btn-success my-2 btn-lg border-2 border-black w-50 mx-auto"
+    [disabled]="!modelForm.valid"
+  >
+    REGISTRARSE
+  </button>
+</form>
