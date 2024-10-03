@@ -1,6 +1,6 @@
 <div class="container bg-white">
-  <div class="row">
-    <div class="col-xl-9 bg-danger text-dark">
+  <div class="row border-4">
+    <div class="col-xl-9 bg-danger text-dark p-0">
       <div class="row m-3 text-center">
         <div class="col">
           <h2>PROFESORES CERCA DE TI</h2>
@@ -33,7 +33,10 @@
           </div>
         </div>
         <div class="col-xl-4">
-          <button type="button" class="btn btn-success btn-lg text-dark w-75">
+          <button
+            type="button"
+            class="btn btn-success btn-lg text-dark w-75 border-2 border-black"
+          >
             BUSCAR
           </button>
         </div>
@@ -44,15 +47,18 @@
     >
       <div class="row w-100">
         <div class="col d-flex justify-content-center">
-          <button type="button" class="btn btn-success text-dark btn-lg w-75">
+          <a
+            class="btn btn-success text-dark btn-lg w-75 border-2 border-black"
+            [routerLink]="['/sign-in']"
+          >
             INICIA SESION
-          </button>
+          </a>
         </div>
       </div>
       <div class="row w-100">
         <div class="col d-flex justify-content-center">
           <a
-            class="btn btn-success text-dark btn-lg w-75"
+            class="btn btn-success text-dark btn-lg w-75 border-2 border-black"
             [routerLink]="['/sign-up']"
           >
             REGISTRATE
@@ -73,7 +79,10 @@
         <app-profile-preview> </app-profile-preview>
       </div>
       <div class="d-flex justify-content-center my-3">
-        <button type="button" class="btn btn-success text-dark btn-lg w-25">
+        <button
+          type="button"
+          class="btn btn-success text-dark btn-lg w-25 border-2 border-black"
+        >
           VER TODOS
         </button>
       </div>

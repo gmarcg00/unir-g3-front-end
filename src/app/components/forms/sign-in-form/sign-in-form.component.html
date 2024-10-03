@@ -1,0 +1,32 @@
+<form
+  [formGroup]="modelForm"
+  (ngSubmit)="signIn()"
+  class="d-flex flex-column p-3 shadow w-100 bg-light"
+>
+  <div class="my-2">
+    <label for="email" class="form-label">Email</label>
+    <input
+      type="text"
+      placeholder="example@gmail.com"
+      id="email"
+      class="form-control"
+      formControlName="email"
+    />
+  </div>
+  <div class="my-2">
+    <label for="password" class="form-label">Password</label>
+    <input
+      type="password"
+      id="password"
+      class="form-control"
+      formControlName="password"
+    />
+  </div>
+  <button
+    type="submit"
+    class="btn btn-success my-2 btn-lg border-2 border-black w-50 mx-auto"
+    [disabled]="!modelForm.valid"
+  >
+    INICIAR SESION
+  </button>
+</form>
