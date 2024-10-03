@@ -1,0 +1,11 @@
+.b-class{
+    border: 4px solid black;
+    border-top: 0;
+}
+
+@media (min-width: 992px) {
+    .b-class{
+        border-top: 4px solid black;
+        border-left: 0;
+    }
+}
