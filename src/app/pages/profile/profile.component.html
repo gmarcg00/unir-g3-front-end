@@ -1,0 +1,116 @@
+<div class="d-flex flex-column bg-light">
+  <div class="p-3 pb-2">
+    <h3>INFORMACION DEL USUARIO</h3>
+  </div>
+  <div class="d-flex w-100">
+    <section
+      class="d-flex flex-column w-25 border border-4 border-black shadow"
+    >
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="px-4 pt-3 pb-2">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
+            class="rounded-circle shadow-4 card-img"
+            alt="Avatar"
+          />
+        </div>
+        <div class="text-center">
+          <h4>NOMBRE Y APELLIDOS</h4>
+        </div>
+        <div class="px-4 py-2 text-justified">
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+            suscipit quae obcaecati? Commodi voluptatum corrupti officiis ullam
+            iusto cum esse ratione, illo iure excepturi dolorem voluptate, eos
+            minima, vel quos?
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="w-75 border border-4 border-start-0 border-black shadow">
+      <section class="d-flex flex-wrap py-3 px-4">
+        <div class="w-50">
+          <div>
+            <h6 class="mb-1">Nombre</h6>
+            <p>Nombre</p>
+          </div>
+          <div>
+            <h6 class="mb-1">Apellidos</h6>
+            <p>Apellidos</p>
+          </div>
+          <div>
+            <h6 class="mb-1">Fecha de nacimiento</h6>
+            <p>01-01-0000</p>
+          </div>
+          <div>
+            <h6 class="mb-1">Tipo de usuario</h6>
+            <p>Profesor</p>
+          </div>
+          <div>
+            <h6 class="mb-1">Ramas de conocimiento</h6>
+            <ul class="d-flex flex-column flex-wrap">
+              <li class="w-50">Matemáticas</li>
+              <li class="w-50">Matemáticas</li>
+              <li class="w-50">Matemáticas</li>
+              <li class="w-50">Matemáticas</li>
+            </ul>
+          </div>
+        </div>
+        <div class="w-50">
+          <div>
+            <h6 class="mb-1">Precio-hora</h6>
+            <p>10€</p>
+          </div>
+          <div>
+            <h6 class="mb-1">Experiencia</h6>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Perferendis, hic velit libero quod recusandae harum sequi
+              consectetur debitis itaque quae culpa vero? Quae, distinctio
+              reprehenderit. Debitis suscipit est natus sint.
+            </p>
+          </div>
+          <div>
+            <h6 class="mb-1">Puntuación media</h6>
+            <div
+              class="progress mt-2"
+              role="progressbar"
+              aria-label="Warning example"
+              aria-valuenow="75"
+              aria-valuemin="0"
+              aria-valuemax="100"
+            >
+              <div class="progress-bar text-bg-success" style="width: 75%">
+                7,5
+              </div>
+            </div>
+          </div>
+          <div>
+            <h6 class="mt-3 mb-1">Localización</h6>
+            <p>Madrid</p>
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+  <section class="d-flex flex-column flex-wrap">
+    <div class="p-3 pb-1">
+      <h3>MIS ALUMNOS</h3>
+    </div>
+    <hr />
+    <ul class="d-flex flex-wrap justify-content-center gap-4 list-unstyled p-2">
+      <li>
+        <app-profile-preview></app-profile-preview>
+      </li>
+      <li>
+        <app-profile-preview></app-profile-preview>
+      </li>
+      <li>
+        <app-profile-preview></app-profile-preview>
+      </li>
+      <li>
+        <app-profile-preview></app-profile-preview>
+      </li>
+    </ul>
+  </section>
+</div>
