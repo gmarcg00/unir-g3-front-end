@@ -1,3 +1,27 @@
 .text-justified{
     text-align: justify;
 }
+
+.responsive-avatar-section{
+    width: 100%;
+    border: 4px solid black;
+    border-bottom: 0;
+}
+
+.responsive-data-section{
+    width: 100%;
+    border: 4px solid black;
+}
+
+@media (min-width: 576px ){
+    .responsive-avatar-section{
+        width: 25%;
+        border: 4px solid black;
+    }
+    .responsive-data-section{
+        width: 75%;
+        border: 4px solid black;
+        border-left: 0;
+    }
+    
+}
