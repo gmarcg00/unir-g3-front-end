@@ -5,6 +5,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { TeachersComponent } from './pages/teachers/teachers.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { NotFoundError } from 'rxjs';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const routes: Routes = [
     {path: "", pathMatch:"full", redirectTo: "home"},
@@ -13,5 +14,5 @@ export const routes: Routes = [
     {path: "sign-up", component: SignUpComponent},
     {path: "teachers", component: TeachersComponent},      
     {path: "profile", component: ProfileComponent},
-    {path: "not-found", component: NotFoundError}
+    {path: "not-found", component: NotFoundComponent}
 ];
