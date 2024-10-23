@@ -1,0 +1,9 @@
+<div class="testimonios-container">
+    <h2>Testimonios de Usuarios</h2>
+    <div class="testimonio" *ngFor="let testimonio of testimonios">
+      <h3>{{ testimonio.nombre }}</h3>
+      <p>{{ testimonio.comentario }}</p>
+      <span>{{ testimonio.fecha }}</span>
+    </div>
+  </div>
+  
