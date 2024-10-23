@@ -5,6 +5,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { TeachersComponent } from './pages/teachers/teachers.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { TestimoniosComponent } from './pages/testimonios/testimonios.component';
+import { PreguntasFrecuentesComponent } from './pages/preguntas-frecuentes/preguntas-frecuentes.component';
 
 export const routes: Routes = [
     {path: "", pathMatch:"full", redirectTo: "home"},
@@ -14,4 +15,5 @@ export const routes: Routes = [
     {path: "teachers", component: TeachersComponent},      
     {path: "profile", component: ProfileComponent},
     {path: 'testimonios', component: TestimoniosComponent },
+    { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent }
 ];
