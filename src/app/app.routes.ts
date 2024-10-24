@@ -4,10 +4,12 @@ import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { TeachersComponent } from './pages/teachers/teachers.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { TestimoniosComponent } from './pages/testimonios/testimonios.component';
+
 import { PreguntasFrecuentesComponent } from './pages/preguntas-frecuentes/preguntas-frecuentes.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ComoFuncionaComponent } from './pages/como-funciona/como-funciona.component';
+import { TestimoniosComponent } from './pages/testimonios/testimonios.component';
+
 
 export const routes: Routes = [
     {path: "", pathMatch:"full", redirectTo: "home"},

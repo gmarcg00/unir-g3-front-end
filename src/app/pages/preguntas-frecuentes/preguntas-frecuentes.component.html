@@ -1,10 +1,11 @@
-<div class="faq-container">
-    <h1>Preguntas Frecuentes</h1>
-    <div class="faq-item" *ngFor="let faq of preguntasFrecuentes">
-      <section>
-      <h2>{{ faq.pregunta }}</h2>
-      <p>{{ faq.respuesta }}</p>
-    </section>
-    </div>
+<div class="preguntas-container">
+  <h1>Preguntas Frecuentes</h1>
+
+  <!-- Bucle para mostrar cada pregunta y su respuesta -->
+  <div class="pregunta-frecuente" *ngFor="let item of preguntasFrecuentes">
+    <h3>{{ item.pregunta }}</h3>
+    <p>{{ item.respuesta }}</p>
   </div>
+</div>
+
   

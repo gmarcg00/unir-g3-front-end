@@ -1,19 +1,11 @@
-<div class="descripcion-container">
-    <h1>Búsqueda de Profesores Particulares</h1>
-  
-    <section>
-      <h2>1. Buscar Profesores por Ubicación</h2>
-      <p>Los usuarios pueden buscar profesores ingresando su ubicación. El sistema filtrará a los profesores disponibles según la localización indicada.</p>
-    </section>
-  
-    <section>
-      <h2>2. Ver Calificación de los Profesores</h2>
-      <p>En la página de resultados, cada profesor tendrá su calificación visible en forma de estrellas, lo que permitirá a los usuarios evaluar la calidad del profesor antes de contactarlo.</p>
-    </section>
-  
-    <section>
-      <h2>3. Iniciar un Chat con el Profesor</h2>
-      <p>Una vez que los usuarios encuentran un profesor adecuado, pueden iniciar una conversación mediante un chat interno para coordinar detalles de las clases o resolver dudas.</p>
-    </section>
+<div class="funciona-container">
+  <h1>Cómo Funciona</h1>
+
+  <!-- Bucle para mostrar cada paso del funcionamiento -->
+  <div class="paso-funcionamiento" *ngFor="let item of pasosFuncionamiento">
+    <h3>{{ item.paso }}</h3>
+    <p>{{ item.descripcion }}</p>
   </div>
+</div>
+
   

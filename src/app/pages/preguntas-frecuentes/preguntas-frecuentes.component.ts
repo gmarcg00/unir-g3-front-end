@@ -1,35 +1,37 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgFor } from '@angular/common';  // Importar NgFor para usar *ngFor
 
 @Component({
   selector: 'app-preguntas-frecuentes',
-  standalone: true,
-  imports: [CommonModule],
   templateUrl: './preguntas-frecuentes.component.html',
-  styleUrls: ['./preguntas-frecuentes.component.css']
+  styleUrls: ['./preguntas-frecuentes.component.css'],
+  standalone: true,
+  imports: [NgFor]  // Necesario para usar la directiva *ngFor
 })
 export class PreguntasFrecuentesComponent {
+  // Lista de preguntas frecuentes y sus respuestas
   preguntasFrecuentes = [
     {
-      pregunta: '¿Cómo puedo encontrar un profesor en mi zona?',
-      respuesta: 'Nuestro portal te permite buscar profesores según tu ubicación. Solo tienes que ingresar tu ciudad o código postal en el buscador y te mostraremos los profesores más cercanos a ti.'
+      pregunta: '¿Cómo puedo registrarme en la plataforma?',
+      respuesta: 'Para registrarte, simplemente haz clic en el botón de "Registrarse" en la parte superior de la página e ingresa tus datos personales.'
     },
     {
-      pregunta: '¿Los profesores están verificados?',
-      respuesta: 'Sí, todos los profesores en nuestra plataforma pasan por un proceso de verificación para asegurar su idoneidad y experiencia.'
+      pregunta: '¿Cómo puedo encontrar un profesor cerca de mí?',
+      respuesta: 'Puedes usar la herramienta de búsqueda ingresando tu ubicación y filtrando por la materia que deseas aprender.'
     },
     {
-      pregunta: '¿Qué tipo de clases se ofrecen?',
-      respuesta: 'Ofrecemos una variedad de clases, desde materias académicas como matemáticas e inglés hasta lecciones de música, deportes, y mucho más.'
+      pregunta: '¿Los profesores están calificados?',
+      respuesta: 'Sí, todos los profesores en la plataforma pasan por un proceso de verificación y tienen un sistema de calificación basado en las valoraciones de los estudiantes.'
     },
     {
-      pregunta: '¿Cómo se realizan los pagos?',
-      respuesta: 'Los pagos se realizan de manera segura a través de nuestra plataforma. Aceptamos tarjetas de crédito, débito y otros métodos de pago seguros.'
+      pregunta: '¿Cómo me pongo en contacto con un profesor?',
+      respuesta: 'Una vez que encuentres un profesor que te interese, puedes enviarle un mensaje directamente a través del chat interno de la plataforma.'
     },
     {
-      pregunta: '¿Puedo ver las reseñas de otros estudiantes?',
-      respuesta: 'Sí, cada profesor tiene un perfil donde podrás ver las reseñas y calificaciones de otros estudiantes que han tomado clases con ellos.'
+      pregunta: '¿Cuáles son los métodos de pago disponibles?',
+      respuesta: 'Aceptamos pagos con tarjeta de crédito, débito y a través de PayPal para mayor comodidad y seguridad.'
     }
   ];
 }
+
 
