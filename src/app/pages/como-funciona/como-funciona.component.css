@@ -1,0 +1,30 @@
+.descripcion-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .descripcion-container h1 {
+    text-align: center;
+    color: #4CAF50;
+  }
+  
+  .descripcion-container h2 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .descripcion-container p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .descripcion-container section {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  

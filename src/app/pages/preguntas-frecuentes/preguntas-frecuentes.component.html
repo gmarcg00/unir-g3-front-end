@@ -1,8 +1,10 @@
 <div class="faq-container">
-    <h2>Preguntas Frecuentes</h2>
+    <h1>Preguntas Frecuentes</h1>
     <div class="faq-item" *ngFor="let faq of preguntasFrecuentes">
-      <h3>{{ faq.pregunta }}</h3>
+      <section>
+      <h2>{{ faq.pregunta }}</h2>
       <p>{{ faq.respuesta }}</p>
+    </section>
     </div>
   </div>
   
