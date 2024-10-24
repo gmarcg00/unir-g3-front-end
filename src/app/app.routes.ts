@@ -7,6 +7,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { TestimoniosComponent } from './pages/testimonios/testimonios.component';
 import { PreguntasFrecuentesComponent } from './pages/preguntas-frecuentes/preguntas-frecuentes.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ComoFuncionaComponent } from './pages/como-funciona/como-funciona.component';
 
 export const routes: Routes = [
     {path: "", pathMatch:"full", redirectTo: "home"},
@@ -17,5 +18,6 @@ export const routes: Routes = [
     {path: "profile", component: ProfileComponent},
     {path: 'testimonios', component: TestimoniosComponent },
     {path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
+    {path: 'como-funciona', component: ComoFuncionaComponent },
     {path: '**', component: NotFoundComponent }
 ];
