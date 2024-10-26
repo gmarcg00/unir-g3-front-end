@@ -19,17 +19,17 @@ export class TestimoniosComponent {
     {
       nombre: 'Ana García',
       mensaje: 'Gracias a esta página he podido aprender matemáticas con un profesor excelente que vive cerca de mí.',
-      ruta: '/images/estudiantes/fotor-ai-20241026105154.jpg'
+      ruta: '/images/estudiantes/fotor-ai-20241026105215.jpg'
     },
     {
       nombre: 'Luis Fernández',
       mensaje: 'Lo que más me gusta es el sistema de valoración de profesores, me da mucha confianza para elegir al mejor.',
-      ruta: '/images/estudiantes/fotor-ai-20241026105215.jpg'
+      ruta: '/images/estudiantes/fotor-ai-20241026105333.jpg'
     },
     {
       nombre: 'María López',
       mensaje: 'He contactado con varios profesores por el chat y la experiencia ha sido muy fluida. Muy recomendable.',
-      ruta: '/images/estudiantes/fotor-ai-20241026105255.jpg'
+      ruta: '/images/estudiantes/fotor-ai-20241026105154.jpg'
     },
     {
       nombre: 'Jorge Pérez',
