@@ -1,134 +1,89 @@
-<div class="d-flex flex-column bg-light">
-  <div class="p-3 pb-2">
-    <h3>INFORMACION DEL USUARIO</h3>
-  </div>
-  <div class="d-flex flex-column flex-sm-row w-100">
-    <section class="d-flex flex-column responsive-avatar-section shadow">
-      <div class="d-flex flex-column justify-content-center align-items-center">
-        <div class="px-4 pt-3 pb-2">
-          <img
-            src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
-            class="rounded-circle shadow-4 card-img"
-            alt="Avatar"
-          />
-        </div>
-        <div class="text-center">
-          <h4>NOMBRE Y APELLIDOS</h4>
-        </div>
-        <div class="px-4 py-2 text-justified">
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-            suscipit quae obcaecati? Commodi voluptatum corrupti officiis ullam
-            iusto cum esse ratione, illo iure excepturi dolorem voluptate, eos
-            minima, vel quos?
-          </p>
-        </div>
-      </div>
-    </section>
-    <section class="responsive-data-section shadow">
-      <section class="d-flex flex-column flex-sm-row flex-wrap py-3 px-4">
-        <div class="w-50">
-          <div>
-            <h6 class="mb-1">Nombre</h6>
-            <p>Nombre</p>
-          </div>
-          <div>
-            <h6 class="mb-1">Apellidos</h6>
-            <p>Apellidos</p>
-          </div>
-          <div>
-            <h6 class="mb-1">Fecha de nacimiento</h6>
-            <p>01-01-0000</p>
-          </div>
-          <div>
-            <h6 class="mb-1">Tipo de usuario</h6>
-            <p>Profesor</p>
-          </div>
-          <div>
-            <h6 class="mb-1">Ramas de conocimiento</h6>
-            <ul class="d-flex flex-column flex-wrap">
-              <li class="w-50">Matemáticas</li>
-              <li class="w-50">Matemáticas</li>
-              <li class="w-50">Matemáticas</li>
-              <li class="w-50">Matemáticas</li>
-            </ul>
-          </div>
-        </div>
-        <div class="w-50">
-          <div>
-            <h6 class="mb-1">Precio-hora</h6>
-            <p>10€</p>
-          </div>
-          <div>
-            <h6 class="mb-1">Experiencia</h6>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Perferendis, hic velit libero quod recusandae harum sequi
-              consectetur debitis itaque quae culpa vero? Quae, distinctio
-              reprehenderit. Debitis suscipit est natus sint.
-            </p>
-          </div>
-          <div>
-            <h6 class="mb-1">Puntuación media</h6>
-            <div
-              class="progress mt-2"
-              role="progressbar"
-              aria-label="Warning example"
-              aria-valuenow="75"
-              aria-valuemin="0"
-              aria-valuemax="100"
-            >
-              <div class="progress-bar text-bg-success" style="width: 75%">
-                7,5
-              </div>
-            </div>
-          </div>
-          <div>
-            <h6 class="mt-3 mb-1">Localización</h6>
-            <p>Madrid</p>
-          </div>
-        </div>
-      </section>
-    </section>
-  </div>
-  <section class="d-flex flex-column flex-wrap">
-    <div class="p-3 pb-1">
-      <h3>ALUMNOS/PROFESORES</h3>
-    </div>
-    <hr />
-    <ul class="d-flex flex-wrap justify-content-center gap-4 list-unstyled p-2">
-      <li>
-        <app-profile-preview></app-profile-preview>
-      </li>
-      <li>
-        <app-profile-preview></app-profile-preview>
-      </li>
-      <li>
-        <app-profile-preview></app-profile-preview>
-      </li>
-      <li>
-        <app-profile-preview></app-profile-preview>
-      </li>
-    </ul>
+<div class="perfil-contenedor">
+  <!-- Información básica a la izquierda -->
+  <section class="profesor-info">
+      <img src="https://media.istockphoto.com/id/1386479313/es/foto/feliz-mujer-de-negocios-afroamericana-millennial-posando-aislada-en-blanco.jpg?s=612x612&w=0&k=20&c=JP0NBxlxG2-bdpTRPlTXBbX13zkNj0mR5g1KoOdbtO4=" alt="Foto del Profesor" class="profesor-foto">
+      <h1 class="profesor-nombre">Nombre del Profesor</h1>
+      <h3 class="profesor-ramas">Matemáticas, Física, Estadística</h3>
+      <p class="profesor-precio"><strong>Precio por hora:</strong> $50</p>
+      <p class="profesor-experiencia"><strong>Años de experiencia:</strong> 10 años</p>
+      <p class="profesor-puntuacion"><strong>Puntuación:</strong> 4.8/5</p>
+      <button class="boton-contratar">Contratar</button>
   </section>
-  <section class="d-flex flex-column flex-wrap">
-    <div class="p-3 pb-1">
-      <h3>VALORACIONES (SOLO PARA ALUMNOS)</h3>
-    </div>
-    <hr />
-    <ul class="d-flex flex-wrap justify-content-center gap-4 list-unstyled p-2">
-      <li>
-        <app-profile-preview></app-profile-preview>
-      </li>
-      <li>
-        <app-profile-preview></app-profile-preview>
-      </li>
-      <li>
-        <app-profile-preview></app-profile-preview>
-      </li>
-      <li>
-        <app-profile-preview></app-profile-preview>
-      </li>
-    </ul>
+
+  <!-- Detalles adicionales a la derecha -->
+  <section class="profesor-detalles">
+      
+      <!-- Acerca del profesor -->
+      <div class="profesor-descripcion">
+          <h2>Acerca del Profesor</h2>
+          <p>Apasionado por la enseñanza con amplia experiencia en ciencias exactas, ayudo a los estudiantes a desarrollar un entendimiento profundo en matemáticas y física. Con metodologías efectivas y prácticas, logro que el aprendizaje sea accesible y estimulante para todos mis alumnos.</p>
+      </div>
+      
+      <!-- Métodos de enseñanza -->
+      <div class="profesor-metodos">
+          <h2>Acerca de las Clases</h2>
+          <p>Utilizo métodos personalizados, ajustando el contenido a las necesidades de cada estudiante. Mis clases incluyen:</p>
+          <ul>
+              <li>Enfoque en problemas prácticos y ejercicios.</li>
+              <li>Explicaciones visuales para facilitar la comprensión.</li>
+              <li>Evaluación y retroalimentación constante.</li>
+              <li>Material de apoyo y ejercicios para casa.</li>
+          </ul>
+      </div>
+      
+      <!-- Calificaciones recientes -->
+      <div class="profesor-calificaciones">
+          <h2>Calificaciones Recientes</h2>
+          <div class="calificacion">
+              <p><strong>Juan Pérez:</strong> "Excelente profesor, explica de forma clara y sencilla." ★★★★★</p>
+          </div>
+          <div class="calificacion">
+              <p><strong>Laura Martínez:</strong> "Muy profesional y paciente, altamente recomendable." ★★★★★</p>
+          </div>
+          <div class="calificacion">
+              <p><strong>Andrés Gómez:</strong> "Me ayudó mucho con mis dudas de física." ★★★★☆</p>
+          </div>
+          <div class="calificacion">
+              <p><strong>Claudia Torres:</strong> "Buen profesor, aunque podría dar más ejemplos." ★★★★☆</p>
+          </div>
+          <div class="calificacion">
+              <p><strong>Sofía Rivas:</strong> "Gran metodología y enfoque en resultados." ★★★★★</p>
+          </div>
+      </div>
+
+      <!-- Mini grid de alumnos contratados con scroll horizontal -->
+      <div class="alumnos-contratados">
+          <h2>Alumnos Contratados</h2>
+          <div class="alumnos-scroll">
+              <div class="alumno">
+                  <img src="https://via.placeholder.com/80" alt="Alumno 1">
+                  <p>Juan Pérez</p>
+              </div>
+              <div class="alumno">
+                  <img src="https://via.placeholder.com/80" alt="Alumno 2">
+                  <p>Laura Martínez</p>
+              </div>
+              <div class="alumno">
+                  <img src="https://via.placeholder.com/80" alt="Alumno 3">
+                  <p>Andrés Gómez</p>
+              </div>
+              <div class="alumno">
+                  <img src="https://via.placeholder.com/80" alt="Alumno 4">
+                  <p>Claudia Torres</p>
+              </div>
+              <div class="alumno">
+                  <img src="https://via.placeholder.com/80" alt="Alumno 5">
+                  <p>Sofía Rivas</p>
+              </div>
+              <div class="alumno">
+                  <img src="https://via.placeholder.com/80" alt="Alumno 5">
+                  <p>Manuel Garriz</p>
+              </div>
+              <div class="alumno">
+                  <img src="https://via.placeholder.com/80" alt="Alumno 5">
+                  <p>Irene Lopez</p>
+              </div>
+          </div>
+      </div>
   </section>
 </div>
