@@ -1,1 +1,29 @@
-<p>header works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="header.component.css">
+</head>
+<body>
+    <header>
+            <div class="logo"><a href="../../../index.html">Busca Profe</a></div>
+            <div class="menu-icon" id="menu-icon">&#9776;</div>
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="#profesores">Buscar profesores</a></li>
+                    <li><a href="#funcionamiento">Como funciona</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#contact">FAQ</a></li>
+                </ul>
+            </nav>
+    </header>
+    <script>
+        document.getElementById('menu-icon').addEventListener('click', function() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active'); // Alternar la clase 'active' al hacer clic
+        }); 
+    </script>
+</body>
+</html>

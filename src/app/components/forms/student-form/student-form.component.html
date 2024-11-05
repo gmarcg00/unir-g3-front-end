@@ -1,7 +1,7 @@
 <form
   [formGroup]="modelForm"
   (ngSubmit)="signUp()"
-  class="d-flex flex-column p-3 w-100 bg-light shadow"
+  class="d-flex flex-column p-3 w-100  shadow"
 >
   <div class="my-2">
     <label for="name" class="form-label">Nombre</label>
@@ -9,7 +9,7 @@
   </div>
   <button
     type="submit"
-    class="btn btn-success my-2 btn-lg border-2 border-black w-50 mx-auto"
+    class="btn btn-success my-2 btn-lg mx-auto"
     [disabled]="!modelForm.valid"
   >
     REGISTRARSE

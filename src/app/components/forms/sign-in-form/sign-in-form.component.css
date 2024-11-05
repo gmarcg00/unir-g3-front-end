@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+.my-2{
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+}
+
+.btn{
+    border: none;
+    background-color: #D4A017;
+    opacity: 100;
+    color: black;
+    font-weight: 500;
+    font-size: 15px;
+    width: 100%;
+}
+.btn :hover{
+    background-color: black;
+    color: #D4A017;
+}
+
+.border-black{
+    display: none;
+}
+
+label{
+    text-transform: uppercase;
+    color: white;
+}
+
+.switch-form {
+    margin-top: 15px;
+    color: white;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+.switch-form a {
+    color: #D4A017; /* Dorado */
+    text-decoration: none;
+}
+
+.switch-form a:hover {
+    text-decoration: underline; /* Subrayar al pasar el ratón */
+}
