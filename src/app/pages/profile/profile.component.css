@@ -1,13 +1,4 @@
 /* Fuentes y Colores */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Open+Sans:wght@300;700&display=swap');
-
-:root {
-    --azul-hogwarts: #00001B;
-    --dorado-gryffindor: #D4A017;
-    --rojo-gryffindor: #740001;
-    --blanco: #FFFFFF;
-    --gris-oscuro: #333333;
-}
 
 * {
     margin: 0;
@@ -17,22 +8,24 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: var(--azul-hogwarts);
+    background-color: #00001B;
+    --bs-body-bg: #00001B;
     color: var(--blanco);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    padding: 1rem;
     overflow-x: hidden;
     height: 100vh;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 /* Contenedor principal con espacio entre los dos elementos */
 .perfil-contenedor {
     display: flex;
     gap: 1rem;
-    width: 90vw;
-    max-width: 1200px;
+    width: 100%;
+    max-width: 100%;
     align-items: stretch;
     height: 100%;
 }
@@ -40,14 +33,14 @@ body {
 /* Sección izquierda: Información básica */
 .profesor-info {
     flex: 1;
-    background-color: var(--blanco);
-    color: var(--gris-oscuro);
-    padding: 2rem;
+    background-color: white;
+    color: #333333;
+    padding: 1rem;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
+    gap: 0.7rem;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     height: 100%;
 }
@@ -60,16 +53,16 @@ body {
 
 .profesor-nombre {
     font-family: 'Cinzel', serif;
-    font-size: 36px;
+    font-size: 30px;
     font-weight: 700;
-    color: var(--azul-hogwarts);
+    color: #00001B;
     text-align: center;
 }
 
 .profesor-ramas {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
-    color: var(--dorado-gryffindor);
+    color: #D4A017;
     text-align: center;
 }
 
@@ -84,8 +77,8 @@ body {
 .boton-contratar {
     font-size: 18px;
     font-weight: 700;
-    color: var(--blanco);
-    background-color: var(--dorado-gryffindor);
+    color: white;
+    background-color: #D4A017;
     border: none;
     padding: 0.8rem 1.5rem;
     border-radius: 5px;
@@ -94,7 +87,7 @@ body {
 }
 
 .boton-contratar:hover {
-    background-color: var(--rojo-gryffindor);
+    background-color: #740001;
     transform: scale(1.05);
 }
 
@@ -114,9 +107,9 @@ body {
 .alumno {
     min-width: 100px;
     text-align: center;
-    color: var(--gris-oscuro);
-    background-color: var(--blanco);
-    border: 1px solid var(--gris-oscuro);
+    color: #333333;
+    background-color: white;
+    border: 1px solid #333333;
     border-radius: 5px;
     padding: 0.5rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -132,8 +125,8 @@ body {
 /* Sección derecha: Detalles adicionales */
 .profesor-detalles {
     flex: 2;
-    background-color: var(--blanco);
-    color: var(--gris-oscuro);
+    background-color: white;
+    color: #333333;
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -148,7 +141,7 @@ body {
     font-family: 'Cinzel', serif;
     font-size: 24px;
     font-weight: 700;
-    color: var(--dorado-gryffindor);
+    color: #D4A017;
     margin-bottom: 0.5rem;
 }
 
@@ -158,7 +151,7 @@ body {
 .profesor-calificaciones p,
 .alumnos-contratados p {
     font-size: 16px;
-    color: var(--gris-oscuro);
+    color: #333333;
 }
 
 .profesor-metodos ul {
@@ -168,12 +161,83 @@ body {
 
 .calificacion {
     padding: 1rem;
-    background-color: var(--blanco);
-    border: 1px solid var(--gris-oscuro);
+    background-color: white;
+    border: 1px solid #333333;
     border-radius: 5px;
     margin-bottom: 0.5rem;
 }
 
 .calificacion p {
-    color: var(--gris-oscuro);
+    color: #333333;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+   body{
+    height: auto;
+   }
+    .perfil-contenedor {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .profesor-info {
+        width: 100%;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .detalle {
+        padding: 1rem;
+    }
+    
+    img {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .profesor-nombre{
+        font-size: 25px;
+    }
+
+    .profesor-ramas{
+        font-size: 20px;
+    }
+
+    .profesor-precio, 
+    .profesor-experiencia, 
+    .profesor-puntuacion{
+        font-size: 16px;
+    }
+    
+    .boton-contratar{
+        padding: 0.5rem 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 0.9rem;
+    }
+
+    .detalle {
+        padding: 0.5rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .profesor-precio, 
+    .profesor-experiencia, 
+    .profesor-puntuacion{
+        font-size: 14px;
+    }
+
+    .boton-contratar{
+        font-size: 14px;
+        padding: 0.3rem 0.8rem;
+    }
 }

@@ -1,20 +1,20 @@
-<!DOCTYPE html>
-<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="header.component.css">
+    <link src="header.component.css" rel="stylesheet">
 </head>
+
 <body>
-    <header>
-            <div class="logo"><a href="../../../index.html">Busca Profe</a></div>
+<header>
+            <div class="logo"><a 
+                [routerLink]="['/home']"
+                >Busca Profe</a></div>
             <div class="menu-icon" id="menu-icon">&#9776;</div>
             <nav id="nav-menu">
                 <ul>
-                    <li><a href="#profesores">Buscar profesores</a></li>
-                    <li><a href="#funcionamiento">Como funciona</a></li>
-                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a 
+                        [routerLink]="['/teachers']"
+                        >Buscar profesores</a></li>
+                    <li><a href="#functionality">Como funciona</a></li>
+                    <li><a href="#testimonials">Testimonios</a></li>
                     <li><a href="#contact">FAQ</a></li>
                 </ul>
             </nav>
@@ -26,4 +26,3 @@
         }); 
     </script>
 </body>
-</html>
