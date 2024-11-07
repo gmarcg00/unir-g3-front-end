@@ -1,0 +1,81 @@
+<div>
+  {{modelForm.valid}}
+  <form [formGroup]="modelForm" class="card p-3 shadow" (ngSubmit)="getDataForm()" novalidate>
+    <div class="my-2">
+      <label for="name" class="form-label">Nombre</label>
+      <input type="text" class="form-control" formControlName="name" id="name">
+      @if(checkControl('name', 'required')){
+      <p class="error">El campo es requerido</p>
+      }
+      @if(checkControl('name', 'minlength')){
+      <p class="error">La longitud minima de un nombre tiene que ser 3 caracteres</p>
+      }
+    </div>
+
+    <div class="my-2">
+      <label for="familyname" class="form-label">Apellidos</label>
+      <input type="text" class="form-control" formControlName="familyname" id="name">
+      @if(checkControl('familyname', 'required')){
+      <p class="error">El campo es requerido</p>
+      }
+      @if(checkControl('familyname', 'minlength')){
+      <p class="error">La longitud minima de un apellido tiene que ser 3 caracteres</p>
+      }
+    </div>
+
+
+    <div class="my-2">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" formControlName="email" id="email">
+      @if(checkControl('email', 'pattern')){
+      <p class="error">El email es incorrecto</p>
+      }
+      @if(checkControl('email', 'required')){
+      <p class="error">El email es obligatorio</p>
+      }
+    </div>
+
+    <div class="my-2">
+      <label for="telefono" class="form-label">Teléfono</label>
+      <input type="tel" class="form-control" formControlName="telefono" id="telefono">   
+
+      @if(checkControl('telefono', 'pattern')){
+        <p class="error">El número de teléfono no es válido</p>
+      }
+      @if(checkControl('telefono', 'required')){
+        <p class="error">El teléfono es obligatorio</p>
+      }
+    </div>
+  
+    <div class="my-2">
+      <label for="direccion" class="form-label">Dirección Postal</label>
+      <input type="text" class="form-control" formControlName="direccion" id="direccion">
+      @if(checkControl('direccion', 'required')){
+        <p class="error">La dirección es obligatoria</p>
+      }
+    </div>
+
+    <div class="my-2">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" formControlName="password" id="password">
+    </div>
+
+    <div class="my-2">
+      <label for="repitepassword" class="form-label">Repite Password</label>
+      <input type="password" class="form-control" formControlName="repitepassword" id="repitepassword">
+      @if(modelForm.hasError('checkpassword')){
+      <p class="error">Los campos de password debe coincidir</p>
+      }
+
+    </div>
+
+
+
+
+
+    <input type="submit" class="btn btn-danger" value="Enviar" [disabled]="!modelForm.valid">
+
+
+
+  </form>
+</div>
