@@ -1,1 +1,28 @@
-<p>header works!</p>
+<head>
+    <link src="header.component.css" rel="stylesheet">
+</head>
+
+<body>
+<header>
+            <div class="logo"><a 
+                [routerLink]="['/home']"
+                >Busca Profe</a></div>
+            <div class="menu-icon" id="menu-icon">&#9776;</div>
+            <nav id="nav-menu">
+                <ul>
+                    <li><a 
+                        [routerLink]="['/teachers']"
+                        >Buscar profesores</a></li>
+                    <li><a href="#functionality">Como funciona</a></li>
+                    <li><a href="#testimonials">Testimonios</a></li>
+                    <li><a href="#contact">FAQ</a></li>
+                </ul>
+            </nav>
+    </header>
+    <script>
+        document.getElementById('menu-icon').addEventListener('click', function() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('active'); // Alternar la clase 'active' al hacer clic
+        }); 
+    </script>
+</body>
