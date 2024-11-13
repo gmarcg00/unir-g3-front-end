@@ -9,6 +9,8 @@ import { PreguntasFrecuentesComponent } from './pages/preguntas-frecuentes/pregu
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ComoFuncionaComponent } from './pages/como-funciona/como-funciona.component';
 import { TestimoniosComponent } from './pages/testimonios/testimonios.component';
+import {authGuard} from "./guards/auth.guard";
+import {roleGuard} from "./guards/role.guard";
 
 
 export const routes: Routes = [
@@ -16,8 +18,8 @@ export const routes: Routes = [
     {path: "home", component: HomeComponent},
     {path: "sign-in", component: SignInComponent},
     {path: "sign-up", component: SignUpComponent},
-    {path: "teachers", component: TeachersComponent},      
-    {path: "profile", component: ProfileComponent},
+    {path: "teachers", component: TeachersComponent},
+    {path: "profile", component: ProfileComponent, canActivate: [authGuard,roleGuard]},
     {path: 'testimonios', component: TestimoniosComponent },
     {path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
     {path: 'como-funciona', component: ComoFuncionaComponent },

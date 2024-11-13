@@ -28,5 +28,5 @@
     [disabled]="!modelForm.valid">
     INICIAR SESION
   </button>
-    <p class="switch-form">¿No tienes una cuenta? <a href="#" id="show-teacher-register">Regístrate aquí</a></p>
+  <p class="switch-form">¿No tienes una cuenta? <a [routerLink]="['/sign-up']" id="show-teacher-register">Regístrate aquí</a></p>
 </form>
