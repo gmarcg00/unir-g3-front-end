@@ -1,5 +1,5 @@
 import {Component, inject} from '@angular/core';
-import {Router, RouterLink} from '@angular/router';
+import {NavigationEnd, Router, RouterLink} from '@angular/router';
 import {AuthService} from "../../services/auth.service";
 import {NgIf} from "@angular/common";
 
@@ -17,6 +17,14 @@ export class HeaderComponent {
   router = inject(Router);
 
   ngOnInit(){
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.refreshHeader();
+      }
+    });
+  }
+
+  refreshHeader(): void {
     this.actualRole = this.authService.getRole();
   }
 }
