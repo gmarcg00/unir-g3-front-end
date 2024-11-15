@@ -20,8 +20,20 @@ export class AuthService {
     return firstValueFrom(this.httpClient.post<LoginResponse>(this.loginUrl, {email, password}));
   }
 
+  signOut(): void {
+    localStorage.removeItem("token");
+  }
+
   isLogged(): boolean {
     return !!localStorage.getItem("token");
+  }
+
+  getToken(): ICustomTokenPayload | null {
+    const token = localStorage.getItem("token");
+    if(token){
+      return jwtDecode<ICustomTokenPayload>(token);
+    }
+    return null;
   }
 
   getRole(): number {

@@ -19,7 +19,7 @@ export const routes: Routes = [
     {path: "sign-in", component: SignInComponent},
     {path: "sign-up", component: SignUpComponent},
     {path: "teachers", component: TeachersComponent},
-    {path: "profile", component: ProfileComponent, canActivate: [authGuard,roleGuard]},
+    {path: "profile", component: ProfileComponent, canActivate: [authGuard]},
     {path: 'testimonios', component: TestimoniosComponent },
     {path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
     {path: 'como-funciona', component: ComoFuncionaComponent },

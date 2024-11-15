@@ -38,3 +38,15 @@ label{
     color: white;
     text-transform: uppercase;
 }
+
+.switch-form a {
+  color: #D4A017; /* Dorado */
+  text-decoration: none;
+}
+
+.switch-form {
+  margin-top: 15px;
+  color: white;
+  margin: auto;
+  margin-top: 1rem;
+}
