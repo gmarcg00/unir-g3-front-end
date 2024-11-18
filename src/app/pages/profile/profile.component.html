@@ -7,11 +7,15 @@
     <!-- Información básica a la izquierda -->
     <section class="profesor-info">
         <div class="w-100" style="height: 25vh;">
-          <img src="{{userData?.image}}" class="w-100 h-100 object-fit-contain" alt="">
+          <img *ngIf="adminData !== undefined" src="{{adminData.image}}" class="w-100 h-100 object-fit-contain" alt="Imagen administrador">
+          <img *ngIf="teacherData !== undefined" src="{{teacherData.image}}" class="w-100 h-100 object-fit-contain" alt="Imagen profesor">
+          <img *ngIf="studentData !== undefined" src="{{studentData.image}}" class="w-100 h-100 object-fit-contain" alt="Imagen estudiante">
         </div>
-        <h1 class="profesor-nombre">{{userData?.name}} {{userData?.last_names}}</h1>
+        <h1 *ngIf="adminData !== undefined" class="profesor-nombre">{{adminData.name}} {{adminData.last_names}}</h1>
+        <h1 *ngIf="teacherData !== undefined" class="profesor-nombre">{{teacherData.name}} {{teacherData.last_names}}</h1>
+        <h1 *ngIf="studentData !== undefined" class="profesor-nombre">{{studentData.name}} {{studentData.last_names}}</h1>
 
-        <div *ngIf="userRole === 1" class="d-flex flex-column gap-2 w-100">
+        <div *ngIf="isAdmin()" class="d-flex flex-column gap-2 w-100">
           <div (click)="setMenuOption('info')" [ngClass]="menuOptionSelected === 'info' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
             <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Información personal</p>
           </div>
@@ -26,10 +30,10 @@
           </div>
         </div>
 
-        <div *ngIf="userRole === 2" class="d-flex flex-column gap-2 w-100">
+        <div *ngIf="isTeacher()" class="d-flex flex-column gap-2 w-100">
           <div class="d-flex flex-column gap-2 text-center mb-2">
-            <h3 class="profesor-ramas">Matemáticas, Física, Estadística</h3>
-            <p class="profesor-precio"><strong>Precio por hora:</strong> $50</p>
+            <h3 class="profesor-ramas">{{ getKnowledgeBranches().join(", ")}}</h3>
+            <p class="profesor-precio"><strong>Precio por hora:</strong> {{teacherData?.price_hour}}€</p>
             <p class="profesor-experiencia"><strong>Años de experiencia:</strong> 10 años</p>
             <p class="profesor-puntuacion"><strong>Puntuación:</strong> 4.8/5</p>
           </div>
@@ -50,14 +54,14 @@
           </div>
         </div>
 
-        <div *ngIf="userRole === 3" class="d-flex flex-column gap-2 w-100">
+        <div *ngIf="isStudent()" class="d-flex flex-column gap-2 w-100">
           <div (click)="setMenuOption('info')" [ngClass]="menuOptionSelected === 'info' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
             <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Información personal</p>
           </div>
           <div (click)="setMenuOption('teachers')" [ngClass]="menuOptionSelected === 'teachers' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
             <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Mis profesores</p>
           </div>
-          <div (click)="setMenuOption('reviews')" [ngClass]="menuOptionSelected === 'teachers' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
+          <div (click)="setMenuOption('reviews')" [ngClass]="menuOptionSelected === 'reviews' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
             <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Mis valoraciones</p>
           </div>
           <div (click)="setMenuOption('chats')" [ngClass]="menuOptionSelected === 'chats' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
@@ -67,7 +71,6 @@
             <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Cerrar sesión</p>
           </div>
         </div>
-
     </section>
 
     <!-- Detalles adicionales a la derecha -->

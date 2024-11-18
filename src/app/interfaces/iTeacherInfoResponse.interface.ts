@@ -1,3 +1,5 @@
+import {IData} from "./iData.interface";
+
 export interface ITeacherInfoResponseInterface{
   id: number;
   name: string;
@@ -8,6 +10,6 @@ export interface ITeacherInfoResponseInterface{
   image: string;
   role: number;
   description: string;
-  active: boolean;
   price_hour: number;
+  knowledge_branches: IData[];
 }
