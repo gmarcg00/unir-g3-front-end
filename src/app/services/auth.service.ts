@@ -1,0 +1,47 @@
+import { Injectable, inject } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {environment} from "../../environments/environment";
+import {firstValueFrom} from "rxjs";
+import {jwtDecode} from "jwt-decode";
+import {ICustomTokenPayload} from "../interfaces/iCustomTokenPayload.interface";
+
+
+type LoginResponse = {token: string};
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+
+  private httpClient = inject(HttpClient);
+  private loginUrl = `${environment.API_URL}/auth/login`;
+
+
+  signIn(email: string, password: string): Promise<LoginResponse>{
+    return firstValueFrom(this.httpClient.post<LoginResponse>(this.loginUrl, {email, password}));
+  }
+
+  signOut(): void {
+    localStorage.removeItem("token");
+  }
+
+  isLogged(): boolean {
+    return !!localStorage.getItem("token");
+  }
+
+  getToken(): ICustomTokenPayload | null {
+    const token = localStorage.getItem("token");
+    if(token){
+      return jwtDecode<ICustomTokenPayload>(token);
+    }
+    return null;
+  }
+
+  getRole(): number {
+    const token = localStorage.getItem("token");
+    if(token){
+      const data = jwtDecode<ICustomTokenPayload>(token);
+      return data.role;
+    }
+    return 0;
+  }
+}

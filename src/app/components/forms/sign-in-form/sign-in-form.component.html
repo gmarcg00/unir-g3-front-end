@@ -1,7 +1,7 @@
 <form
   [formGroup]="modelForm"
   (ngSubmit)="signIn()"
-  class="d-flex flex-column p-3 shadow w-100 bg-light"
+  class="d-flex flex-column p-3 shadow w-100"
 >
   <div class="my-2">
     <label for="email" class="form-label">Email</label>
@@ -14,7 +14,7 @@
     />
   </div>
   <div class="my-2">
-    <label for="password" class="form-label">Password</label>
+    <label for="password" class="form-label">Contraseña</label>
     <input
       type="password"
       id="password"
@@ -24,9 +24,9 @@
   </div>
   <button
     type="submit"
-    class="btn btn-success my-2 btn-lg border-2 border-black w-50 mx-auto"
-    [disabled]="!modelForm.valid"
-  >
+    class="btn btn-success my-2 btn-lg mx-auto"
+    [disabled]="!modelForm.valid">
     INICIAR SESION
   </button>
+  <p class="switch-form">¿No tienes una cuenta? <a [routerLink]="['/sign-up']" id="show-teacher-register">Regístrate aquí</a></p>
 </form>
