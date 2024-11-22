@@ -1,6 +1,6 @@
 import {IData} from "./iData.interface";
 
-export interface ITeacherInfoResponseInterface{
+export interface ITeacherInfoInterface {
   id: number;
   name: string;
   last_names: string;
