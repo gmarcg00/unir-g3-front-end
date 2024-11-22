@@ -28,7 +28,11 @@ export class AuthService {
     return !!localStorage.getItem("token");
   }
 
-  getToken(): ICustomTokenPayload | null {
+  getToken(): string | null {
+    return localStorage.getItem("token");
+  }
+
+  getTokenPayload(): ICustomTokenPayload | null {
     const token = localStorage.getItem("token");
     if(token){
       return jwtDecode<ICustomTokenPayload>(token);

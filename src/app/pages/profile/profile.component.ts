@@ -6,8 +6,9 @@ import {Router} from "@angular/router";
 import {NgClass, NgIf} from "@angular/common";
 import {UserService} from "../../services/user.service";
 import {IAdminInfoResponseInterface} from "../../interfaces/iAdminInfoResponse.interface";
-import {ITeacherInfoResponseInterface} from "../../interfaces/iTeacherInfoResponse.interface";
+import {IListResponseInterface} from "../../interfaces/iListResponse.interface";
 import {IStudentInfoResponseInterface} from "../../interfaces/iStudentInfoResponse.interface";
+import {ITeacherInfoInterface} from "../../interfaces/iTeacherInfoInterface";
 
 @Component({
   selector: 'app-profile',
@@ -23,12 +24,12 @@ export class ProfileComponent {
   menuOptionSelected = "info";
   userRole: number = 0;
   @Output() adminData: IAdminInfoResponseInterface | undefined;
-  @Output() teacherData: ITeacherInfoResponseInterface | undefined ;
+  @Output() teacherData: ITeacherInfoInterface | undefined ;
   @Output() studentData: IStudentInfoResponseInterface | undefined;
 
 
   async ngOnInit(){
-    const token = this.authService.getToken();
+    const token = this.authService.getTokenPayload();
     if(!token){
       Swal.fire("Error", "You must be logged in to access this page.", "error");
       this.router.navigateByUrl("/home");
