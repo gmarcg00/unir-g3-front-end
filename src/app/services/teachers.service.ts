@@ -10,6 +10,11 @@ import {firstValueFrom} from "rxjs";
 export class TeachersService {
   private httpClient = inject(HttpClient);
   private teachersUrl = `${environment.API_URL}/teachers`;
+  private knowledgeBranchesUrl = `${environment.API_URL}/knowledge-branches`;
+
+  getTeachers(page: number,pageSize: number): Promise<IListResponseInterface> {
+    return firstValueFrom(this.httpClient.get<IListResponseInterface>(`${this.teachersUrl}?active=0&page=${page}&page_size=${pageSize}`));
+  }
 
   getNonActiveTeachers(page: number,pageSize: number): Promise<IListResponseInterface> {
     return firstValueFrom(this.httpClient.get<IListResponseInterface>(`${this.teachersUrl}?active=0&page=${page}&page_size=${pageSize}`));
@@ -24,5 +29,9 @@ export class TeachersService {
     return firstValueFrom(
       this.httpClient.post<void>(`${this.teachersUrl}/${id}/activate`, {}, { headers })
     );
+  }
+
+  getKnowledgeBranches(): Promise<IListResponseInterface> {
+    return firstValueFrom(this.httpClient.get<IListResponseInterface>(`${this.knowledgeBranchesUrl}`));
   }
 }
