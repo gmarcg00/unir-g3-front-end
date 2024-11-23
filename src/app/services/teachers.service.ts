@@ -15,6 +15,10 @@ export class TeachersService {
     return firstValueFrom(this.httpClient.get<IListResponseInterface>(`${this.teachersUrl}?active=0&page=${page}&page_size=${pageSize}`));
   }
 
+  getBestAverageRatingTeachers(page: number,pageSize: number): Promise<IListResponseInterface> {
+    return firstValueFrom(this.httpClient.get<IListResponseInterface>(`${this.teachersUrl}?page=${page}&page_size=${pageSize}&sort=average_rating&order=DESC`));
+  }
+
   activateTeacher(token:string|null,id:number): Promise<void> {
     const headers = { Authorization: `${token}` };
     return firstValueFrom(
