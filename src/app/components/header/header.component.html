@@ -21,8 +21,13 @@
           <div *ngIf="actualRole === 1" class="d-flex">
             <!-- ADMIN ROLE-->
             <li>
+              <a [routerLink]="['/admin/student-list']">
+                Listado de alumnos
+              </a>
+            </li>
+            <li>
               <a [routerLink]="['/admin/activate-teachers']">
-                Activar profesores
+                Profesores en espera
               </a>
             </li>
             <li class="pointer">

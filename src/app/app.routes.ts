@@ -12,6 +12,7 @@ import { TestimoniosComponent } from './pages/testimonios/testimonios.component'
 import {authGuard} from "./guards/auth.guard";
 import {roleGuard} from "./guards/role.guard";
 import {ActiveTeachersComponent} from "./pages/active-teachers/active-teachers.component";
+import {StudentsComponent} from "./pages/students/students.component";
 
 
 export const routes: Routes = [
@@ -22,6 +23,7 @@ export const routes: Routes = [
     {path: "teachers", component: TeachersComponent},
     {path: "profile", component: ProfileComponent, canActivate: [authGuard]},
     {path: "admin/activate-teachers", component: ActiveTeachersComponent, canActivate: [authGuard]},
+    {path: "admin/student-list", component: StudentsComponent, canActivate: [authGuard]},
     {path: 'testimonios', component: TestimoniosComponent },
     {path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
     {path: 'como-funciona', component: ComoFuncionaComponent },

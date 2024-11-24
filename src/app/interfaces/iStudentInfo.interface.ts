@@ -1,4 +1,4 @@
-export interface IStudentInfoResponseInterface{
+export interface IStudentInfoInterface {
   id: number;
   name: string;
   last_names: string;
