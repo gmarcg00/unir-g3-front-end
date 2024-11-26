@@ -1,14 +1,25 @@
 .funciona-container {
-    max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
+    padding: 20px 100px;
+    font-family: "Open Sans", sans-serif;
     text-align: center;
+    background-image: url(media/fondo.jpg);
   }
   
   .funciona-container h1 {
-    color: #4CAF50;
+    color: white;
+    font-weight: 600;
     margin-bottom: 30px;
+    text-transform: uppercase;
+    margin-top: 100px;
+    font-family: "Cinzel", serif;
+  }
+
+  .funciona-container h2{
+    color: white;
+    margin-bottom: 80px;
+    margin-top: 30px;
+    font-size: 25px;
   }
   
   .paso-funcionamiento {
@@ -16,12 +27,15 @@
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 8px;
-    background-color: #f9f9f9;
+    background-color: rgba(255, 255, 255, 0.865);
   }
   
   .paso-funcionamiento h3 {
     margin: 0 0 10px;
     color: #333;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
   }
   
   .paso-funcionamiento p {
@@ -29,3 +43,9 @@
     color: #555;
   }
   
+
+  @media screen and (max-width:768px){
+    .funciona-container{
+      padding: 20px 40px;
+    }
+  }
