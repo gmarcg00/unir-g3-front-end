@@ -1,7 +1,8 @@
-import {Component, inject} from '@angular/core';
-import {NavigationEnd, Router, RouterLink} from '@angular/router';
-import {AuthService} from "../../services/auth.service";
-import {NgIf} from "@angular/common";
+import { Component, inject } from '@angular/core';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
+import { AuthService } from "../../services/auth.service";
+import { NgIf } from "@angular/common";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,7 @@ export class HeaderComponent {
   actualRole: number = -1;
   router = inject(Router);
 
-  ngOnInit(){
+  ngOnInit() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         this.refreshHeader();
@@ -26,5 +27,12 @@ export class HeaderComponent {
 
   refreshHeader(): void {
     this.actualRole = this.authService.getRole();
+  }
+
+  async signOut(): Promise<void> {
+    this.authService.signOut();
+    this.actualRole = -1;
+    await Swal.fire("Success", "You have successfully signed out.", "success");
+    await this.router.navigateByUrl("/home");
   }
 }
