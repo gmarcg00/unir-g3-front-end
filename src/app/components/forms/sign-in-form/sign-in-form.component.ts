@@ -1,9 +1,9 @@
-import {Component, inject} from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import {AuthService} from "../../../services/auth.service";
-import {HttpErrorResponse} from "@angular/common/http";
+import { AuthService } from "../../../services/auth.service";
+import { HttpErrorResponse } from "@angular/common/http";
 import Swal from 'sweetalert2';
-import {Router, RouterLink} from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-sign-in-form',
@@ -17,32 +17,33 @@ export class SignInFormComponent {
   router = inject(Router)
   authService = inject(AuthService);
 
-  constructor(){
+  constructor() {
     this.modelForm = new FormGroup({
-      email: new FormControl(null,[
+      email: new FormControl(null, [
         Validators.required,
         Validators.pattern(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/)
       ]),
-      password: new FormControl(null,[
+      password: new FormControl(null, [
         Validators.minLength(3)
       ])
     })
   }
 
-  async signIn(){
-    const {email, password} = this.modelForm.value;
-    try{
+  async signIn() {
+    const { email, password } = this.modelForm.value;
+    try {
       const response = await this.authService.signIn(email, password);
       localStorage.setItem("token", response.token);
       await Swal.fire("Success", "You have successfully signed in.", "success");
       await this.router.navigateByUrl("/home");
       console.log(response);
-    }catch (error: any){
-      if(error.status === 401){
+    } catch (error: any) {
+      if (error.status === 401) {
         Swal.fire({
           title: "Error",
           text: "Invalid email or password",
-          icon: "error"
+          icon: "error",
+          timer: 2000
         });
       }
     }
@@ -51,3 +52,4 @@ export class SignInFormComponent {
     this.modelForm.reset();
   }
 }
+

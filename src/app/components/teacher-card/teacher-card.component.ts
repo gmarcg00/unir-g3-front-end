@@ -1,11 +1,11 @@
-import {Component, inject, Input} from '@angular/core';
-import { RouterLink} from "@angular/router";
-import {IData} from "../../interfaces/iData.interface";
-import {TeachersService} from "../../services/teachers.service";
-import {AuthService} from "../../services/auth.service";
-import {Router} from "@angular/router";
+import { Component, inject, Input } from '@angular/core';
+import { RouterLink } from "@angular/router";
+import { IData } from "../../interfaces/iData.interface";
+import { TeachersService } from "../../services/teachers.service";
+import { AuthService } from "../../services/auth.service";
+import { Router } from "@angular/router";
 import Swal from "sweetalert2";
-import {NgIf} from "@angular/common";
+import { NgIf } from "@angular/common";
 
 @Component({
   selector: 'app-teacher-card',
@@ -30,14 +30,20 @@ export class TeacherCardComponent {
   router = inject(Router)
 
   getKnowledgeBranches(): string[] {
-      return this.knowledgeBranches.map(branch => branch.name);
+    return this.knowledgeBranches.map(branch => branch.name);
   }
 
   activateTeacher(id: number): void {
     const token = this.authService.getToken();
-    this.teachersService.activateTeacher(token,id)
+    this.teachersService.activateTeacher(token, id)
       .then(async () => {
-        await Swal.fire("Success", "Teacher activated successfully", "success");
+        await Swal.fire({
+          title: 'Success',
+          text: 'Teacher activated successfully',
+          icon: 'success',
+          timer: 2000,
+          timerProgressBar: true,
+        });
         window.location.reload();
       })
       .catch(async () => {

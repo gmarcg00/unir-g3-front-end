@@ -1,14 +1,14 @@
-import {Component, inject, Output} from '@angular/core';
+import { Component, inject, Output } from '@angular/core';
 import { ProfilePreviewComponent } from '../../components/profile-preview/profile-preview.component';
-import {AuthService} from "../../services/auth.service";
+import { AuthService } from "../../services/auth.service";
 import Swal from "sweetalert2";
-import {Router} from "@angular/router";
-import {NgClass, NgIf} from "@angular/common";
-import {UserService} from "../../services/user.service";
-import {IAdminInfoResponseInterface} from "../../interfaces/iAdminInfoResponse.interface";
-import {IListResponseInterface} from "../../interfaces/iListResponse.interface";
-import {IStudentInfoResponseInterface} from "../../interfaces/iStudentInfoResponse.interface";
-import {ITeacherInfoInterface} from "../../interfaces/iTeacherInfoInterface";
+import { Router } from "@angular/router";
+import { NgClass, NgIf } from "@angular/common";
+import { UserService } from "../../services/user.service";
+import { IAdminInfoResponseInterface } from "../../interfaces/iAdminInfoResponse.interface";
+import { IListResponseInterface } from "../../interfaces/iListResponse.interface";
+import { IStudentInfoResponseInterface } from "../../interfaces/iStudentInfoResponse.interface";
+import { ITeacherInfoInterface } from "../../interfaces/iTeacherInfoInterface";
 
 @Component({
   selector: 'app-profile',
@@ -24,21 +24,28 @@ export class ProfileComponent {
   menuOptionSelected = "info";
   userRole: number = 0;
   @Output() adminData: IAdminInfoResponseInterface | undefined;
-  @Output() teacherData: ITeacherInfoInterface | undefined ;
+  @Output() teacherData: ITeacherInfoInterface | undefined;
   @Output() studentData: IStudentInfoResponseInterface | undefined;
 
 
-  async ngOnInit(){
+  async ngOnInit() {
     const token = this.authService.getTokenPayload();
-    if(!token){
-      Swal.fire("Error", "You must be logged in to access this page.", "error");
+    if (!token) {
+      Swal.fire({
+        title: 'Error',
+        text: 'You must be logged in to access this page.',
+        icon: 'error',
+        timer: 2000,
+        timerProgressBar: true,
+      });
+
       this.router.navigateByUrl("/home");
     }
     this.setUserRole(token?.role || 0)
     await this.getData(token?.id || 0);
   }
 
-  async getData(id:number): Promise<void>  {
+  async getData(id: number): Promise<void> {
     switch (this.userRole) {
       case 1:
         this.adminData = await this.userService.getAdminInfo(id);
@@ -55,7 +62,7 @@ export class ProfileComponent {
   }
 
   getKnowledgeBranches(): string[] {
-    if(this.teacherData){
+    if (this.teacherData) {
       return this.teacherData.knowledge_branches.map(branch => branch.name);
     }
     return [];
@@ -83,7 +90,12 @@ export class ProfileComponent {
 
   async signOut(): Promise<void> {
     this.authService.signOut();
-    await Swal.fire("Success", "You have successfully signed out.", "success");
+    await Swal.fire({
+      title: 'Cerrando sesión...',
+      icon: 'success',
+      timer: 1000,
+      timerProgressBar: true,
+    });
     await this.router.navigateByUrl("/home");
   }
 
