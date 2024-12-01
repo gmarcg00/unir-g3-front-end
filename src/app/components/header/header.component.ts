@@ -33,5 +33,6 @@ export class HeaderComponent {
     this.authService.signOut();
     await Swal.fire("Success", "You have successfully signed out.", "success");
     await this.router.navigateByUrl("/home");
+    this.refreshHeader();
   }
 }
