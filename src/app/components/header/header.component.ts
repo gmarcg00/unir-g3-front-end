@@ -31,7 +31,6 @@ export class HeaderComponent {
 
   async signOut(): Promise<void> {
     this.authService.signOut();
-    this.actualRole = -1;
     await Swal.fire("Success", "You have successfully signed out.", "success");
     await this.router.navigateByUrl("/home");
   }
