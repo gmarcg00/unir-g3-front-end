@@ -16,6 +16,7 @@ export class AuthService {
   private httpClient = inject(HttpClient);
   private loginUrl = `${environment.API_URL}/auth/login`;
   private studentSignupUrl = `${environment.API_URL}/auth/students/register`;
+  private teacherSignupUrl = `${environment.API_URL}/auth/teachers/register`;
 
 
   signIn(email: string, password: string): Promise<LoginResponse>{
@@ -23,8 +24,11 @@ export class AuthService {
   }
 
   studentSignUp(name: string, lastNames: string, phone: string, avatar: string, username: string, email: string, password: string):Promise<SignUpResponse>{
-    console.log({name,last_names: lastNames, phone, image:avatar, username, email, password})
     return firstValueFrom(this.httpClient.post<SignUpResponse>(this.studentSignupUrl, {name,last_names: lastNames, phone, image:avatar, username, email, password}));
+  }
+
+  teacherSignUp(name: string, lastNames: string, phone: string, avatar: string,knowledgeBranches: number[],about: string,priceHour: number, username: string, email: string, password: string):Promise<SignUpResponse>{
+    return firstValueFrom(this.httpClient.post<SignUpResponse>(this.teacherSignupUrl, {name,last_names: lastNames, phone, image:avatar, branches: knowledgeBranches, description:about, price_hour: priceHour, username, email, password}));
   }
 
   signOut(): void {
