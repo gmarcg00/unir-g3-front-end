@@ -8,6 +8,7 @@ import {firstValueFrom} from "rxjs";
   providedIn: 'root'
 })
 export class TeachersService {
+  
   private httpClient = inject(HttpClient);
   private teachersUrl = `${environment.API_URL}/teachers`;
   private knowledgeBranchesUrl = `${environment.API_URL}/knowledge-branches`;

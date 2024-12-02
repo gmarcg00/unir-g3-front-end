@@ -6,15 +6,115 @@
   <div class="my-2">
     <label for="name" class="form-label">Nombre</label>
     <input type="text" id="name" class="form-control" formControlName="name" />
+    @if(checkControl('name', 'required')){
+      <p class="error pt-2">El campo es requerido</p>
+    }
+    @if(checkControl('name', 'minlength')){
+      <p class="error pt-2">La longitud minima del nombre tiene que ser 3 caracteres</p>
+    }
   </div>
   <div class="my-2">
-    <label for="surname" class="form-label">Apellidos</label>
+    <label for="lastNames" class="form-label">Apellidos</label>
+    <input type="text" id="lastNames" class="form-control" formControlName="lastNames" />
+    @if(checkControl('lastNames', 'required')){
+      <p class="error pt-2">El campo es requerido</p>
+    }
+    @if(checkControl('lastNames', 'minlength')){
+      <p class="error pt-2">La longitud minima del apellido tiene que ser 3 caracteres</p>
+    }
+  </div>
+  <div class="my-2">
+    <label for="lastNames" class="form-label">NºTelefono</label>
+    <input type="text" id="phone" class="form-control" formControlName="phone" />
+    @if(checkControl('phone', 'required')){
+      <p class="error pt-2">El campo es requerido</p>
+    }
+    @if(checkControl('phone', 'minlength')){
+      <p class="error pt-2">La longitud mínima del teléfono es de 9 caracteres</p>
+    }
+    @if(checkControl('phone', 'maxlength')){
+      <p class="error pt-2">La longitud máxima del teléfono es de 9 caracteres</p>
+    }
+  </div>
+  <div class="my-2">
+    <label for="avatar" class="form-label">AVATAR</label>
+    <input
+      type="file"
+      class="form-control"
+      formControlName="avatar"
+      id="avatar"
+      accept="image/*"
+      (change)="onFileSelected($event)"
+    />
+    @if(checkControl('username', 'minlength')){
+      <p class="error pt-2">La longitud minima del nombre de usuario es de 3 caracteres</p>
+    }
+  </div>
+
+  <div class="my-2">
+    <label class="form-label">Ramas de conocimiento</label>
+    <div class="d-flex flex-column selector-height flex-wrap">
+      <div *ngFor="let subject of knowledgeBranches">
+        <div class="d-flex flex-row gap-3">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            [value]="subject.id"
+            (change)="onSubjectChange($event)"
+          />
+          <label class="form-label">{{subject.name}}</label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="my-2">
+    <label for="about" class="form-label">Acerca de mí</label>
+    <textarea id="about" class="form-control" formControlName="about" placeholder="Escribe aquí..."></textarea>
+    @if(checkControl('about', 'required')){
+      <p class="error pt-2">El campo es requerido</p>
+    }
+  </div>
+  <div class="my-2">
+    <label for="email" class="form-label">Email</label>
     <input
       type="text"
-      id="surname"
+      placeholder="example@gmail.com"
+      id="email"
       class="form-control"
-      formControlName="surname"
+      formControlName="email"
     />
+    @if(checkControl('email', 'pattern')){
+      <p class="error pt-2">El formato del email es incorrecto</p>
+    }
+    @if(checkControl('email', 'required')){
+      <p class="error pt-2">El campo es requerido</p>
+    }
+  </div>
+  <div class="my-2">
+    <label for="username" class="form-label">Nombre de usuario</label>
+    <input type="text" id="username" class="form-control" formControlName="username" />
+    @if(checkControl('username', 'required')){
+      <p class="error pt-2">El campo es requerido</p>
+    }
+    @if(checkControl('username', 'minlength')){
+      <p class="error pt-2">La longitud minima del nombre de usuario es de 3 caracteres</p>
+    }
+  </div>
+  <div class="my-2">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" id="password" class="form-control" formControlName="password" >
+    @if(checkControl('password', 'required')){
+      <p class="error pt-2">El campo es requerido</p>
+    }
+    @if(checkControl('password', 'minlength')){
+      <p class="error pt-2">La longitud minima de la contraseña es de 8 caracteres</p>
+    }
+  </div>
+  <div class="my-2">
+    <label for="confirmPassword" class="form-label">Confirmar contraseña</label>
+    <input type="password" class="form-control" formControlName="confirmPassword" id="confirmPassword">
   </div>
   <button
     type="submit"

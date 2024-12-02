@@ -1,30 +1,80 @@
+
 .testimonios-container {
-  max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
+  padding: 20px 15%;
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
+  background-image: url(media/fondo.jpg);
 }
 
 .testimonios-container h1 {
-  color: #4CAF50;
-  margin-bottom: 30px;
+  color: white;
+  margin: 100px auto;
+  font-size: 2rem;
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
 }
 
 .testimonio {
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 30px;
   padding: 20px;
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: 10px;
   background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonio:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.testimonio-imagen {
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+
+.testimonio-imagen img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testimonio-texto {
+  flex: 1;
+  text-align: left;
 }
 
 .testimonio h3 {
   margin: 0 0 10px;
-  color: #333;
+  color: #00001B;
+  font-size: 1.3rem;
+  text-transform: uppercase;
 }
 
 .testimonio p {
   font-size: 1.1rem;
   color: #555;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.testimonio:hover {
+  background-color: #D4A017; /* Color de fondo en hover */
+  color: white; /* Cambio de color del texto */
+}
+
+@media (max-width: 768px) {
+  .testimonio {
+    flex-direction: column; /* Cambia la dirección del flex a columna en pantallas pequeñas */
+    text-align: center;
+  }
+
+  .testimonio-imagen {
+    margin-bottom: 15px;
+  }
 }

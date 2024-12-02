@@ -7,7 +7,7 @@ import {NgClass, NgIf} from "@angular/common";
 import {UserService} from "../../services/user.service";
 import {IAdminInfoResponseInterface} from "../../interfaces/iAdminInfoResponse.interface";
 import {IListResponseInterface} from "../../interfaces/iListResponse.interface";
-import {IStudentInfoResponseInterface} from "../../interfaces/iStudentInfoResponse.interface";
+import {IStudentInfoInterface} from "../../interfaces/iStudentInfo.interface";
 import {ITeacherInfoInterface} from "../../interfaces/iTeacherInfoInterface";
 
 @Component({
@@ -25,7 +25,7 @@ export class ProfileComponent {
   userRole: number = 0;
   @Output() adminData: IAdminInfoResponseInterface | undefined;
   @Output() teacherData: ITeacherInfoInterface | undefined ;
-  @Output() studentData: IStudentInfoResponseInterface | undefined;
+  @Output() studentData: IStudentInfoInterface | undefined;
 
 
   async ngOnInit(){
