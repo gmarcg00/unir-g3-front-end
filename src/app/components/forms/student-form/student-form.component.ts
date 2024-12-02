@@ -71,7 +71,6 @@ export class StudentFormComponent {
     }
   }
 
-
   checkControl(formControlName: string, validador: string) {
     return this.modelForm.get(formControlName)?.hasError(validador) && this.modelForm.get(formControlName)?.touched;
   }
