@@ -27,7 +27,6 @@ export class TeacherCardComponent {
 
   teachersService = inject(TeachersService);
   authService = inject(AuthService);
-  router = inject(Router)
 
   getKnowledgeBranches(): string[] {
       return this.knowledgeBranches.map(branch => branch.name);

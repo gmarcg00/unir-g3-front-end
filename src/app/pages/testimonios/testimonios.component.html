@@ -3,9 +3,19 @@
 
   <!-- Bucle para mostrar cada testimonio -->
   <div class="testimonio" *ngFor="let testimonio of testimonios">
+
     <h3>{{ testimonio.nombre }} ({{ testimonio.edad }} años)</h3>
     <p>{{ testimonio.mensaje }}</p>
     <p><strong>Tiempo tomando clases:</strong> {{ testimonio.tiempo }}</p>
     <img src="{{ testimonio.ruta }}" alt="Estudiante" width="200" height="200" />
+
+    <div class="testimonio-imagen">
+      <img src="{{ testimonio.ruta }}" alt="Estudiante" width="100" height="100" />
+    </div>
+
+    <div class="testimonio-texto">
+      <h3>{{ testimonio.nombre }}</h3>
+      <p>{{ testimonio.mensaje }}</p>
+    </div>
   </div>
 </div>

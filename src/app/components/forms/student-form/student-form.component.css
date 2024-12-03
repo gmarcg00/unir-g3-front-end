@@ -50,3 +50,8 @@ label{
   margin: auto;
   margin-top: 1rem;
 }
+
+.error{
+  color: red;
+  font-weight: bold;
+}

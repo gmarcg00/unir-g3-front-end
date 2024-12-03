@@ -6,6 +6,7 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif
 }
 
 footer {
@@ -38,6 +39,8 @@ footer {
     color: white;
     font-size: 14px;
     line-height: 1.5;
+    color: white;
+    line-height: 1.6;
 }
 
 .footer-column ul {
@@ -54,6 +57,7 @@ footer {
 .footer-column ul li a {
     text-decoration: none;
     color: white;
+    font-size: 14px;
     transition: color 0.3s;
 }
 
@@ -66,10 +70,11 @@ footer {
     display: inline-block;
 }
 
-.social-icons img {
-    width: 24px;
-    height: 24px;
+.social-icons a i {
+    width: 25px;
+    height: 25px;
     transition: transform 0.3s;
+    color: white;
 }
 
 .social-icons img:hover {
@@ -78,6 +83,9 @@ footer {
 
 .footer-bottom {
     margin-top: 20px;
+    background-color: #D4A017;
+    color: #fff;
+    padding: 10px 0;
     font-size: 14px;
     color: white;
 }

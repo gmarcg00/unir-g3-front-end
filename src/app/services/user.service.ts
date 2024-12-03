@@ -3,8 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from "../../environments/environment";
 import {IAdminInfoResponseInterface} from "../interfaces/iAdminInfoResponse.interface";
 import {firstValueFrom} from "rxjs";
-import {IListResponseInterface} from "../interfaces/iListResponse.interface";
-import {IStudentInfoResponseInterface} from "../interfaces/iStudentInfoResponse.interface";
+import {IStudentInfoInterface} from "../interfaces/iStudentInfo.interface";
 import {ITeacherInfoInterface} from "../interfaces/iTeacherInfoInterface";
 
 @Injectable({
@@ -25,8 +24,8 @@ export class UserService {
     return firstValueFrom(this.httpClient.get<ITeacherInfoInterface>(`${this.teacherUrl}/${id}/info`));
   }
 
-  getStudentInfo(id:number): Promise<IStudentInfoResponseInterface> {
-    return firstValueFrom(this.httpClient.get<IStudentInfoResponseInterface>(`${this.studentUrl}/${id}/info`));
+  getStudentInfo(id:number): Promise<IStudentInfoInterface> {
+    return firstValueFrom(this.httpClient.get<IStudentInfoInterface>(`${this.studentUrl}/${id}/info`));
   }
 
 }
