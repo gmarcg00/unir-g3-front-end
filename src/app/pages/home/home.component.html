@@ -1,61 +1,33 @@
 <div class="d-flex flex-column justify-content-center align-items-center">
-  <div class="d-flex flex-column col-sm-12 flex-lg-row">
-    <div
-      class="d-flex flex-column justify-content-center align-items-center col-lg-9 p-3 bg-danger border border-4 border-black shadow"
-    >
+  <div class="d-flex flex-wrap gap-3 mt-4 w-100">
+    <div class="w-100">
       <h2>PROFESORES CERCA DE TI</h2>
-      <div class="d-flex gap-5 w-100 p-2">
-        <div class="input-group input-group-lg">
-          <span class="input-group-text">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-search"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
-              />
-            </svg>
-          </span>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Ciudad, dirección, código postal"
-            aria-label="location"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <button
-          type="button"
-          class="btn btn-success btn-lg text-dark w-50 border-2 border-black"
-        >
-          BUSCAR
+      <hr />
+    </div>
+    <div class="d-flex flex-row gap-3">
+      <div>
+        <h4>Selecciona el radio de búsqueda</h4>
+      </div>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          {{ distance }} KM
         </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" (click)="selectDistance(1)">1 KM</a></li>
+          <li><a class="dropdown-item" (click)="selectDistance(2)">2 KM</a></li>
+          <li><a class="dropdown-item" (click)="selectDistance(3)">3 KM</a></li>
+          <li><a class="dropdown-item" (click)="selectDistance(4)">4 KM</a></li>
+          <li><a class="dropdown-item" (click)="selectDistance(5)">5 KM</a></li>
+          <li><a class="dropdown-item" (click)="selectDistance(10)">10 KM</a></li>
+        </ul>
       </div>
     </div>
-    <div
-      class="d-flex flex-column gap-3 justify-content-center align-items-center col-lg-3 p-3 bg-warning b-class"
-    >
-      <a
-        class="btn btn-success text-dark btn-lg w-75 border-2 border-black"
-        [routerLink]="['/sign-in']"
-      >
-        INICIA SESION
-      </a>
-      <a
-        class="btn btn-success text-dark btn-lg w-75 border-2 border-black"
-        [routerLink]="['/sign-up']"
-      >
-        REGISTRATE
-      </a>
+
+    <div class="p-0 my-3 w-100 border border-4 border-black shadow">
+      <app-map [range]="distance"></app-map>
     </div>
   </div>
-  <div class="p-0 my-3 w-100 border border-4 border-black shadow">
-    <app-map></app-map>
-  </div>
+
   <div
     class="my-2 p-4 w-100 text-dark bg-light border border-4 border-black shadow"
   >

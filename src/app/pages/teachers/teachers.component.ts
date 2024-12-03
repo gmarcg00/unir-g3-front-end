@@ -64,7 +64,7 @@ export class TeachersComponent {
   }
 
   async getTeachers() : Promise<void> {
-    const response: IListResponseInterface = await this.teachersService.getTeachers(this.currentPage,this.pageSize,this.selectedBranches,this.selectedPrices,this.selectedAverages);
+    const response: IListResponseInterface = await this.teachersService.getTeachers(this.currentPage,this.pageSize,this.selectedBranches,this.selectedPrices,this.selectedAverages,-1,-1,-1);
     this.teachers = response.data;
     this.totalPages = Math.ceil(response.total / this.pageSize);
   }

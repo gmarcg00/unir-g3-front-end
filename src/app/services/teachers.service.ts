@@ -13,12 +13,13 @@ export class TeachersService {
   private teachersUrl = `${environment.API_URL}/teachers`;
   private knowledgeBranchesUrl = `${environment.API_URL}/knowledge-branches`;
 
-  getTeachers(page: number,pageSize: number,branches: number[], prices: number[], averages: number[]): Promise<IListResponseInterface> {
+  getTeachers(page: number,pageSize: number,branches: number[], prices: number[], averages: number[], latitude:number, longitude:number, range:number): Promise<IListResponseInterface> {
     let url: string = `${this.teachersUrl}?page=${page}&page_size=${pageSize}`;
 
     if (branches.length > 0) { url += `&branches=${branches.join(',')}`;}
     if (prices.length > 0) {url += `&price_hour=${prices.join(',')}`;}
     if (averages.length > 0) {url += `&average_rating=${averages.join(',')}`;}
+    if(latitude !== -1 && longitude !== -1 && range !== -1) {url += `&latitude=${latitude}&longitude=${longitude}&range=${range}`;}
 
     return firstValueFrom(this.httpClient.get<IListResponseInterface>(url));
   }

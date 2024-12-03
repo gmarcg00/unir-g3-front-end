@@ -2,7 +2,7 @@ import {Component, inject} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router, RouterLink} from "@angular/router";
 import {AuthService} from "../../../services/auth.service";
-import {JsonPipe, NgForOf} from "@angular/common";
+import { NgForOf} from "@angular/common";
 import {IData} from "../../../interfaces/iData.interface";
 import {TeachersService} from "../../../services/teachers.service";
 import Swal from "sweetalert2";
@@ -10,7 +10,7 @@ import Swal from "sweetalert2";
 @Component({
   selector: 'app-teacher-form',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink, FormsModule, JsonPipe, NgForOf],
+  imports: [ReactiveFormsModule, RouterLink, FormsModule, NgForOf],
   templateUrl: './teacher-form.component.html',
   styleUrl: './teacher-form.component.css'
 })
@@ -20,6 +20,9 @@ export class TeacherFormComponent {
   teacherService = inject(TeachersService);
   router = inject(Router);
 
+
+  latitude: number = -1;
+  longitude: number = -1;
   selectedImageBase64: string = "";
   selectedOptions: number[] = [];
   knowledgeBranches: IData[] = [];
@@ -65,6 +68,10 @@ export class TeacherFormComponent {
   }
 
   ngOnInit(): void{
+    navigator.geolocation.getCurrentPosition((position)=>{
+      this.latitude = position.coords.latitude;
+      this.longitude = position.coords.longitude;
+    })
     this.teacherService.getKnowledgeBranches().then((response) => {
       this.knowledgeBranches = response.data;
     })
@@ -73,7 +80,7 @@ export class TeacherFormComponent {
   async signUp(){
     const {name,lastNames,phone,about,username,email,password} = this.modelForm.value;
     try{
-      const response  = await this.authService.teacherSignUp(name,lastNames,phone,this.selectedImageBase64,this.selectedOptions,about,10,username,email,password);
+      const response  = await this.authService.teacherSignUp(name,lastNames,phone,this.selectedImageBase64,this.selectedOptions,about,10,username,email,password,this.latitude,this.longitude);
       localStorage.setItem("token", response.token);
       await Swal.fire("Success", "You have successfully signed up.", "success");
       await this.router.navigateByUrl("/home");
