@@ -17,7 +17,17 @@ export class StudentFormComponent {
   authService = inject(AuthService);
   router = inject(Router)
 
+
+  latitude: number = -1;
+  longitude: number = -1;
   selectedImageBase64: string = "";
+
+  ngOnInit(){
+    navigator.geolocation.getCurrentPosition((position)=>{
+      this.latitude = position.coords.latitude;
+      this.longitude = position.coords.longitude;
+    })
+  }
 
   constructor(){
     this.modelForm = new FormGroup({
@@ -59,7 +69,7 @@ export class StudentFormComponent {
   async signUp(){
     const {name,lastNames,phone,username,email,password} = this.modelForm.value;
     try{
-      const response  = await this.authService.studentSignUp(name,lastNames,phone,this.selectedImageBase64,username,email,password);
+      const response  = await this.authService.studentSignUp(name,lastNames,phone,this.selectedImageBase64,username,email,password,this.latitude,this.longitude);
       localStorage.setItem("token", response.token);
       await Swal.fire("Success", "You have successfully signed in.", "success");
       await this.router.navigateByUrl("/home");

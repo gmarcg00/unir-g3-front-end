@@ -9,6 +9,8 @@ export interface ITeacherInfoInterface {
   username: string;
   image: string;
   role: number;
+  latitude: number;
+  longitude: number;
   description: string;
   price_hour: number;
   knowledge_branches: IData[];

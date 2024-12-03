@@ -18,12 +18,18 @@ export class HomeComponent {
 
   teachersService = inject(TeachersService);
   teachers: ITeacherInfoInterface[] = [];
+  distance: number = 3;
 
   async ngOnInit(){
     this.teachersService.getBestAverageRatingTeachers(1,4)
       .then(response => this.teachers = response.data)
       .catch(() => Swal.fire("Error","An error occurred while fetching the data","error"));
 
+  }
+
+  selectDistance(distance: number){
+    this.distance = distance;
+    console.log(this.distance);
   }
 
 

@@ -23,12 +23,14 @@ export class AuthService {
     return firstValueFrom(this.httpClient.post<LoginResponse>(this.loginUrl, {email, password}));
   }
 
-  studentSignUp(name: string, lastNames: string, phone: string, avatar: string, username: string, email: string, password: string):Promise<SignUpResponse>{
-    return firstValueFrom(this.httpClient.post<SignUpResponse>(this.studentSignupUrl, {name,last_names: lastNames, phone, image:avatar, username, email, password}));
+  studentSignUp(name: string, lastNames: string, phone: string, avatar: string, username: string, email: string, password: string, latitude: number, longitude: number):Promise<SignUpResponse>{
+    console.log(latitude,longitude)
+    return firstValueFrom(this.httpClient.post<SignUpResponse>(this.studentSignupUrl, {name,last_names: lastNames, phone, image:avatar, username, email, password, latitude, longitude}));
   }
 
-  teacherSignUp(name: string, lastNames: string, phone: string, avatar: string,knowledgeBranches: number[],about: string,priceHour: number, username: string, email: string, password: string):Promise<SignUpResponse>{
-    return firstValueFrom(this.httpClient.post<SignUpResponse>(this.teacherSignupUrl, {name,last_names: lastNames, phone, image:avatar, branches: knowledgeBranches, description:about, price_hour: priceHour, username, email, password}));
+  teacherSignUp(name: string, lastNames: string, phone: string, avatar: string,knowledgeBranches: number[],about: string,priceHour: number, username: string, email: string, password: string ,latitude: number, longitude: number):Promise<SignUpResponse>{
+    console.log(latitude,longitude)
+    return firstValueFrom(this.httpClient.post<SignUpResponse>(this.teacherSignupUrl, {name,last_names: lastNames, phone, image:avatar, branches: knowledgeBranches, description:about, price_hour: priceHour, username, email, password, latitude, longitude}));
   }
 
   signOut(): void {
