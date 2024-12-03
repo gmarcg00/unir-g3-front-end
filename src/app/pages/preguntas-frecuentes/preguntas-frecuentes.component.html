@@ -3,9 +3,7 @@
 
   <!-- Bucle para mostrar cada pregunta y su respuesta -->
   <div class="pregunta-frecuente" *ngFor="let item of preguntasFrecuentes">
-    <h3>{{ item.pregunta }}</h3>
-    <p>{{ item.respuesta }}</p>
+    <h3 (click)="item.expanded = !item.expanded">{{ item.pregunta }}</h3>
+    <p *ngIf="item.expanded">{{ item.respuesta }}</p>
   </div>
 </div>
-
-  
