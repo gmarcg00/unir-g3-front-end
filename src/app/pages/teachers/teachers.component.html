@@ -3,110 +3,133 @@
     <h2 class="m-0">LISTADO DE PROFESORES</h2>
     <hr />
   </div>
-  <div
-    class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-3 w-100"
-  >
-    <div class="dropdown">
-      <button
-        class="btn btn-secondary dropdown-toggle"
-        type="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Ramas de conocimiento
-      </button>
-      <ul class="dropdown-menu">
-        <div *ngFor="let kb of knowledgeBranches">
-          <li><a class="dropdown-item pointer">{{kb.name}}</a></li>
+  <div class="d-flex flex-column flex-sm-row gap-3 w-100 ">
+    <div class="d-flex flex-column w-25">
+      <div class="my-2">
+        <div (click)="toggleBranchesDropdown()" class="d-flex flex-row my-2 gap-5 pointer">
+          <label class="form-label">Ramas de conocimiento</label>
+          <div *ngIf="!isBranchesDropdownOpen">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+              <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+            </svg>
+          </div>
+          <div *ngIf="isBranchesDropdownOpen">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+              <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+            </svg>
+          </div>
         </div>
-      </ul>
-    </div>
-    <div class="dropdown">
-      <button
-        class="btn btn-secondary dropdown-toggle"
-        type="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Precio/Hora
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">7€</a></li>
-        <li><a class="dropdown-item" href="#">8€</a></li>
-        <li><a class="dropdown-item" href="#">10€</a></li>
-      </ul>
-    </div>
-    <div class="dropdown">
-      <button
-        class="btn btn-secondary dropdown-toggle"
-        type="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Experiencia
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">1 año</a></li>
-        <li><a class="dropdown-item" href="#">2 año</a></li>
-        <li><a class="dropdown-item" href="#">3 año</a></li>
-      </ul>
-    </div>
-    <div class="dropdown">
-      <button
-        class="btn btn-secondary dropdown-toggle"
-        type="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Puntuación
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">6</a></li>
-        <li><a class="dropdown-item" href="#">7</a></li>
-        <li><a class="dropdown-item" href="#">8</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="d-flex flex-wrap justify-content-center gap-3">
-    <div *ngFor="let teacher of teachers">
-      <app-teacher-card
-        [id]="teacher.id"
-        [name]="teacher.name"
-        [lastNames]="teacher.last_names"
-        [knowledgeBranches]="teacher.knowledge_branches"
-        [price]="teacher.price_hour"
-        [image]="teacher.image"
-      ></app-teacher-card>
-    </div>
-  </div>
-  <div>
-    <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <!-- Botón "Anterior" -->
-        <li
-          class="page-item"
-          [class.disabled]="currentPage === 1"
-          (click)="changePage(currentPage - 1)">
-          <a class="page-link pointer">Previous</a>
-        </li>
+        <div *ngIf="isBranchesDropdownOpen" class="d-flex flex-column selector-height flex-wrap">
+          <div *ngFor="let subject of knowledgeBranches">
+            <div class="d-flex flex-row gap-3">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                [value]="subject.id"
+                (change)="onSubjectChange($event)"
+              />
+              <label class="form-label">{{subject.name}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="my-2 pointer">
+        <div (click)="togglePriceDropdown()" class="d-flex flex-row my-2 gap-5 pointer">
+          <label class="form-label">Precio por hora</label>
+          <div *ngIf="!isPriceDropdownOpen">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+              <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+            </svg>
+          </div>
+          <div *ngIf="isPriceDropdownOpen">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+              <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+            </svg>
+          </div>
+        </div>
+        <div *ngIf="isPriceDropdownOpen" class="d-flex flex-column selector-height flex-wrap">
+          <div *ngFor="let i of priceRange " class="d-flex flex-column gap-1">
+            <div class="d-flex flex-row gap-3 ">
+              <input type="checkbox" class="form-check-input" [value]=i (change)="onPriceChange($event)"/>
+              <label class="form-label">{{i}} €</label>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <!-- Botones de páginas -->
-        <li
-          class="page-item"
-          *ngFor="let page of pages"
-          [class.active]="page === currentPage"
-          (click)="changePage(page)">
-          <a class="page-link pointer">{{ page }}</a>
-        </li>
+      <div class="my-2 pointer">
+        <div (click)="toggleAverageDropdown()" class="d-flex flex-row my-2 gap-5 pointer">
+          <label class="form-label">Puntuación</label>
+          <div *ngIf="!isAverageDropdownOpen">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+              <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+            </svg>
+          </div>
+          <div *ngIf="isAverageDropdownOpen">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+              <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+            </svg>
+          </div>
+        </div>
+        <div *ngIf="isAverageDropdownOpen" class="d-flex flex-column selector-height flex-wrap">
+          <div *ngFor="let i of averageRange " class="d-flex flex-column gap-1">
+            <div class="d-flex flex-row gap-3 ">
+              <input type="checkbox" class="form-check-input" [value]=i (change)="onAverageChange($event)"/>
+              <label class="form-label">{{i}}</label>
+              <div *ngFor="let star of [].constructor(i)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-column justify-content-center align-items-center w-75">
+      <div class="d-flex flex-wrap justify-content-center gap-3 pb-3">
+        <div *ngFor="let teacher of teachers">
+          <app-teacher-card
+            [id]="teacher.id"
+            [name]="teacher.name"
+            [lastNames]="teacher.last_names"
+            [knowledgeBranches]="teacher.knowledge_branches"
+            [price]="teacher.price_hour"
+            [image]="teacher.image"
+          ></app-teacher-card>
+        </div>
+      </div>
+      <div>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <!-- Botón "Anterior" -->
+            <li
+              class="page-item"
+              [class.disabled]="currentPage === 1"
+              (click)="changePage(currentPage - 1)">
+              <a class="page-link pointer">Previous</a>
+            </li>
 
-        <!-- Botón "Siguiente" -->
-        <li
-          class="page-item"
-          [class.disabled]="currentPage === totalPages"
-          (click)="changePage(currentPage + 1)">
-          <a class="page-link pointer">Next</a>
-        </li>
-      </ul>
-    </nav>
+            <!-- Botones de páginas -->
+            <li
+              class="page-item"
+              *ngFor="let page of pages"
+              [class.active]="page === currentPage"
+              (click)="changePage(page)">
+              <a class="page-link pointer">{{ page }}</a>
+            </li>
+
+            <!-- Botón "Siguiente" -->
+            <li
+              class="page-item"
+              [class.disabled]="currentPage === totalPages"
+              (click)="changePage(currentPage + 1)">
+              <a class="page-link pointer">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
   </div>
+
 </div>
