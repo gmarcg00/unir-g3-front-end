@@ -6,6 +6,7 @@ import {ITeacherInfoInterface} from "../../interfaces/iTeacherInfoInterface";
 import Swal from 'sweetalert2';
 import {TeacherCardComponent} from "../../components/teacher-card/teacher-card.component";
 import {NgForOf} from "@angular/common";
+
 @Component({
   selector: 'app-home',
   standalone: true,
