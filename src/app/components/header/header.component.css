@@ -25,6 +25,30 @@ header {
     height: auto;
 }
 
+.header-content {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.header-content h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.header-content p {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+}
+
+.header-content a {
+    color: #D4A017;
+    text-decoration: none;
+}
+
+.header-content a:hover {
+    text-decoration: underline;
+}
+
 @media (max-width: 600px) {
     .logo img {
         width: 30px;
@@ -96,6 +120,7 @@ nav ul li a[routerLink='/login']:hover {
 
     .menu-icon {
         display: block;
+        /* Mostrar icono de hamburguesa en pantallas pequeñas */
     }
 
     .logo {
