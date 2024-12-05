@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
   standalone: true,
   imports: [RouterLink, NgIf],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrls: ['./header.component.css'] // Corregido aquí
 })
 export class HeaderComponent {
 
@@ -25,14 +25,14 @@ export class HeaderComponent {
     });
   }
 
-  refreshHeader(): void {
+  refreshHeader() {
+    // Lógica para refrescar el header, por ejemplo, obtener el rol actual del usuario
     this.actualRole = this.authService.getRole();
   }
 
-  async signOut(): Promise<void> {
-    this.authService.signOut();
-    await Swal.fire("Success", "You have successfully signed out.", "success");
-    await this.router.navigateByUrl("/home");
-    this.refreshHeader();
+  signOut() {
+    // Lógica para cerrar sesión
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }
