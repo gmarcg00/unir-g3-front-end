@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';  // Importar NgFor para usar *ngFor
+import { NgFor, NgIf } from '@angular/common';  // Importar NgFor para usar *ngFor
 
 @Component({
   selector: 'app-preguntas-frecuentes',
   templateUrl: './preguntas-frecuentes.component.html',
   styleUrls: ['./preguntas-frecuentes.component.css'],
   standalone: true,
-  imports: [NgFor]  // Necesario para usar la directiva *ngFor
+  imports: [NgFor, NgIf]  // Necesario para usar la directiva *ngFor
 })
 
 export class PreguntasFrecuentesComponent {
