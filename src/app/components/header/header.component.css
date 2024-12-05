@@ -1,5 +1,5 @@
 #nav-menu * {
-  font-family: "Open Sans", sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
 
 header {
@@ -21,7 +21,7 @@ header {
     color: white;
 }
 
-.logo a{
+.logo a {
     text-decoration: none;
     color: white;
 }
@@ -29,7 +29,8 @@ header {
 .menu-icon {
     font-size: 24px;
     cursor: pointer;
-    display: none; /* Ocultar icono en pantallas grandes */
+    display: none;
+    /* Ocultar icono en pantallas grandes */
     color: white;
 }
 
@@ -46,53 +47,78 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #FFFFFF; /* Blanco */
+    color: #FFFFFF;
+    /* Blanco */
     font-weight: 500;
     transition: color 0.3s;
     text-transform: uppercase;
 }
 
 nav ul li a:hover {
-    color: #D4A017; /* Cambia a dorado al pasar el ratón */
+    color: #D4A017;
+    /* Cambia a dorado al pasar el ratón */
 }
 
-.pointer:hover{
-  cursor: pointer;
+nav ul li a[routerLink='/login'] {
+    background-color: #D4A017;
+    /* Fondo dorado */
+    color: #00001B;
+    /* Texto oscuro */
+    border-radius: 5px;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a[routerLink='/login']:hover {
+    background-color: #FFFFFF;
+    /* Fondo blanco al pasar el ratón */
+    color: #00001B;
+    /* Texto oscuro */
+}
+
+.pointer:hover {
+    cursor: pointer;
 }
 
 /* Estilos para dispositivos móviles */
 @media (max-width: 768px) {
 
     .menu-icon {
-        display: block; /* Mostrar icono de hamburguesa en pantallas pequeñas */
+        display: block;
+        /* Mostrar icono de hamburguesa en pantallas pequeñas */
     }
 
-    .logo{
+    .logo {
         margin: 0 auto;
     }
 
     nav {
-        display: none; /* Ocultar menú en pantallas pequeñas */
+        display: none;
+        /* Ocultar menú en pantallas pequeñas */
         width: 100%;
         background-color: #00001B;
         position: absolute;
-        top: 60px; /* Espacio debajo del header */
+        top: 60px;
+        /* Espacio debajo del header */
         left: 0;
         z-index: 10;
     }
 
     nav.active {
-        display: block; /* Mostrar menú cuando está activo */
+        display: block;
+        /* Mostrar menú cuando está activo */
     }
 
     nav ul {
-        flex-direction: column; /* Disposición vertical */
+        flex-direction: column;
+        /* Disposición vertical */
         width: 100%;
     }
 
     nav ul li {
         margin-left: 0;
         margin: 10px 0 10px 0;
-        text-align: center; /* Centrar texto en el menú */
+        text-align: center;
+        /* Centrar texto en el menú */
     }
 }
