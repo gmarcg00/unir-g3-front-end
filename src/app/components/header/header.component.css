@@ -15,10 +15,21 @@ header {
 }
 
 .logo {
-    font-family: "Cinzel", serif;
-    font-size: 35px;
-    font-weight: 700;
-    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    /* Ajusta el tamaño según sea necesario */
+    height: auto;
+}
+
+@media (max-width: 600px) {
+    .logo img {
+        width: 30px;
+        /* Ajusta el tamaño para pantallas pequeñas */
+    }
 }
 
 .logo a {
@@ -85,7 +96,6 @@ nav ul li a[routerLink='/login']:hover {
 
     .menu-icon {
         display: block;
-        /* Mostrar icono de hamburguesa en pantallas pequeñas */
     }
 
     .logo {
