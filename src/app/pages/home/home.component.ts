@@ -6,7 +6,7 @@ import { ITeacherInfoInterface } from "../../interfaces/iTeacherInfoInterface";
 import Swal from 'sweetalert2';
 import { TeacherCardComponent } from "../../components/teacher-card/teacher-card.component";
 import { NgForOf } from "@angular/common";
-import { ModalReviewComponent } from '../../components/modal-review/modal-review.component';
+import { ModalReviewComponent } from '../../components/forms/modal-review-form/modal-review-form.component';
 
 @Component({
   selector: 'app-home',
