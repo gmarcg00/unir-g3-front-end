@@ -1,10 +1,25 @@
 <div class="d-flex flex-column justify-content-center align-items-center">
   <div class="d-flex flex-wrap gap-3 mt-4 w-100">
+    <!-- Lo que deberia ver el alumno
+    ALUMNO AL ENTRAR:
+      Mapa + listado junto, en la misma secciÓn
+      Quitar mejores valorados.
+    
+    EN CHATS:
+      Panel izquierda : Elegir nuevo chat + Pop up lista de profes ? ver SCRUM-77
+      Panel derecho ver chat activo.
+    
+    MIS PROFES : 
+      Simple lista de profesores card
+      Añadir a teachers card … boton Valorar slatando pop up de valoracion.
+      Boton perfil del profesor … abre perfil profe deben poder contratar si no esta contratado en vigor. -->
+
     <div class="w-100">
       <h2>PROFESORES CERCA DE TI</h2>
       <hr />
     </div>
-    <div class="d-flex flex-row gap-3">
+    <div class="d-flex flex-colum gap-3">
+      <!-- Dropdown encima del mapa -->
       <div>
         <h4>Selecciona el radio de búsqueda</h4>
       </div>
@@ -23,33 +38,23 @@
       </div>
     </div>
 
-    <div class="p-0 my-3 w-100 border border-4 border-black shadow">
+    <div class="p-0 my-3 w-50 border border-4 border-black shadow">
       <app-map [range]="distance"></app-map>
     </div>
   </div>
 
-  <div
-    class="my-2 p-4 w-100 text-dark bg-light border border-4 border-black shadow"
-  >
+  <div class="my-2 p-4 w-100 text-dark bg-light border border-4 border-black shadow">
     <h2>PROFESORES MEJOR VALORADOS</h2>
     <hr />
     <div class="d-flex flex-wrap justify-content-center gap-3 mb-3">
       <div *ngFor="let teacher of teachers">
-        <app-teacher-card
-          [id]="teacher.id"
-          [name]="teacher.name"
-          [lastNames]="teacher.last_names"
-          [knowledgeBranches]="teacher.knowledge_branches"
-          [price]="teacher.price_hour"
-          [image]="teacher.image"
-        ></app-teacher-card>
+        <app-teacher-card [id]="teacher.id" [name]="teacher.name" [lastNames]="teacher.last_names"
+          [knowledgeBranches]="teacher.knowledge_branches" [price]="teacher.price_hour"
+          [image]="teacher.image"></app-teacher-card>
       </div>
     </div>
     <div class="d-flex justify-content-center my-3">
-      <a
-        class="btn btn-success text-dark btn-lg w-25 border-2 border-black"
-        [routerLink]="['/teachers']"
-      >
+      <a class="btn btn-success text-dark btn-lg w-25 border-2 border-black" [routerLink]="['/teachers']">
         VER TODOS
       </a>
     </div>
