@@ -1,0 +1,47 @@
+<!-- Lo que deberia ver el alumno:
+ 
+    EN CHATS:
+      Panel izquierda : Elegir nuevo chat + Pop up lista de profes ? ver SCRUM-77
+      Panel derecho ver chat activo.
+    
+    MIS PROFES : 
+      Simple lista de profesores card
+      Añadir a teachers card … boton Valorar slatando pop up de valoracion.
+      Boton perfil del profesor … abre perfil profe deben poder contratar si no esta contratado en vigor. -->
+
+
+<!-- ALUMNO AL ENTRAR: Mapa + listado junto, en la misma secciÓn-->
+<div class="container">
+    <div class="row">
+        <!-- Mitad izquierda (dropdown y mapa) -->
+        <div class="col-12 col-lg-6 d-flex flex-column align-items-center gap-3 order-1 order-lg-0">
+            <!-- Dropdown encima del mapa -->
+            <div>
+                <h4>Selecciona el radio de búsqueda</h4>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        {{ distance }} KM
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" (click)="selectDistance(1)">1 KM</a></li>
+                        <li><a class="dropdown-item" (click)="selectDistance(2)">2 KM</a></li>
+                        <li><a class="dropdown-item" (click)="selectDistance(3)">3 KM</a></li>
+                        <li><a class="dropdown-item" (click)="selectDistance(4)">4 KM</a></li>
+                        <li><a class="dropdown-item" (click)="selectDistance(5)">5 KM</a></li>
+                        <li><a class="dropdown-item" (click)="selectDistance(10)">10 KM</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Mapa -->
+            <div class="p-0 my-3 w-100 border border-4 border-black shadow">
+                <app-map [range]="distance"></app-map>
+            </div>
+        </div>
+        <!-- Mitad derecha (vacía por ahora) -->
+        <div class="col-12 col-lg-6 order-0 order-lg-1">
+            <!-- Espacio para contenido futuro -->
+            <app-teachers></app-teachers>
+        </div>
+    </div>
+</div>

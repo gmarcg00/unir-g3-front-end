@@ -1,25 +1,10 @@
 <div class="d-flex flex-column justify-content-center align-items-center">
   <div class="d-flex flex-wrap gap-3 mt-4 w-100">
-    <!-- Lo que deberia ver el alumno
-    ALUMNO AL ENTRAR:
-      Mapa + listado junto, en la misma secciÓn
-      Quitar mejores valorados.
-    
-    EN CHATS:
-      Panel izquierda : Elegir nuevo chat + Pop up lista de profes ? ver SCRUM-77
-      Panel derecho ver chat activo.
-    
-    MIS PROFES : 
-      Simple lista de profesores card
-      Añadir a teachers card … boton Valorar slatando pop up de valoracion.
-      Boton perfil del profesor … abre perfil profe deben poder contratar si no esta contratado en vigor. -->
-
     <div class="w-100">
       <h2>PROFESORES CERCA DE TI</h2>
       <hr />
     </div>
-    <div class="d-flex flex-colum gap-3">
-      <!-- Dropdown encima del mapa -->
+    <div class="d-flex flex-row gap-3">
       <div>
         <h4>Selecciona el radio de búsqueda</h4>
       </div>
@@ -38,7 +23,7 @@
       </div>
     </div>
 
-    <div class="p-0 my-3 w-50 border border-4 border-black shadow">
+    <div class="p-0 my-3 w-100 border border-4 border-black shadow">
       <app-map [range]="distance"></app-map>
     </div>
   </div>
