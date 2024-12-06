@@ -9,20 +9,22 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="modalReviewLabel">Valoración de profesor</h1>
-                <div class="d-flex justify-content-center mt-3">
-                    <img src="{{image}}" class="rounded-circle card-img w-75" alt="...">
-                </div>
+
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <div class="d-flex justify-content-center mt-3">
+                    <img src="{{image}}" class="rounded-circle card-img w-75" alt="...">
+                    <h2>{{teacherName}}</h2>
+                </div>
                 <div class="mb-3">
-                    <label for="reviewFormControlText" class="form-label">Escribe</label>
+                    <label for="reviewFormControlText" class="form-label">Tu reseña</label>
                     <textarea class="form-control" id="reviewFormControlText" rows="3"></textarea>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
             </div>
         </div>
     </div>
