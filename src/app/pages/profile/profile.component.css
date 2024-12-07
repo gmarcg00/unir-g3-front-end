@@ -88,16 +88,37 @@ body {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.selected-option{
+.boton-editar-perfil {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    background-color: #007BFF;
+    /* Blue color */
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem;
+    /* Add some margin if needed */
+}
+
+.boton-editar-perfil:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+    transform: scale(1.05);
+}
+
+.selected-option {
     background-color: #740001;
 }
 
-.non-selected-option{
+.non-selected-option {
     background-color: #D4A017;
 }
 
-.non-selected-option:hover{
-  filter: brightness(1.2);
+.non-selected-option:hover {
+    filter: brightness(1.2);
 }
 
 .boton-contratar:hover {
@@ -185,12 +206,12 @@ body {
     color: #333333;
 }
 
-
 /* Responsive Design */
 @media (max-width: 768px) {
-   body{
-    height: auto;
-   }
+    body {
+        height: auto;
+    }
+
     .perfil-contenedor {
         flex-direction: column;
         padding: 1rem;
@@ -212,21 +233,22 @@ body {
         margin: 0 auto;
     }
 
-    .profesor-nombre{
+    .profesor-nombre {
         font-size: 25px;
     }
 
-    .profesor-ramas{
+    .profesor-ramas {
         font-size: 20px;
     }
 
     .profesor-precio,
     .profesor-experiencia,
-    .profesor-puntuacion{
+    .profesor-puntuacion {
         font-size: 16px;
     }
 
-    .boton-contratar{
+    .boton-contratar,
+    .boton-editar-perfil {
         padding: 0.5rem 1.1rem;
     }
 }
@@ -246,11 +268,12 @@ body {
 
     .profesor-precio,
     .profesor-experiencia,
-    .profesor-puntuacion{
+    .profesor-puntuacion {
         font-size: 14px;
     }
 
-    .boton-contratar{
+    .boton-contratar,
+    .boton-editar-perfil {
         font-size: 14px;
         padding: 0.3rem 0.8rem;
     }

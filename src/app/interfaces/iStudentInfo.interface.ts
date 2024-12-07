@@ -9,3 +9,4 @@ export interface IStudentInfoInterface {
   role: number;
   active: boolean;
 }
+
