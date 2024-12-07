@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
   standalone: true,
   imports: [RouterLink, NgIf],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'] // Corregido aquí
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
 
@@ -26,13 +26,11 @@ export class HeaderComponent {
   }
 
   refreshHeader() {
-    // Lógica para refrescar el header, por ejemplo, obtener el rol actual del usuario
     this.actualRole = this.authService.getRole();
   }
 
   signOut() {
-    // Lógica para cerrar sesión
-    this.authService.logout();
+    this.authService.signOut();
     this.router.navigate(['/login']);
   }
 }
