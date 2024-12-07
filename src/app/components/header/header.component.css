@@ -32,11 +32,8 @@ header {
 }
 
 .header-content h1 {
-    margin: 0;
-    font-size: 2.5em;
-    /* Ajusta el tamaño según tus necesidades */
-    font-weight: bold;
-    padding: 20px 0;
+    font-size: 2.75em;
+    /* Ajusta según tus necesidades */
 }
 
 .header-content p {
@@ -124,6 +121,9 @@ nav ul li a[routerLink='/login']:hover {
 
     .menu-icon {
         display: block;
+        <<<<<<< HEAD=======
+        /* Mostrar icono de hamburguesa en pantallas pequeñas */
+        >>>>>>>4f54dca5f0907e175b3526f0471b3e1ba7654e0b
     }
 
     .logo {
