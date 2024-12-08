@@ -1,19 +1,20 @@
-import {Component, inject, Output} from '@angular/core';
+import { Component, inject, Output, Type } from '@angular/core';
 import { ProfilePreviewComponent } from '../../components/profile-preview/profile-preview.component';
-import {AuthService} from "../../services/auth.service";
+import { AuthService } from "../../services/auth.service";
 import Swal from "sweetalert2";
-import {Router} from "@angular/router";
-import {NgClass, NgIf} from "@angular/common";
-import {UserService} from "../../services/user.service";
-import {IAdminInfoResponseInterface} from "../../interfaces/iAdminInfoResponse.interface";
-import {IListResponseInterface} from "../../interfaces/iListResponse.interface";
-import {IStudentInfoInterface} from "../../interfaces/iStudentInfo.interface";
-import {ITeacherInfoInterface} from "../../interfaces/iTeacherInfoInterface";
+import { Router } from "@angular/router";
+import { CommonModule, NgClass, NgIf } from "@angular/common";
+import { UserService } from "../../services/user.service";
+import { IAdminInfoResponseInterface } from "../../interfaces/iAdminInfoResponse.interface";
+import { IListResponseInterface } from "../../interfaces/iListResponse.interface";
+import { IStudentInfoInterface } from "../../interfaces/iStudentInfo.interface";
+import { ITeacherInfoInterface } from "../../interfaces/iTeacherInfoInterface";
+import { StudentFormComponent } from '../../components/forms/student-form/student-form.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [ProfilePreviewComponent, NgClass, NgIf],
+  imports: [ProfilePreviewComponent, NgClass, NgIf, StudentFormComponent, CommonModule],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
@@ -24,21 +25,25 @@ export class ProfileComponent {
   menuOptionSelected = "info";
   userRole: number = 0;
   @Output() adminData: IAdminInfoResponseInterface | undefined;
-  @Output() teacherData: ITeacherInfoInterface | undefined ;
+  @Output() teacherData: ITeacherInfoInterface | undefined;
   @Output() studentData: IStudentInfoInterface | undefined;
 
+  selectedComponent: Type<any> | null = null;
 
-  async ngOnInit(){
+
+  async ngOnInit() {
     const token = this.authService.getTokenPayload();
-    if(!token){
+
+    if (!token) {
       Swal.fire("Error", "You must be logged in to access this page.", "error");
       this.router.navigateByUrl("/home");
     }
     this.setUserRole(token?.role || 0)
     await this.getData(token?.id || 0);
+    this.selectedComponent = StudentFormComponent;
   }
 
-  async getData(id:number): Promise<void>  {
+  async getData(id: number): Promise<void> {
     switch (this.userRole) {
       case 1:
         this.adminData = await this.userService.getAdminInfo(id);
@@ -55,7 +60,7 @@ export class ProfileComponent {
   }
 
   getKnowledgeBranches(): string[] {
-    if(this.teacherData){
+    if (this.teacherData) {
       return this.teacherData.knowledge_branches.map(branch => branch.name);
     }
     return [];
@@ -63,6 +68,7 @@ export class ProfileComponent {
 
   setMenuOption(option: string): void {
     this.menuOptionSelected = option;
+    this.selectedComponent = StudentFormComponent;
   }
 
   setUserRole(role: number): void {

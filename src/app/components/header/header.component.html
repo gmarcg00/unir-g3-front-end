@@ -69,6 +69,11 @@
       <div *ngIf="actualRole === 3" class="d-flex">
         <!-- STUDENT ROLE-->
         <li>
+          <a [routerLink]="['/students/misprofes']">
+            Mis profes
+          </a>
+        </li>
+        <li>
           <a [routerLink]="['/students']">
             Buscar profesores
           </a>
@@ -78,6 +83,7 @@
             Salir
           </a>
         </li>
+
         <li class="pointer">
           <svg [routerLink]="['/profile']" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
             class="bi bi-person" viewBox="0 0 16 16">
