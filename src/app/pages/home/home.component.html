@@ -13,7 +13,7 @@
 
   <!-- Best Rated Teachers Section -->
   <div class="my-2 p-4 w-100 text-dark bg-light border border-4 border-black shadow">
-    <h2 class="text-center">PROFESORES MEJOR VALORADOS</h2>
+    <h2 class="text-center mb-4">PROFESORES MEJOR VALORADOS</h2>
     <hr />
     <div class="d-flex flex-wrap justify-content-center gap-4 mb-4">
       <div *ngIf="isLoading" class="text-center w-100">
@@ -42,7 +42,9 @@
       <hr />
     </div>
     <div class="d-flex flex-row gap-3 align-items-center justify-content-center w-100">
-      <h4>Selecciona el radio de búsqueda</h4>
+      <div>
+        <h4>Selecciona el radio de búsqueda</h4>
+      </div>
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           {{ distance }} KM
@@ -52,10 +54,13 @@
           <li><a class="dropdown-item" (click)="selectDistance(2)">2 KM</a></li>
           <li><a class="dropdown-item" (click)="selectDistance(5)">5 KM</a></li>
           <li><a class="dropdown-item" (click)="selectDistance(10)">10 KM</a></li>
+          <li><a class="dropdown-item" (click)="selectDistance(20)">20 KM</a></li>
+          <li><a class="dropdown-item" (click)="selectDistance(30)">30 KM</a></li>
         </ul>
       </div>
     </div>
 
+    <!-- Map Component -->
     <div class="p-0 my-3 w-100 border border-4 border-black shadow">
       <app-map [range]="distance"></app-map>
     </div>
