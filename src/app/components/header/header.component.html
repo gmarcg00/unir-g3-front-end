@@ -1,7 +1,7 @@
 <header>
   <div class="logo">
     <a [routerLink]="['/home']">
-      <img src="public/images/logos/hogwarts-logo.png" alt="Hogwarts Logo" id="hogwarts-logo" />
+      <img src="/images/logos/hogwarts-logo.png" alt="Hogwarts Logo" id="hogwarts-logo" />
     </a>
   </div>
   <div class="header-content">
@@ -13,7 +13,7 @@
       <div *ngIf="actualRole === 0" class="d-flex">
         <li><a [routerLink]="['/como-funciona']">Como funciona</a></li>
         <li><a [routerLink]="['/sign-up']">Empieza ya</a></li>
-        <li><a [routerLink]="['/login']">Entrar</a></li>
+        <li><a [routerLink]="['/sign-in']">Entrar</a></li>
       </div>
       <div *ngIf="actualRole === 1" class="d-flex">
         <li><a [routerLink]="['/admin/student-list']">Listado de alumnos</a></li>
