@@ -1,0 +1,53 @@
+.dialog-container {
+    max-width: 300px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #000;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.review-image {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    background-color: #f8f9fa;
+}
+
+.my-2 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+}
+
+.btn {
+    border: none;
+    background-color: #D4A017;
+    opacity: 100;
+    color: black;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.btn :hover {
+    background-color: black;
+    color: #D4A017;
+}
+
+
+
+
+.stars-container {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.star {
+    font-size: 2rem;
+    color: gray;
+    cursor: pointer;
+}
+
+.star.selected {
+    color: gold;
+}
