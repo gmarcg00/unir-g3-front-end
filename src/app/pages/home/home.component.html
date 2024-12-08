@@ -1,24 +1,24 @@
 <div class="d-flex flex-column justify-content-center align-items-center">
   <!-- Hero Section -->
-  <div class="d-flex flex-wrap gap-3 mt-4 w-100">
+  <section class="hero-section d-flex flex-wrap gap-3 mt-4 w-100">
     <div class="w-100">
-      <h2 class="text-center">
+      <h1 class="text-center">
         ¿Quieres aprender de los mejores hechiceros del mundo? Cada mago legendario empezó como un estudiante
         decidido. Nuestros profesores te guiarán en un viaje mágico para descubrir tus poderes ocultos.
-        <a [routerLink]="['/sign-up']" class="btn btn-primary ms-2">¡Reserva ahora!</a>
-      </h2>
+        <a [routerLink]="['/sign-up']" class="btn btn-primary ms-2" aria-label="Reservar ahora">¡Reserva ahora!</a>
+      </h1>
       <hr />
     </div>
-  </div>
+  </section>
 
   <!-- Best Rated Teachers Section -->
-  <div class="my-2 p-4 w-100 text-dark bg-light border border-4 border-black shadow">
+  <section class="teachers-section my-2 p-4 w-100 text-dark bg-light border border-4 border-black shadow">
     <h2 class="text-center mb-4">PROFESORES MEJOR VALORADOS</h2>
     <hr />
     <div class="d-flex flex-wrap justify-content-center gap-4 mb-4">
-      <div *ngIf="isLoading" class="text-center w-100">
+      <div *ngIf="isLoading" class="text-center w-100" aria-live="polite">
         <div class="spinner-border" role="status">
-          <span class="visually-hidden">Loading...</span>
+          <span class="visually-hidden">Cargando profesores...</span>
         </div>
       </div>
       <div *ngFor="let teacher of teachers" class="teacher-card-container">
@@ -29,48 +29,49 @@
       </div>
     </div>
     <div class="d-flex justify-content-center my-3">
-      <a class="btn btn-success text-dark btn-lg px-5 border-2 border-black" [routerLink]="['/teachers']">
+      <a class="btn btn-success text-dark btn-lg px-5 border-2 border-black" [routerLink]="['/teachers']"
+        aria-label="Ver todos los profesores">
         VER TODOS
       </a>
     </div>
-  </div>
+  </section>
 
   <!-- Nearby Teachers Section -->
-  <div class="d-flex flex-wrap gap-3 mt-4 w-100">
+  <section class="nearby-teachers d-flex flex-wrap gap-3 mt-4 w-100">
     <div class="w-100">
       <h2 class="text-center">PROFESORES CERCA DE TI</h2>
       <hr />
     </div>
     <div class="d-flex flex-row gap-3 align-items-center justify-content-center w-100">
       <div>
-        <h4>Selecciona el radio de búsqueda</h4>
+        <h3>Selecciona el radio de búsqueda</h3>
       </div>
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
+          aria-label="Seleccionar distancia">
           {{ distance }} KM
         </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" (click)="selectDistance(1)">1 KM</a></li>
-          <li><a class="dropdown-item" (click)="selectDistance(2)">2 KM</a></li>
-          <li><a class="dropdown-item" (click)="selectDistance(5)">5 KM</a></li>
-          <li><a class="dropdown-item" (click)="selectDistance(10)">10 KM</a></li>
-          <li><a class="dropdown-item" (click)="selectDistance(20)">20 KM</a></li>
-          <li><a class="dropdown-item" (click)="selectDistance(30)">30 KM</a></li>
+        <ul class="dropdown-menu" role="menu">
+          <li><a class="dropdown-item" (click)="selectDistance(1)" role="menuitem">1 KM</a></li>
+          <li><a class="dropdown-item" (click)="selectDistance(2)" role="menuitem">2 KM</a></li>
+          <li><a class="dropdown-item" (click)="selectDistance(5)" role="menuitem">5 KM</a></li>
+          <li><a class="dropdown-item" (click)="selectDistance(10)" role="menuitem">10 KM</a></li>
+          <li><a class="dropdown-item" (click)="selectDistance(20)" role="menuitem">20 KM</a></li>
+          <li><a class="dropdown-item" (click)="selectDistance(30)" role="menuitem">30 KM</a></li>
         </ul>
       </div>
     </div>
 
-    <!-- Map Component -->
-    <div class="p-0 my-3 w-100 border border-4 border-black shadow">
-      <app-map [range]="distance"></app-map>
+    <div class="map-container p-0 my-3 w-100 border border-4 border-black shadow">
+      <app-map [range]="distance" aria-label="Mapa de profesores cercanos"></app-map>
     </div>
-  </div>
+  </section>
 
   <!-- Footer -->
   <footer class="w-100 mt-4 bg-light text-dark">
     <div class="footer-container border-top border-4 border-black p-4">
       <div class="footer-column">
-        <h5>Sobre Nosotros</h5>
+        <h3>Sobre Nosotros</h3>
         <p>Nuestra escuela es el puente entre tu potencial mágico y el conocimiento de los mejores profesores de
           Howards. Aprende hechizos, pociones y mucho más a tu ritmo, con clases por horas adaptadas a tus
           necesidades. Descubre y domina la magia que hay en tu interior con un simple clic.
@@ -79,7 +80,7 @@
       </div>
 
       <div class="footer-column">
-        <h5>Enlaces Rápidos</h5>
+        <h3>Enlaces Rápidos</h3>
         <ul>
           <li><a [routerLink]="['/teachers']">Profesores</a></li>
           <li><a [routerLink]="['/como-funciona']">Cómo Funciona</a></li>
@@ -92,7 +93,7 @@
       </div>
 
       <div class="footer-column">
-        <h5>Contacto</h5>
+        <h3>Contacto</h3>
         <ul>
           <li>Tel: +34 123 456 789</li>
           <li><a href="mailto:contacto@howardsprofesores.com">contacto@howardsprofesores.com</a></li>
@@ -101,12 +102,20 @@
       </div>
 
       <div class="footer-column">
-        <h5>Síguenos</h5>
+        <h3>Síguenos</h3>
         <div class="social-icons">
-          <a href="https://www.facebook.com" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.twitter.com" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
-          <a href="https://www.youtube.com" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fab fa-facebook"></i>
+          </a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.twitter.com" target="_blank" rel="noopener" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
         </div>
       </div>
     </div>
