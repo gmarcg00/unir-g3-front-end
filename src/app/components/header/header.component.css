@@ -1,8 +1,4 @@
 /* header.component.css */
-#nav-menu * {
-    font-family: "Open Sans", sans-serif;
-}
-
 header {
     color: white;
     display: flex;
@@ -22,7 +18,6 @@ header {
 
 .logo img {
     width: 50px;
-    /* Ajusta el tamaño según sea necesario */
     height: auto;
 }
 
@@ -33,41 +28,18 @@ header {
 
 .header-content h1 {
     font-size: 2.75em;
-    /* Ajusta según tus necesidades */
-}
-
-.header-content p {
-    margin: 5px 0 0 0;
-    font-size: 14px;
-}
-
-.header-content a {
-    color: #D4A017;
-    text-decoration: none;
-}
-
-.header-content a:hover {
-    text-decoration: underline;
-}
-
-@media (max-width: 600px) {
-    .logo img {
-        width: 30px;
-        /* Ajusta el tamaño para pantallas pequeñas */
-    }
-}
-
-.logo a {
-    text-decoration: none;
-    color: white;
+    margin: 0;
 }
 
 .menu-icon {
     font-size: 24px;
     cursor: pointer;
     display: none;
-    /* Ocultar icono en pantallas grandes */
     color: white;
+}
+
+nav {
+    display: block;
 }
 
 nav ul {
@@ -77,6 +49,11 @@ nav ul {
     padding: 0;
 }
 
+nav ul .d-flex {
+    display: flex;
+    align-items: center;
+}
+
 nav ul li {
     margin-left: 20px;
 }
@@ -84,7 +61,6 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: #FFFFFF;
-    /* Blanco */
     font-weight: 500;
     transition: color 0.3s;
     text-transform: uppercase;
@@ -92,14 +68,11 @@ nav ul li a {
 
 nav ul li a:hover {
     color: #D4A017;
-    /* Cambia a dorado al pasar el ratón */
 }
 
 nav ul li a[routerLink='/login'] {
     background-color: #D4A017;
-    /* Fondo dorado */
     color: #00001B;
-    /* Texto oscuro */
     border-radius: 5px;
     padding: 10px 15px;
     transition: background-color 0.3s ease;
@@ -107,56 +80,40 @@ nav ul li a[routerLink='/login'] {
 
 nav ul li a[routerLink='/login']:hover {
     background-color: #FFFFFF;
-    /* Fondo blanco al pasar el ratón */
     color: #00001B;
-    /* Texto oscuro */
 }
 
-.pointer:hover {
-    cursor: pointer;
-}
-
-/* Estilos para dispositivos móviles */
 @media (max-width: 768px) {
-
     .menu-icon {
         display: block;
-        <<<<<<< HEAD=======
-        /* Mostrar icono de hamburguesa en pantallas pequeñas */
-        >>>>>>>4f54dca5f0907e175b3526f0471b3e1ba7654e0b
     }
 
-    .logo {
-        margin: 0 auto;
+    .logo img {
+        width: 30px;
     }
 
     nav {
         display: none;
-        /* Ocultar menú en pantallas pequeñas */
         width: 100%;
         background-color: #00001B;
         position: absolute;
-        top: 60px;
-        /* Espacio debajo del header */
+        top: 100%;
         left: 0;
         z-index: 10;
     }
 
     nav.active {
         display: block;
-        /* Mostrar menú cuando está activo */
     }
 
-    nav ul {
+    nav ul,
+    nav ul .d-flex {
         flex-direction: column;
-        /* Disposición vertical */
         width: 100%;
     }
 
     nav ul li {
-        margin-left: 0;
-        margin: 10px 0 10px 0;
+        margin: 10px 0;
         text-align: center;
-        /* Centrar texto en el menú */
     }
 }
