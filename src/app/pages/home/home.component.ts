@@ -45,7 +45,7 @@ export class HomeComponent {
   fetchBestAverageRatingTeachers(): void {
    this.teachersService.getBestAverageRatingTeachers(1,4)
      .then( response => this.teachers = response.data)
-     .catch( error => Swal.fire('Error', 'An error occurred while fetching the teachers.', 'error'))
+     .catch( () => Swal.fire('Error', 'An error occurred while fetching the teachers.', 'error'))
      .finally(() => this.isLoading = false);
   }
 
