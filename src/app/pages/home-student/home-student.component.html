@@ -1,1 +1,24 @@
-<app-header></app-header>
+<!-- Best Rated Teachers Section -->
+<section class="d-flex flex-column gap-2 my-2 w-100 text-white  border border-4 border-black shadow bg-dark">
+    <div class="px-4">
+        <h2 class="text-center pt-3 pb-1 mb-0">ENCUENTRA A LOS MEJORES MAGOS Y BRUJAS</h2>
+        <hr />
+    </div>
+    <div class="d-flex flex-row px-3 pb-2 back">
+        <!-- Map Section -->
+        <div class="d-flex flex-column gap-2 w-50 h-100 px-2">
+            <p> map component</p>
+            <div class="" style="max-height: 60%">
+                <app-map [range]=5 aria-label="Mapa de profesores cercanos"></app-map>
+            </div>
+        </div>
+        <!-- Teachers Section -->
+        <div class="w-50 px-2">
+            <div class="d-flex flex-wrap justify-content-center gap-2 mb-4" style="min-height:450px">
+                <p>Teachers component</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
