@@ -1,9 +1,14 @@
-.b-class{
-    border: 4px solid black;
-    border-top: 0;
+.app-bg{
+  background-color: #00001B;
 }
 
-.btn-success{
+
+.b-class {
+  border: 4px solid black;
+  border-top: 0;
+}
+
+.btn-success {
   --bs-btn-color: black;
   --bs-btn-bg: #D4A017;
   --bs-btn-border-color: #D4A017;
@@ -19,26 +24,103 @@
   --bs-btn-disabled-bg: #D4A017;
 }
 
-.btn-success:hover{
+.btn-success:hover {
   filter: brightness(1.3);
 }
 
-.btn{
+.btn {
   border: none;
   font-size: 15px;
   font-family: "Open Sans", sans-serif;
   font-weight: 500;
 }
 
-.position-button{
+.position-button {
   bottom: 1rem;
   left: 1rem;
   right: 1rem;
 }
 
 @media (min-width: 992px) {
-    .b-class{
-        border-top: 4px solid black;
-        border-left: 0;
-    }
+  .b-class {
+    border-top: 4px solid black;
+    border-left: 0;
+  }
+}
+
+/* Additional styles for footer */
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-top: 4px solid black;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+}
+
+.footer-column h5,
+.footer-column h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-column p,
+.footer-column ul,
+.footer-column li {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-column ul {
+  padding-left: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 5px;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #000;
+}
+
+.footer-column ul li a:hover {
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.social-icons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.social-icons a {
+  color: #000;
+  font-size: 1.25rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.social-icons a:hover {
+  opacity: 0.8;
+  -webkit-transform: translateY(-2px);
+  -ms-transform: translateY(-2px);
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 0.625rem;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
 }
