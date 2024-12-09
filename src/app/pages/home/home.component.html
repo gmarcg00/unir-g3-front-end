@@ -15,9 +15,9 @@
   <section class="teachers-section my-2 p-4 w-100 text-dark bg-light border border-4 border-black shadow">
     <h2 class="text-center mb-4">PROFESORES MEJOR VALORADOS</h2>
     <hr />
-    <div class="d-flex flex-wrap justify-content-center gap-4 mb-4">
-      <div *ngIf="isLoading" class="text-center w-100" aria-live="polite">
-        <div class="spinner-border" role="status">
+    <div class="d-flex flex-wrap justify-content-center gap-4 mb-4" style="min-height:450px">
+      <div *ngIf="isLoading" class="d-flex justify-content-center align-items-center" aria-live="polite">
+        <div class="spinner-border" role="status" style="width: 5rem; height: 5rem;">
           <span class="visually-hidden">Cargando profesores...</span>
         </div>
       </div>

@@ -1,19 +1,13 @@
-import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
-
-// Components
+import {Component, inject} from '@angular/core';
 import { MapComponent } from '../../components/map/map.component';
-import { TeacherCardComponent } from "../../components/teacher-card/teacher-card.component";
-
-// Services
-import { TeachersService } from "../../services/teachers.service";
-
-// Interfaces
-import { ITeacherInfoInterface } from "../../interfaces/iTeacherInfoInterface";
-
-// Third party
+import {Router, RouterLink} from "@angular/router";
+import {TeachersService} from "../../services/teachers.service";
+import {ITeacherInfoInterface} from "../../interfaces/iTeacherInfoInterface";
 import Swal from 'sweetalert2';
+import {TeacherCardComponent} from "../../components/teacher-card/teacher-card.component";
+import {AuthService} from "../../services/auth.service";
+
 
 @Component({
   selector: 'app-home',
@@ -27,39 +21,32 @@ import Swal from 'sweetalert2';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-  private readonly teachersService = inject(TeachersService);
+export class HomeComponent {
+
+  router = inject(Router);
+  teachersService = inject(TeachersService);
+  authService = inject(AuthService);
 
   teachers: ITeacherInfoInterface[] = [];
   distance: number = 3;
   isLoading: boolean = true;
 
+
   /**
    * Component initialization
    */
-  async ngOnInit(): Promise<void> {
-    await this.loadBestRatedTeachers();
+  async ngOnInit() {
+      this.fetchBestAverageRatingTeachers();
   }
 
   /**
    * Loads the best rated teachers from the service
-   * @private
    */
-  private async loadBestRatedTeachers(): Promise<void> {
-    try {
-      this.isLoading = true;
-      const response = await this.teachersService.getBestAverageRatingTeachers(1, 4);
-      this.teachers = response.data;
-    } catch (error: unknown) {
-      console.error('Error loading teachers:', error);
-      Swal.fire({
-        title: "Error",
-        text: "Ha ocurrido un error al cargar los profesores",
-        icon: "error"
-      });
-    } finally {
-      this.isLoading = false;
-    }
+  fetchBestAverageRatingTeachers(): void {
+   this.teachersService.getBestAverageRatingTeachers(1,4)
+     .then( response => this.teachers = response.data)
+     .catch( error => Swal.fire('Error', 'An error occurred while fetching the teachers.', 'error'))
+     .finally(() => this.isLoading = false);
   }
 
   /**
@@ -76,4 +63,6 @@ export class HomeComponent implements OnInit {
   get formattedDistance(): string {
     return `${this.distance} KM`;
   }
+
 }
+
