@@ -15,6 +15,11 @@
             Empieza ya
           </a>
         </li>
+        <li>
+          <a [routerLink]="['/sign-in']">
+            Entrar
+          </a>
+        </li>
       </div>
       <div *ngIf="actualRole === 1" class="d-flex">
         <!-- ADMIN ROLE-->
@@ -71,11 +76,6 @@
         <li>
           <a [routerLink]="['/home']" (click)="signOut()">
             Salir
-          </a>
-        </li>
-        <li>
-          <a [routerLink]="['/sign-in']">
-            Entrar
           </a>
         </li>
         <li class="pointer">
