@@ -83,7 +83,7 @@ export class TeacherFormComponent {
       const response  = await this.authService.teacherSignUp(name,lastNames,phone,this.selectedImageBase64,this.selectedOptions,about,10,username,email,password,this.latitude,this.longitude);
       localStorage.setItem("token", response.token);
       await Swal.fire("Success", "You have successfully signed up.", "success");
-      await this.router.navigateByUrl("/home");
+      await this.router.navigateByUrl("/dashboard");
     }catch (error: any){
       if(error.status === 409){
         const code = error.error?.code;

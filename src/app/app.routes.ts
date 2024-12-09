@@ -13,11 +13,21 @@ import {authGuard} from "./guards/auth.guard";
 import {roleGuard} from "./guards/role.guard";
 import {ActiveTeachersComponent} from "./pages/active-teachers/active-teachers.component";
 import {StudentsComponent} from "./pages/students/students.component";
+import {HomeAdminComponent} from "./pages/home-admin/home-admin.component";
+import {HomeTeacherComponent} from "./pages/home-teacher/home-teacher.component";
+import {HomeStudentComponent} from "./pages/home-student/home-student.component";
+import {DashboardComponent} from "./pages/dashboard/dashboard.component";
 
 
 export const routes: Routes = [
     {path: "", pathMatch:"full", redirectTo: "home"},
     {path: "home", component: HomeComponent},
+    {path: "dashboard", component: DashboardComponent, canActivate: [authGuard], children: [
+        {path:"admin", component: HomeAdminComponent},
+        {path:"teacher", component: HomeTeacherComponent},
+        {path:"student", component: HomeStudentComponent}
+      ]
+    },
     {path: "sign-in", component: SignInComponent},
     {path: "sign-up", component: SignUpComponent},
     {path: "teachers", component: TeachersComponent},
