@@ -18,6 +18,7 @@ import { TeachersService } from '../../services/teachers.service';
 })
 export class StudentsComponent {
   studentsService = inject(StudentsService);
+  teachersService = inject(TeachersService);
   students: IStudentInfoInterface[] = [];
   @Input() teacherId: number = 0;
   @Input() role: number = 1;
@@ -26,8 +27,6 @@ export class StudentsComponent {
   pageSize: number = 12;
   totalPages: number = 0;
   pages: number[] = [];
-
-
 
   ngOnInit() {
     this.getData().then(() => {
@@ -48,8 +47,18 @@ export class StudentsComponent {
   }
 
   async getData(): Promise<void> {
-    const response: IListResponseInterface = await this.studentsService.getAll(this.currentPage, this.pageSize)
+    let response: IListResponseInterface;
+    if (this.role !== 2) {
+      response = await this.studentsService.getAll(this.currentPage, this.pageSize)
+    } else {
+      /// aquí va el getStudentsByTeacher, pero aun no funciona :-)
+      // response = await this.studentsService.getAll(this.currentPage, this.pageSize)
+      response = await this.teachersService.getStudentsByTeacher(this.teacherId);
+      console.log("mis aprendices", this.teacherId);
+    }
+
     this.students = response.data;
+    console.log(this.students);
     this.totalPages = Math.ceil(response.total / this.pageSize);
   }
 
