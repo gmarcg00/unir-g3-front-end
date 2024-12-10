@@ -1,26 +1,30 @@
-<div class="card shadow-4 " style="width: 18rem; min-height: 430px">
+<div class="card shadow-4" style="width: 18rem; min-height: 430px">
   <div class="d-flex justify-content-center mt-3">
-    <img src="{{image}}" class="rounded-circle card-img w-75" alt="...">
+    <img src="{{image}}" class="rounded-circle card-img w-75" alt="Profile photo of {{name}}">
   </div>
   <div class="position-relative card-body">
     <h5 class="card-title">{{name}} {{lastNames}}</h5>
 
     <!-- Star Rating Display -->
-    <div class="rating-display mb-3">
+    <div class="rating-display mb-3" aria-label="Teacher rating">
       <div class="stars">
         <i *ngFor="let star of [1,2,3,4,5]" class="bi" [class.bi-star-fill]="star <= teacherRating"
-          [class.bi-star]="star > teacherRating" style="color: #FFD700;">
+          [class.bi-star]="star > teacherRating" style="color: #FFD700;" aria-hidden="true">
         </i>
       </div>
       <small class="text-muted">Rating: {{teacherRating | number:'1.1-1'}}/5</small>
     </div>
 
     <div class="position-absolute position-button d-flex gap-2 justify-content-center">
-      <button class="btn btn-lg btn-success" routerLink="['']">VER PERFIL</button>
-      <button *ngIf="authService.getRole() === 1" (click)="deactivateStudent(id)" class="btn btn-lg btn-success">DAR
-        BAJA</button>
-      <button *ngIf="authService.getRole() !== 1" (click)="contactTeachers()" class="btn btn-lg btn-primary">CONTACTAR
-        PROFESORES</button>
+      <button class="btn btn-lg btn-success" [routerLink]="['']">VER PERFIL</button>
+      <!-- Admin role -->
+      <button *ngIf="authService.getRole() === 1" (click)="deactivateStudent(id)" class="btn btn-lg btn-success">
+        DAR BAJA
+      </button>
+      <!-- Teacher role -->
+      <button *ngIf="authService.getRole() !== 1" (click)="contactTeachers()" class="btn btn-lg btn-primary">
+        CONTACTAR PROFESORES
+      </button>
     </div>
   </div>
 </div>
