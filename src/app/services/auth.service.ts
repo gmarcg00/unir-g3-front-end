@@ -61,4 +61,13 @@ export class AuthService {
     }
     return 0;
   }
+
+  getId(): number {
+    const token = localStorage.getItem("token");
+    if(token){
+      const data = jwtDecode<ICustomTokenPayload>(token);
+      return data.id;
+    }
+    return 0;
+  }
 }

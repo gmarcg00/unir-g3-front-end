@@ -12,6 +12,10 @@ export class StudentsService {
   private httpClient = inject(HttpClient);
   private studentsUrl = `${environment.API_URL}/students`;
 
+  getStudentTeachers(studentId: number,page:number, pageSize:number): Promise<IListResponseInterface> {
+    return firstValueFrom(this.httpClient.get<IListResponseInterface>(`${this.studentsUrl}/${studentId}/teachers?page=${page}&page_size=${pageSize}`));
+  }
+
   getAll(page: number,pageSize: number): Promise<IListResponseInterface> {
     return firstValueFrom(this.httpClient.get<IListResponseInterface>(`${this.studentsUrl}?page=${page}&page_size=${pageSize}`));
   }
