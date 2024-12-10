@@ -1,8 +1,9 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, OnDestroy } from '@angular/core';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { AuthService } from "../../services/auth.service";
 import { NgIf } from "@angular/common";
 import Swal from "sweetalert2";
+import { Subscription, filter, take } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -11,37 +12,67 @@ import Swal from "sweetalert2";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   private authService = inject(AuthService);
   private router = inject(Router);
+  private routerSubscription?: Subscription;
 
   actualRole: number = 0;
   isMenuActive: boolean = false;
+  isLoading: boolean = false;
 
   ngOnInit(): void {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        this.refreshHeader();
-      }
+    this.routerSubscription = this.router.events.pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+      take(1) // Only take first navigation event
+    ).subscribe(() => {
+      this.refreshHeader();
     });
     this.refreshHeader();
   }
 
+  ngOnDestroy(): void {
+    this.routerSubscription?.unsubscribe();
+  }
+
   refreshHeader(): void {
-    this.actualRole = this.authService.getRole();
+    try {
+      this.actualRole = this.authService.getRole();
+    } catch (error) {
+      console.error('Error getting user role:', error);
+      this.actualRole = 0;
+      this.handleError('Error obteniendo rol de usuario');
+    }
   }
 
   toggleMenu(): void {
     this.isMenuActive = !this.isMenuActive;
   }
 
-  signOut(): void {
-    this.authService.signOut();
-    Swal.fire({
-      icon: 'success',
-      title: 'Sesión cerrada',
-      text: 'Has cerrado sesión correctamente'
-    });
-    this.router.navigate(['/home']);
+  async signOut(): Promise<void> {
+    try {
+      this.isLoading = true;
+      await this.authService.signOut();
+      await Swal.fire({
+        icon: 'success',
+        title: 'Sesión cerrada',
+        text: 'Has cerrado sesión correctamente'
+      });
+      await this.router.navigate(['/home']);
+    } catch (error) {
+      console.error('Error during sign out:', error);
+      await this.handleError('Ha ocurrido un error al cerrar sesión');
+    } finally {
+      this.isLoading = false;
+    }
   }
+
+  private async handleError(message: string): Promise<void> {
+    await Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: message
+    });
+  }
+}
 }

@@ -1,119 +1,171 @@
-/* header.component.css */
+// Variables
+$primary-color: #00001B;
+$text-color: white;
+$hover-bg: rgba(255, 255, 255, 0.1);
+$transition-speed: 0.3s;
+
+// Header Base
 header {
-    color: white;
+    background-color: $primary-color;
+    padding: 1rem;
     display: flex;
-    background-color: #00001B;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
     position: relative;
-    max-width: 100%;
-    margin: 0 auto;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+// Logo
 .logo {
-    display: flex;
-    align-items: center;
+    flex: 0 0 auto;
+
+    img {
+        height: 50px;
+        width: auto;
+        transition: transform $transition-speed;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
 }
 
-.logo img {
-    width: 50px;
-    height: auto;
-}
-
+// Header Content
 .header-content {
+    flex: 1;
     text-align: center;
-    flex-grow: 1;
+
+    h1 {
+        color: $text-color;
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
 }
 
-.header-content h1 {
-    font-size: 2.75em;
-    margin: 0;
-}
-
+// Menu Icon
 .menu-icon {
+    display: none;
+    color: $text-color;
     font-size: 24px;
     cursor: pointer;
-    display: none;
-    color: white;
+    padding: 0.5rem;
+    transition: transform $transition-speed;
+
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
+// Navigation
 nav {
-    display: block;
+    flex: 0 0 auto;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+
+        .d-flex {
+            display: flex;
+            gap: 1rem;
+        }
+
+        li {
+            margin: 0 0.5rem;
+
+            a {
+                color: $text-color;
+                text-decoration: none;
+                padding: 0.5rem 1rem;
+                border-radius: 4px;
+                transition: background-color $transition-speed;
+                display: block;
+
+                &:hover {
+                    background-color: $hover-bg;
+                }
+
+                &:active {
+                    transform: translateY(1px);
+                }
+            }
+        }
+    }
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul .d-flex {
-    display: flex;
-    align-items: center;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #FFFFFF;
-    font-weight: 500;
-    transition: color 0.3s;
-    text-transform: uppercase;
-}
-
-nav ul li a:hover {
-    color: #D4A017;
-}
-
-nav ul li a[routerLink='/login'] {
-    background-color: #D4A017;
-    color: #00001B;
-    border-radius: 5px;
-    padding: 10px 15px;
-    transition: background-color 0.3s ease;
-}
-
-nav ul li a[routerLink='/login']:hover {
-    background-color: #FFFFFF;
-    color: #00001B;
-}
-
+// Responsive Design
 @media (max-width: 768px) {
     .menu-icon {
         display: block;
     }
 
+    .header-content h1 {
+        font-size: 1.2rem;
+    }
+
     .logo img {
         width: 30px;
+        height: auto;
     }
 
     nav {
         display: none;
         width: 100%;
-        background-color: #00001B;
+        background-color: $primary-color;
         position: absolute;
         top: 100%;
         left: 0;
         z-index: 10;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        &.active {
+            display: block;
+            animation: slideDown $transition-speed ease-in-out;
+        }
+
+        ul,
+        ul .d-flex {
+            flex-direction: column;
+            width: 100%;
+            padding: 1rem 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+            text-align: center;
+            width: 100%;
+
+            a {
+                padding: 0.8rem 1rem;
+                width: 100%;
+                display: block;
+
+                &:hover {
+                    background-color: lighten($primary-color, 10%);
+                }
+            }
+        }
+    }
+}
+
+// Animations
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
     }
 
-    nav.active {
-        display: block;
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
 
-    nav ul,
-    nav ul .d-flex {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    nav ul li {
-        margin: 10px 0;
-        text-align: center;
-    }
+// Utilities
+.d-flex {
+    display: flex;
 }

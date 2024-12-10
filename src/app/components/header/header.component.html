@@ -1,7 +1,7 @@
 <header>
   <div class="logo">
     <a [routerLink]="['/home']">
-      <img src="/images/logos/hogwarts-logo.png" alt="Hogwarts Logo" id="hogwarts-logo" />
+      <img src="assets/images/logos/hogwarts-logo.png" alt="Hogwarts Logo" id="hogwarts-logo" />
     </a>
   </div>
   <div class="header-content">
@@ -10,14 +10,29 @@
   <div class="menu-icon" (click)="toggleMenu()">☰</div>
   <nav [class.active]="isMenuActive">
     <ul>
+      <!-- Guest users -->
       <div *ngIf="actualRole === 0" class="d-flex">
         <li><a [routerLink]="['/como-funciona']">Como funciona</a></li>
         <li><a [routerLink]="['/sign-up']">Empieza ya</a></li>
         <li><a [routerLink]="['/sign-in']">Entrar</a></li>
       </div>
+      <!-- Admin users -->
       <div *ngIf="actualRole === 1" class="d-flex">
         <li><a [routerLink]="['/admin/student-list']">Listado de alumnos</a></li>
         <li><a [routerLink]="['/admin/activate-teachers']">Profesores en espera</a></li>
+        <li><a [routerLink]="['/home']" (click)="signOut()">Salir</a></li>
+      </div>
+      <!-- Student users -->
+      <div *ngIf="actualRole === 2" class="d-flex">
+        <li><a [routerLink]="['/profile']">Mi Perfil</a></li>
+        <li><a [routerLink]="['/teachers']">Buscar Profesores</a></li>
+        <li><a [routerLink]="['/home']" (click)="signOut()">Salir</a></li>
+      </div>
+      <!-- Teacher users -->
+      <div *ngIf="actualRole === 3" class="d-flex">
+        <li><a [routerLink]="['/teacher/profile']">Mi Perfil</a></li>
+        <li><a [routerLink]="['/teacher/classes']">Mis Clases</a></li>
+        <li><a [routerLink]="['/teacher/schedule']">Mi Horario</a></li>
         <li><a [routerLink]="['/home']" (click)="signOut()">Salir</a></li>
       </div>
     </ul>
