@@ -6,48 +6,61 @@ import Swal from "sweetalert2";
 import { StudentsService } from "../../services/students.service";
 import { TeacherService } from "../../services/teacher.service";
 
+interface StudentCard {
+  id: number;
+  name: string;
+  lastNames: string;
+  image: string;
+  teacherRating: number;
+}
+
 @Component({
   selector: 'app-student-card',
   standalone: true,
   imports: [
     NgIf,
     RouterLink,
-    DecimalPipe  // Add this for number formatting in template
+    DecimalPipe
   ],
   templateUrl: './student-card.component.html',
   styleUrl: './student-card.component.css'
 })
-export class StudentCardComponent {
+export class StudentCardComponent implements StudentCard {
   @Input() id: number = 0;
   @Input() name: string = "";
   @Input() lastNames: string = "";
   @Input() image: string = "";
-  @Input() teacherRating: number = 0;  // Add this for star rating
+  @Input() teacherRating: number = 0;
 
-  authService = inject(AuthService);
-  studentsService = inject(StudentsService);
-  teacherService = inject(TeacherService);
+  readonly authService = inject(AuthService);
+  readonly studentsService = inject(StudentsService);
+  readonly teacherService = inject(TeacherService);
 
-  deactivateStudent(id: number): void {
-    const token = this.authService.getToken();
-    this.studentsService.deactivateStudent(token, id)
-      .then(async () => {
-        await Swal.fire("Success", "Student deactivated successfully", "success");
-        window.location.reload();
-      })
-      .catch(async () => {
-        await Swal.fire("Error", "An error occurred while deactivating the student", "error");
-      });
+  /**
+   * Deactivates a student account
+   * @param id Student ID to deactivate
+   */
+  async deactivateStudent(id: number): Promise<void> {
+    try {
+      const token = this.authService.getToken();
+      await this.studentsService.deactivateStudent(token, id);
+      await Swal.fire("Success", "Student deactivated successfully", "success");
+      window.location.reload();
+    } catch (error) {
+      await Swal.fire("Error", "An error occurred while deactivating the student", "error");
+    }
   }
 
-  contactTeachers(): void {
-    const token = this.authService.getToken();
-    this.teacherService.sendContactRequest(token, this.id)
-      .then(async () => {
-        await Swal.fire("Success", "Contact request sent successfully", "success");
-      })
-      .catch(async () => {
-        await Swal.fire("Error", "An error occurred while sending contact request", "error");
-      });
+  /**
+   * Sends contact request to teachers
+   */
+  async contactTeachers(): Promise<void> {
+    try {
+      const token = this.authService.getToken();
+      await this.teacherService.sendContactRequest(token, this.id);
+      await Swal.fire("Success", "Contact request sent successfully", "success");
+    } catch (error) {
+      await Swal.fire("Error", "An error occurred while sending contact request", "error");
+    }
   }
 }
