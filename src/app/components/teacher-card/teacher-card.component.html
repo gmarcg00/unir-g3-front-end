@@ -1,21 +1,42 @@
 <div class="card shadow-4" style="width: 18rem; min-height: 430px">
   <div class="d-flex justify-content-center mt-3">
-    <img src="{{image}}" class="rounded-circle card-img w-75" alt="...">
+    <img src="{{image}}" class="rounded-circle card-img w-75" alt="teacher photo">
   </div>
   <div class="position-relative card-body">
     <h5 class="card-title">{{name}} {{lastNames}}</h5>
     <h6 class="card-subtitle my-2">{{price}} €/h</h6>
+
+    <!-- Rating for students only -->
+    <div *ngIf="authService.getRole() === ROLE_STUDENT" class="d-flex align-items-center mb-2">
+      <span class="text-warning me-1">★</span>
+      <span>{{averageRating | number:'1.1-1'}} / 5</span>
+    </div>
+
     <p class="card-text">{{getKnowledgeBranches().join(", ")}}</p>
-    <div class="position-absolute position-button d-flex gap-2 justify-content-center">
-      <button
-        class="btn btn-lg btn-success"
-        routerLink="['']"
-      > VER PERFIL</button>
-      <button
-        *ngIf="authService.getRole() === 1"
-        (click)="activateTeacher(id)"
-        class="btn btn-lg btn-success"
-      > DAR ALTA</button>
+
+    <div class="position-absolute position-button d-flex gap-2 justify-content-center w-100">
+      <!-- Profile button - always visible -->
+      <button class="btn btn-lg btn-success" [routerLink]="['/teacher', id]" aria-label="Ver perfil del profesor">
+        VER PERFIL
+      </button>
+
+      <!-- Admin buttons -->
+      <ng-container *ngIf="authService.getRole() === ROLE_ADMIN">
+        <button *ngIf="!isValidated" (click)="activateTeacher(id)" class="btn btn-lg btn-success" [disabled]="loading"
+          aria-label="Validar profesor">
+          {{loading ? 'PROCESANDO...' : 'DAR ALTA'}}
+        </button>
+        <button *ngIf="isValidated" (click)="deactivateTeacher(id)" class="btn btn-lg btn-danger" [disabled]="loading"
+          aria-label="Desactivar profesor">
+          {{loading ? 'PROCESANDO...' : 'DAR BAJA'}}
+        </button>
+      </ng-container>
+
+      <!-- Student contact button -->
+      <button *ngIf="authService.getRole() === ROLE_STUDENT" (click)="contactTeacher(id)" class="btn btn-lg btn-primary"
+        [disabled]="loading" aria-label="Contactar profesor">
+        {{loading ? 'PROCESANDO...' : 'CONTACTAR'}}
+      </button>
     </div>
   </div>
 </div>

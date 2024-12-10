@@ -1,9 +1,28 @@
-.card{
+.card {
   background-color: #4C4C6D;
-  color: white ;
+  color: white;
 }
 
-.btn-success{
+/* Card image styling */
+.card-img {
+  max-width: 200px;
+  height: auto;
+  object-fit: cover;
+  border: 3px solid #D4A017;
+}
+
+/* Common button styles */
+.btn {
+  border: none;
+  font-size: 15px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Success button (Profile and Activate) */
+.btn-success {
   --bs-btn-color: black;
   --bs-btn-bg: #D4A017;
   --bs-btn-border-color: #D4A017;
@@ -19,20 +38,63 @@
   --bs-btn-disabled-bg: #D4A017;
 }
 
-.btn-success:hover{
+/* Danger button (Deactivate) */
+.btn-danger {
+  --bs-btn-bg: #dc3545;
+  --bs-btn-border-color: #dc3545;
+  --bs-btn-hover-bg: #bb2d3b;
+  --bs-btn-hover-border-color: #b02a37;
+  --bs-btn-disabled-bg: #dc3545;
+  --bs-btn-disabled-border-color: #dc3545;
+}
+
+/* Primary button (Contact) */
+.btn-primary {
+  --bs-btn-bg: #0d6efd;
+  --bs-btn-border-color: #0d6efd;
+  --bs-btn-hover-bg: #0b5ed7;
+  --bs-btn-hover-border-color: #0a58ca;
+  --bs-btn-disabled-bg: #0d6efd;
+  --bs-btn-disabled-border-color: #0d6efd;
+}
+
+/* Hover effects */
+.btn:hover {
   filter: brightness(1.3);
+  transform: translateY(-2px);
 }
 
-.btn{
-  border: none;
-  font-size: 15px;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 500;
-  color:#fff ;
+/* Disabled state */
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
 }
 
-.position-button{
+/* Button positioning */
+.position-button {
   bottom: 1rem;
   left: 1rem;
   right: 1rem;
+}
+
+/* Card body spacing */
+.card-body {
+  padding: 1.25rem;
+  min-height: 250px;
+}
+
+/* Rating styles */
+.text-warning {
+  color: #D4A017 !important;
+}
+
+/* Knowledge branches text */
+.card-text {
+  margin-bottom: 3rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
