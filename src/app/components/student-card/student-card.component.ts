@@ -6,6 +6,11 @@ import Swal from "sweetalert2";
 import { StudentsService } from "../../services/students.service";
 import { TeacherService } from "../../services/teacher.service";
 
+interface ApiError {
+  message: string;
+  status: number;
+}
+
 interface StudentCard {
   id: number;
   name: string;
@@ -46,8 +51,9 @@ export class StudentCardComponent implements StudentCard {
       await this.studentsService.deactivateStudent(token, id);
       await Swal.fire("Success", "Student deactivated successfully", "success");
       window.location.reload();
-    } catch (error) {
-      await Swal.fire("Error", "An error occurred while deactivating the student", "error");
+    } catch (error: ApiError | unknown) {
+      const errorMessage = error instanceof Error ? error.message : "An error occurred while deactivating the student";
+      await Swal.fire("Error", errorMessage, "error");
     }
   }
 
@@ -59,8 +65,9 @@ export class StudentCardComponent implements StudentCard {
       const token = this.authService.getToken();
       await this.teacherService.sendContactRequest(token, this.id);
       await Swal.fire("Success", "Contact request sent successfully", "success");
-    } catch (error) {
-      await Swal.fire("Error", "An error occurred while sending contact request", "error");
+    } catch (error: ApiError | unknown) {
+      const errorMessage = error instanceof Error ? error.message : "An error occurred while sending contact request";
+      await Swal.fire("Error", errorMessage, "error");
     }
   }
 }
