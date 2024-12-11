@@ -88,27 +88,6 @@ body {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.boton-editar-perfil {
-    font-size: 18px;
-    font-weight: 700;
-    color: white;
-    background-color: #007BFF;
-    /* Blue color */
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-top: 1rem;
-    /* Add some margin if needed */
-}
-
-.boton-editar-perfil:hover {
-    background-color: #0056b3;
-    /* Darker blue on hover */
-    transform: scale(1.05);
-}
-
 .selected-option {
     background-color: #740001;
 }
@@ -122,6 +101,25 @@ body {
 }
 
 .boton-contratar:hover {
+    background-color: #740001;
+    transform: scale(1.05);
+}
+
+.boton-editar-perfil {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    background-color: #D4A017;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+.boton-editar-perfil:hover {
     background-color: #740001;
     transform: scale(1.05);
 }
@@ -206,6 +204,7 @@ body {
     color: #333333;
 }
 
+
 /* Responsive Design */
 @media (max-width: 768px) {
     body {
@@ -247,11 +246,16 @@ body {
         font-size: 16px;
     }
 
-    .boton-contratar,
+    .boton-contratar {
+        padding: 0.5rem 1.1rem;
+    }
+
     .boton-editar-perfil {
+        font-size: 16px;
         padding: 0.5rem 1.1rem;
     }
 }
+
 
 @media (max-width: 480px) {
     body {
@@ -270,18 +274,15 @@ body {
     .profesor-experiencia,
     .profesor-puntuacion {
         font-size: 14px;
-        margin-bottom: 0.5rem;
     }
 
-    .boton-contratar,
-    .boton-editar-perfil {
-        width: 100%;
-        padding: 0.5rem;
-        margin: 0.25rem 0;
+    .boton-contratar {
         font-size: 14px;
+        padding: 0.3rem 0.8rem;
     }
 
-    .detalle-container {
-        flex-direction: column;
+    .boton-editar-perfil {
+        font-size: 14px;
+        padding: 0.3rem 0.8rem;
     }
 }

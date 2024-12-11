@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Output } from '@angular/core';
 import { ProfilePreviewComponent } from '../../components/profile-preview/profile-preview.component';
 import { AuthService } from "../../services/auth.service";
 import Swal from "sweetalert2";
@@ -6,39 +6,38 @@ import { Router } from "@angular/router";
 import { NgClass, NgIf } from "@angular/common";
 import { UserService } from "../../services/user.service";
 import { IAdminInfoResponseInterface } from "../../interfaces/iAdminInfoResponse.interface";
+import { IListResponseInterface } from "../../interfaces/iListResponse.interface";
 import { IStudentInfoInterface } from "../../interfaces/iStudentInfo.interface";
 import { ITeacherInfoInterface } from "../../interfaces/iTeacherInfoInterface";
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
   imports: [ProfilePreviewComponent, NgClass, NgIf],
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
   authService = inject(AuthService);
   userService = inject(UserService);
   router = inject(Router);
+  http = inject(HttpClient);
+
   menuOptionSelected = "info";
   userRole: number = 0;
-  @Input() adminData: IAdminInfoResponseInterface | undefined;
-  @Input() teacherData: ITeacherInfoInterface | undefined;
-  @Input() studentData: IStudentInfoInterface | undefined;
+  @Output() adminData: IAdminInfoResponseInterface | undefined;
+  @Output() teacherData: ITeacherInfoInterface | undefined;
+  @Output() studentData: IStudentInfoInterface | undefined;
 
-  ngOnInit(): void {
-    this.initialize();
-  }
-
-  async initialize(): Promise<void> {
+  async ngOnInit() {
     const token = this.authService.getTokenPayload();
     if (!token) {
-      await Swal.fire("Error", "You must be logged in to access this page.", "error");
-      await this.router.navigateByUrl("/home");
-      return;
+      Swal.fire("Error", "You must be logged in to access this page.", "error");
+      this.router.navigateByUrl("/home");
     }
-    this.setUserRole(token.role || 0);
-    await this.getData(token.id || 0);
+    this.setUserRole(token?.role || 0)
+    await this.getData(token?.id || 0);
   }
 
   async getData(id: number): Promise<void> {
@@ -88,5 +87,28 @@ export class ProfileComponent {
     this.authService.signOut();
     await Swal.fire("Success", "You have successfully signed out.", "success");
     await this.router.navigateByUrl("/home");
+  }
+
+  async editStudentProfile(studentData: IStudentInfoInterface): Promise<void> {
+    try {
+      const updatedStudentData = await this.http.put<IStudentInfoInterface>(`/api/students/${studentData.id}`, studentData).toPromise();
+      if (updatedStudentData) {
+        this.studentData = updatedStudentData;
+        await Swal.fire("Success", "Student profile updated successfully.", "success");
+      }
+    } catch (error) {
+      await Swal.fire("Error", "Failed to update student profile.", "error");
+    }
+  }
+  async editTeacherProfile(teacherData: ITeacherInfoInterface): Promise<void> {
+    try {
+      const updatedTeacherData = await this.http.put<ITeacherInfoInterface>(`/api/teachers/${teacherData.id}`, teacherData).toPromise();
+      if (updatedTeacherData) {
+        this.teacherData = updatedTeacherData;
+        await Swal.fire("Success", "Teacher profile updated successfully.", "success");
+      }
+    } catch (error) {
+      await Swal.fire("Error", "Failed to update teacher profile.", "error");
+    }
   }
 }
