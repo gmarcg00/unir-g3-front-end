@@ -27,12 +27,11 @@ export class HomeTeacherComponent {
   role: number = 0;
 
   ngOnInit(): void {
-    const token = this.authService.getTokenPayload();
-    if (typeof token?.id === 'number') { this.teacherId = token.id; this.role = token.role; }
+    this.teacherId = this.authService.getId();
     const resp = this.teachersService.getTeacherInfo(this.teacherId);
     resp.then((data) => {
-      console.log(data);
       this.activeTeacher = data.active;
+      this.role = data.role;
     })
   };
 }

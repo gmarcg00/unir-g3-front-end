@@ -5,6 +5,7 @@ import { IListResponseInterface } from "../../interfaces/iListResponse.interface
 import { NgForOf } from "@angular/common";
 import { StudentCardComponent } from "../../components/student-card/student-card.component";
 import { TeachersService } from '../../services/teachers.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-students',
@@ -19,6 +20,7 @@ import { TeachersService } from '../../services/teachers.service';
 export class StudentsComponent {
   studentsService = inject(StudentsService);
   teachersService = inject(TeachersService);
+  authService = inject(AuthService);
   students: IStudentInfoInterface[] = [];
   @Input() teacherId: number = 0;
   @Input() role: number = 1;
@@ -29,6 +31,7 @@ export class StudentsComponent {
   pages: number[] = [];
 
   ngOnInit() {
+    this.role = this.authService.getRole();
     this.getData().then(() => {
       this.updatePages()
     });
@@ -51,14 +54,10 @@ export class StudentsComponent {
     if (this.role !== 2) {
       response = await this.studentsService.getAll(this.currentPage, this.pageSize)
     } else {
-      /// aquí va el getStudentsByTeacher, pero aun no funciona :-)
-      // response = await this.studentsService.getAll(this.currentPage, this.pageSize)
       response = await this.teachersService.getStudentsByTeacher(this.teacherId);
-      console.log("mis aprendices", this.teacherId);
     }
 
     this.students = response.data;
-    console.log(this.students);
     this.totalPages = Math.ceil(response.total / this.pageSize);
   }
 

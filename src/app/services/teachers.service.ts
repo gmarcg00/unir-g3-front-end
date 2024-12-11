@@ -51,4 +51,14 @@ export class TeachersService {
   getTeacherInfo(id: number): Promise<ITeacherInfoInterface> {
     return firstValueFrom(this.httpClient.get<ITeacherInfoInterface>(`${this.teachersUrl}/${id}/info`));
   }
+
+  getIsTeacherActivated(id: number): boolean {
+    let active = false;
+    this.getTeacherInfo(id)
+      .then((data) => {
+        return active = data.active;
+      });
+    return active;
+  }
+
 }
