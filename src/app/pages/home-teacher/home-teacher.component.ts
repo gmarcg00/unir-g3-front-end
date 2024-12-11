@@ -19,7 +19,7 @@ export class HomeTeacherComponent {
   studentsService = inject(StudentsService);
   teachersService = inject(TeachersService);
   students: IStudentInfoInterface[] = [];
-  teachers: ITeacherInfoInterface[] = [];
+  teacher: ITeacherInfoInterface[] = []
   iList: IListResponseInterface = { total: 0, data: [] };
   authService = inject(AuthService);
   teacherId: number = 0;
@@ -29,11 +29,13 @@ export class HomeTeacherComponent {
   ngOnInit(): void {
     const token = this.authService.getTokenPayload();
     if (typeof token?.id === 'number') { this.teacherId = token.id; this.role = token.role; }
-    const resp = this.teachersService.getNonActiveTeachers(1, 100);
-    resp.then(data => {
-      this.activeTeacher = data.data.some(teacher => teacher.id === this.teacherId) ? false : true;
-    });
-  }
-
+    const resp = this.teachersService.getTeacherInfo(this.teacherId);
+    resp.then((data) => {
+      console.log(data);
+      this.activeTeacher = data.active;
+    })
+  };
 }
+
+
 

@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { environment } from "../../environments/environment";
 import { IListResponseInterface } from "../interfaces/iListResponse.interface";
 import { firstValueFrom } from "rxjs";
+import { ITeacherInfoInterface } from '../interfaces/iTeacherInfoInterface';
 
 @Injectable({
   providedIn: 'root'
@@ -43,8 +44,11 @@ export class TeachersService {
     return firstValueFrom(this.httpClient.get<IListResponseInterface>(`${this.knowledgeBranchesUrl}`));
   }
 
-  //Hay que cambiar algunas cosassss en back-end, para que se pasa el token?? se valida en back y luego para quie devuelva IListResponseInterface
   getStudentsByTeacher(id: number): Promise<IListResponseInterface> {
     return firstValueFrom(this.httpClient.get<IListResponseInterface>(`${this.teachersUrl}/${id}/students`));
+  }
+
+  getTeacherInfo(id: number): Promise<ITeacherInfoInterface> {
+    return firstValueFrom(this.httpClient.get<ITeacherInfoInterface>(`${this.teachersUrl}/${id}/info`));
   }
 }
