@@ -1,1 +1,13 @@
-<p>home-teacher works!</p>
+<div class="d-flex flex-column gap-4 justify-content-center align-items-center text-white app-bg">
+    <div class="d-flex flex-column justify-content-sm-start w-100 pt-3 text-center px-5">
+        @if (activeTeacher){
+        <app-students [role]="role" [teacherId]="teacherId"> </app-students>
+        }@else {
+        <hr />
+        <h2 class="alert">Lo sentimos, en estos momentos tu cuenta no se encuentra activa. </h2>
+        <h3 class="alert">Se está revisando tu solicitud. </h3>
+        <hr />
+        }
+
+    </div>
+</div>

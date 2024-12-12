@@ -1,4 +1,4 @@
-import {IData} from "./iData.interface";
+import { IData } from "./iData.interface";
 
 export interface ITeacherInfoInterface {
   id: number;
@@ -14,4 +14,5 @@ export interface ITeacherInfoInterface {
   description: string;
   price_hour: number;
   knowledge_branches: IData[];
+  active: boolean;
 }
