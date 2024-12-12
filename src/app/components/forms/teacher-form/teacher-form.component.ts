@@ -99,8 +99,8 @@ export class TeacherFormComponent {
             title: "Error",
             text: "El correo o el usuario ya está en uso",
             icon: "error",
-            background: "#D4A017",
-            color: "#00001B"
+            background: "#740001",
+            color: "#D4A017"
           })
       }
     }

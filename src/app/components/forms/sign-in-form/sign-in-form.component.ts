@@ -51,8 +51,8 @@ export class SignInFormComponent {
           title: "Error",
           text: "Email o password incorrectos",
           icon: "error",
-          background: "#D4A017",
-          color: "#00001B"
+          background: "#740001",
+          color: "#D4A017"
         });
       }
     }

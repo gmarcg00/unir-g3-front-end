@@ -11,8 +11,8 @@ export const authGuard: CanActivateFn = async (route, state) => {
     title: 'Error !!',
     text: 'Debes entrar en tu cuenta para ver esta página',
     icon: 'error',
-    background: "#D4A017",
-    color: "#00001B"
+    background: "#740001",
+    color: "#D4A017"
   });
   await router.navigateByUrl('/sign-in');
   return false;

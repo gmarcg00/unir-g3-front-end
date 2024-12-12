@@ -41,8 +41,8 @@ export class HomeAdminComponent {
         title: 'Ha ocurrido un error',
         text: 'mientras se cargaban los profesores',
         icon: 'error',
-        background: "#D4A017",
-        color: "#00001B"
+        background: "#740001",
+        color: "#D4A017"
       })
       );
   }
@@ -54,8 +54,8 @@ export class HomeAdminComponent {
         title: 'Ha ocurrido un error',
         text: 'mientras se cargaban los estudiantes',
         icon: 'error',
-        background: "#D4A017",
-        color: "#00001B"
+        background: "#740001",
+        color: "#D4A017"
       })
       );
   }

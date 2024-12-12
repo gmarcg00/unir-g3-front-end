@@ -49,8 +49,8 @@ export class HomeComponent {
         title: 'Ha ocurrido un error',
         text: 'mientras se cargaban los datos de calificaciones',
         icon: 'error',
-        background: "#D4A017",
-        color: "#00001B"
+        background: "#740001",
+        color: "#D4A017"
       }))
       .finally(() => this.isLoading = false);
   }

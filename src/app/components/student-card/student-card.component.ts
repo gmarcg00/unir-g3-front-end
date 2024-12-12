@@ -43,8 +43,8 @@ export class StudentCardComponent {
           title: "Error desactivando alumno",
           text: "Contacte el adminstrador del sistema",
           icon: "error",
-          background: "#D4A017",
-          color: "#00001B"
+          background: "#740001",
+          color: "#D4A017"
         })
       });
   }

@@ -41,7 +41,7 @@ export class TeacherCardComponent {
           text: 'El profesaro a sido activado con exito',
           icon: 'error',
           background: "#202020",
-          color: "#00001B"
+          color: "#fff"
         })
         window.location.reload();
       })
@@ -50,8 +50,8 @@ export class TeacherCardComponent {
           title: 'Error ha ocurrido ',
           text: 'Mientras activabamos el profesor',
           icon: 'error',
-          background: "#D4A017",
-          color: "#00001B"
+          background: "#740001",
+          color: "#D4A017"
         })
       });
   }

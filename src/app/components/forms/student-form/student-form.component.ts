@@ -15,7 +15,9 @@ export class StudentFormComponent {
 
   modelForm: FormGroup;
   authService = inject(AuthService);
-  router = inject(Router);
+  router = inject(Router)
+
+
   latitude: number = -1;
   longitude: number = -1;
   selectedImageBase64: string = "";
@@ -69,27 +71,12 @@ export class StudentFormComponent {
     try {
       const response = await this.authService.studentSignUp(name, lastNames, phone, this.selectedImageBase64, username, email, password, this.latitude, this.longitude);
       localStorage.setItem("token", response.token);
-      await Swal.fire({
-        title: "Bienvenido",
-        text: "Te has registrado correctamente",
-        icon: "success",
-        background: "#202020",
-        color: "#fff",
-        showConfirmButton: false,
-        timer: 2500
-      })
+      await Swal.fire("Success", "You have successfully signed in.", "success");
       await this.router.navigateByUrl("/dashboard");
     } catch (error: any) {
       if (error.status === 409) {
         const code = error.error?.code;
-        if (code === "CONFLICT")
-          await Swal.fire({
-            title: "Error",
-            text: "El correo o el usuario ya está en uso",
-            icon: "error",
-            background: "#D4A017",
-            color: "#00001B"
-          });
+        if (code === "CONFLICT") await Swal.fire("Error", "Email or username already used.", "error");
       }
     }
   }
