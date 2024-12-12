@@ -34,15 +34,25 @@ export class SignInFormComponent {
     try {
       const response = await this.authService.signIn(email, password);
       localStorage.setItem("token", response.token);
-      await Swal.fire("Success", "You have successfully signed in.", "success");
+      await Swal.fire({
+        title: "Bienvenido",
+        text: "al hogar de la mágia",
+        icon: "success",
+        background: "#202020",
+        color: "#fff",
+        showConfirmButton: false,
+        timer: 1500
+      })
       await this.router.navigateByUrl("/dashboard");
       console.log(response);
     } catch (error: any) {
       if (error.status === 401) {
         Swal.fire({
           title: "Error",
-          text: "Invalid email or password",
-          icon: "error"
+          text: "Email o password incorrectos",
+          icon: "error",
+          background: "#740001",
+          color: "#D4A017"
         });
       }
     }

@@ -1,10 +1,10 @@
-import {Component, inject} from '@angular/core';
-import {AbstractControl, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {Router, RouterLink} from "@angular/router";
-import {AuthService} from "../../../services/auth.service";
-import { NgForOf} from "@angular/common";
-import {IData} from "../../../interfaces/iData.interface";
-import {TeachersService} from "../../../services/teachers.service";
+import { Component, inject } from '@angular/core';
+import { AbstractControl, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router, RouterLink } from "@angular/router";
+import { AuthService } from "../../../services/auth.service";
+import { NgForOf } from "@angular/common";
+import { IData } from "../../../interfaces/iData.interface";
+import { TeachersService } from "../../../services/teachers.service";
 import Swal from "sweetalert2";
 
 @Component({
@@ -15,41 +15,39 @@ import Swal from "sweetalert2";
   styleUrl: './teacher-form.component.css'
 })
 export class TeacherFormComponent {
-  modelForm:  FormGroup;
+  modelForm: FormGroup;
   authService = inject(AuthService);
   teacherService = inject(TeachersService);
   router = inject(Router);
-
-
   latitude: number = -1;
   longitude: number = -1;
   selectedImageBase64: string = "";
   selectedOptions: number[] = [];
   knowledgeBranches: IData[] = [];
 
-  constructor(){
+  constructor() {
     this.modelForm = new FormGroup({
       name: new FormControl(null, [
         Validators.required,
         Validators.minLength(3)
       ]),
-      lastNames: new FormControl(null,[
+      lastNames: new FormControl(null, [
         Validators.required,
         Validators.minLength(3)
       ]),
-      phone: new FormControl(null,[
+      phone: new FormControl(null, [
         Validators.required,
         Validators.minLength(9),
         Validators.maxLength(9)
       ]),
-      username: new FormControl(null,[
+      username: new FormControl(null, [
         Validators.required,
         Validators.minLength(3)
       ]),
-      avatar: new FormControl(null,[
+      avatar: new FormControl(null, [
         Validators.required
       ]),
-      about: new FormControl(null,[
+      about: new FormControl(null, [
         Validators.required
       ]),
       email: new FormControl(null, [
@@ -64,11 +62,11 @@ export class TeacherFormComponent {
         Validators.required,
         Validators.minLength(8)
       ]),
-    },[this.checkPassword])
+    }, [this.checkPassword])
   }
 
-  ngOnInit(): void{
-    navigator.geolocation.getCurrentPosition((position)=>{
+  ngOnInit(): void {
+    navigator.geolocation.getCurrentPosition((position) => {
       this.latitude = position.coords.latitude;
       this.longitude = position.coords.longitude;
     })
@@ -77,17 +75,33 @@ export class TeacherFormComponent {
     })
   }
 
-  async signUp(){
-    const {name,lastNames,phone,about,username,email,password} = this.modelForm.value;
-    try{
-      const response  = await this.authService.teacherSignUp(name,lastNames,phone,this.selectedImageBase64,this.selectedOptions,about,10,username,email,password,this.latitude,this.longitude);
+  async signUp() {
+    const { name, lastNames, phone, about, username, email, password } = this.modelForm.value;
+    try {
+      const response = await this.authService.teacherSignUp(name, lastNames, phone, this.selectedImageBase64, this.selectedOptions, about, 10, username, email, password, this.latitude, this.longitude);
       localStorage.setItem("token", response.token);
-      await Swal.fire("Success", "You have successfully signed up.", "success");
+      await Swal.fire({
+        title: "Bienvenido",
+        text: "Te has registrado correctamente",
+        icon: "success",
+        background: "#202020",
+        color: "#fff",
+        showConfirmButton: false,
+        timer: 1500
+      })
+
       await this.router.navigateByUrl("/dashboard");
-    }catch (error: any){
-      if(error.status === 409){
+    } catch (error: any) {
+      if (error.status === 409) {
         const code = error.error?.code;
-        if(code === "CONFLICT") await Swal.fire("Error", "Email or username already used.", "error");
+        if (code === "CONFLICT")
+          await Swal.fire({
+            title: "Error",
+            text: "El correo o el usuario ya está en uso",
+            icon: "error",
+            background: "#740001",
+            color: "#D4A017"
+          })
       }
     }
   }
@@ -120,7 +134,7 @@ export class TeacherFormComponent {
   onSubjectChange(event: Event) {
     const checkbox = event.target as HTMLInputElement;
     const value = checkbox.value;
-    if(checkbox.checked) {
+    if (checkbox.checked) {
       this.selectedOptions.push(Number(value));
     } else {
       this.selectedOptions = this.selectedOptions.filter((option) => option !== Number(value));
