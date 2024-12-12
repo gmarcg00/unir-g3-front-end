@@ -15,12 +15,7 @@ import { StudentsComponent } from '../students/students.component';
   styleUrl: './home-teacher.component.css'
 })
 export class HomeTeacherComponent {
-
-  studentsService = inject(StudentsService);
   teachersService = inject(TeachersService);
-  students: IStudentInfoInterface[] = [];
-  teacher: ITeacherInfoInterface[] = []
-  iList: IListResponseInterface = { total: 0, data: [] };
   authService = inject(AuthService);
   teacherId: number = 0;
   activeTeacher: boolean = false;
