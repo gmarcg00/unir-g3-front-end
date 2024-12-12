@@ -5,6 +5,7 @@ import { NgIf } from "@angular/common";
 import Swal from "sweetalert2";
 import { TeachersService } from '../../services/teachers.service';
 
+
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -43,8 +44,17 @@ export class HeaderComponent {
 
   async signOut(): Promise<void> {
     this.authService.signOut();
-    await Swal.fire("Success", "You have successfully signed out.", "success");
+    await Swal.fire({
+      title: "Hasta la proxima !!",
+      text: "Saliste con exito.",
+      icon: "success",
+      background: "#202020",
+      color: "#fff",
+      showConfirmButton: false,
+      timer: 1500
+    })
     await this.router.navigateByUrl("/home");
     this.refreshHeader();
   }
 }
+

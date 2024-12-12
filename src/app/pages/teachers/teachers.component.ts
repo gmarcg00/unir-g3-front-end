@@ -1,12 +1,12 @@
-import {Component, inject} from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ProfilePreviewComponent } from '../../components/profile-preview/profile-preview.component';
-import {TeacherCardComponent} from "../../components/teacher-card/teacher-card.component";
-import {TeachersService} from "../../services/teachers.service";
+import { TeacherCardComponent } from "../../components/teacher-card/teacher-card.component";
+import { TeachersService } from "../../services/teachers.service";
 import Swal from "sweetalert2";
-import {NgForOf, NgIf} from "@angular/common";
-import {IData} from "../../interfaces/iData.interface";
-import {ITeacherInfoInterface} from "../../interfaces/iTeacherInfoInterface";
-import {IListResponseInterface} from "../../interfaces/iListResponse.interface";
+import { NgForOf, NgIf } from "@angular/common";
+import { IData } from "../../interfaces/iData.interface";
+import { ITeacherInfoInterface } from "../../interfaces/iTeacherInfoInterface";
+import { IListResponseInterface } from "../../interfaces/iListResponse.interface";
 
 @Component({
   selector: 'app-teachers',
@@ -50,21 +50,27 @@ export class TeachersComponent {
   totalPages: number = 0;
   pages: number[] = [];
 
-  ngOnInit(){
+  ngOnInit() {
     this.getKnowledgeBranches();
     this.getTeachers().then(() => {
       this.updatePages()
     });
   }
 
-  async getKnowledgeBranches(){
+  async getKnowledgeBranches() {
     this.teachersService.getKnowledgeBranches()
       .then(response => this.knowledgeBranches = response.data)
-      .catch(() => Swal.fire("Error","An error occurred while fetching the data","error"));
+      .catch(() => Swal.fire({
+        title: 'Ha ocurrido un error',
+        text: 'mientras se cargaban los datos de ramas de conocimiento',
+        icon: 'error',
+        background: "#D4A017",
+        color: "#00001B"
+      }));
   }
 
-  async getTeachers() : Promise<void> {
-    const response: IListResponseInterface = await this.teachersService.getTeachers(this.currentPage,this.pageSize,this.selectedBranches,this.selectedPrices,this.selectedAverages,-1,-1,-1);
+  async getTeachers(): Promise<void> {
+    const response: IListResponseInterface = await this.teachersService.getTeachers(this.currentPage, this.pageSize, this.selectedBranches, this.selectedPrices, this.selectedAverages, -1, -1, -1);
     this.teachers = response.data;
     this.totalPages = Math.ceil(response.total / this.pageSize);
   }
@@ -86,7 +92,7 @@ export class TeachersComponent {
   onSubjectChange(event: Event) {
     const checkbox = event.target as HTMLInputElement;
     const value = checkbox.value;
-    if(checkbox.checked) {
+    if (checkbox.checked) {
       this.selectedBranches.push(Number(value));
     } else {
       this.selectedBranches = this.selectedBranches.filter((option) => option !== Number(value));
@@ -100,7 +106,7 @@ export class TeachersComponent {
   onPriceChange(event: Event) {
     const checkbox = event.target as HTMLInputElement;
     const value = checkbox.value;
-    if(checkbox.checked) {
+    if (checkbox.checked) {
       this.selectedPrices.push(Number(value));
     } else {
       this.selectedPrices = this.selectedPrices.filter((option) => option !== Number(value));
@@ -114,7 +120,7 @@ export class TeachersComponent {
   onAverageChange(event: Event) {
     const checkbox = event.target as HTMLInputElement;
     const value = checkbox.value;
-    if(checkbox.checked) {
+    if (checkbox.checked) {
       this.selectedAverages.push(Number(value));
     } else {
       this.selectedAverages = this.selectedAverages.filter((option) => option !== Number(value));
