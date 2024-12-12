@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, inject, ViewChild} from '@angular/core';
 import {ChatElementComponent} from "../../components/chats/chat-element/chat-element.component";
 import {MessageComponent} from "../../components/chats/message/message.component";
 import {ChatsService} from "../../services/chats.service";
@@ -7,6 +7,7 @@ import {IChatInfoResponse} from "../../interfaces/iChatInfoResponse";
 import Swal from "sweetalert2";
 import {NgForOf} from "@angular/common";
 import {IMessageInfoResponse} from "../../interfaces/iMessageInfoResponse";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-chats',
@@ -14,12 +15,13 @@ import {IMessageInfoResponse} from "../../interfaces/iMessageInfoResponse";
   imports: [
     ChatElementComponent,
     MessageComponent,
-    NgForOf
+    NgForOf,
+    FormsModule
   ],
   templateUrl: './chats.component.html',
   styleUrl: './chats.component.css'
 })
-export class ChatsComponent {
+export class ChatsComponent{
 
   chatsService = inject(ChatsService);
   authService = inject(AuthService);
@@ -27,9 +29,11 @@ export class ChatsComponent {
   messages: IMessageInfoResponse [] = [];
 
   userId: number | null = 0;
+  actualChatId: number = 0;
   actualChatImage: string = "";
   actualChatName: string = "";
   actualChatLastNames: string = "";
+  message: string = "";
 
   ngOnInit(): void {
     this.getUserId();
@@ -44,7 +48,9 @@ export class ChatsComponent {
 
   getMessages(chatId: number): void{
     this.chatsService.getChatMessages(this.authService.getToken(), chatId)
-      .then((response) => this.messages = response.data)
+      .then((response) => {
+        this.messages = response.data;
+      })
       .catch((error) => Swal.fire('Error', error.message, 'error'));
   }
 
@@ -53,13 +59,15 @@ export class ChatsComponent {
     if(token) this.userId = token.id;
   }
 
-  sendMessage(chatId: number, content: string): void {
-    this.chatsService.sendMessage(this.authService.getToken(), chatId, content, this.userId)
-      .then(() => this.getMessages(chatId))
+  sendMessage(): void {
+    this.chatsService.sendMessage(this.authService.getToken(), this.actualChatId, this.message, this.userId)
+      .then(() => this.getMessages(this.actualChatId))
       .catch((error) => Swal.fire('Error', error.message, 'error'));
+    this.message = "";
   }
 
   setActualChat(chatId: number, name: string, lastNames: string, image:string): void {
+    this.actualChatId = chatId;
     this.actualChatName = name;
     this.actualChatLastNames = lastNames;
     this.actualChatImage = image;

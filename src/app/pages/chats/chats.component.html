@@ -1,5 +1,5 @@
-<div class="d-flex flex-row">
-  <section class="d-flex flex-column bg-primary" style="min-width: 35%">
+<div class="d-flex flex-row app-bg text-white">
+  <section class="d-flex flex-column" style="min-width: 35%">
     <div class="d-flex justify-content-center align-items-center" style="min-height: 10%" >
       <h2>Mis chats</h2>
     </div>
@@ -14,9 +14,9 @@
         </app-chat-element>
       </div>
     </section>
-    <div class="bg-primary" style="min-height: 65px"></div>
+    <div style="min-height: 10%; background-color: #4C4C6D"></div>
   </section>
-  <div class="d-flex flex-column conversation-section bg-info">
+  <div class="d-flex flex-column conversation-section">
     <div class="d-flex py-2 px-2" style="min-height: 10%; max-height: 10%">
       <div class="d-flex flex-row">
         <div style="padding-left: 1rem">
@@ -32,12 +32,13 @@
         <app-message
           [content]="message.content"
           [direction]="message.sender_id == userId ? 'row-reverse' : 'row'"
+          [color]="message.sender_id == userId ? '#D4A017' : 'grey'"
         ></app-message>
       </div>
     </div>
-    <div class="d-flex justify-content-center align-items-center gap-3"  style="min-height: 10%; max-height: 10%">
-      <input class="p-1 rounded-2" type="text" placeholder="Escribe aquí" style="min-width: 85%">
-      <button class="px-3 py-1 rounded-2">
+    <div class="d-flex justify-content-center align-items-center gap-3"  style="min-height: 10%; max-height: 10%; background-color: #4C4C6D">
+      <input [(ngModel)]="message" (keydown.enter)="sendMessage()" class="p-1 rounded-2" type="text" placeholder="Escribe aquí" style="min-width: 85%">
+      <button [disabled]="!message" (click)="sendMessage()" class="px-3 py-1 rounded-2">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send" viewBox="0 0 16 16">
           <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/>
         </svg>

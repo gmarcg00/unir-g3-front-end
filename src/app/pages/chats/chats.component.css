@@ -1,3 +1,7 @@
+.app-bg{
+  background-color: #00001B;
+}
+
 .chats-section{
   height: 72vh;
   overflow-y: auto;

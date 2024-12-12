@@ -10,7 +10,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ComoFuncionaComponent } from './pages/como-funciona/como-funciona.component';
 import { TestimoniosComponent } from './pages/testimonios/testimonios.component';
 import {authGuard} from "./guards/auth.guard";
-import {roleGuard} from "./guards/role.guard";
+import {chatGuard} from "./guards/chatGuard";
 import {ActiveTeachersComponent} from "./pages/active-teachers/active-teachers.component";
 import {StudentsComponent} from "./pages/students/students.component";
 import {HomeAdminComponent} from "./pages/home-admin/home-admin.component";
@@ -32,7 +32,7 @@ export const routes: Routes = [
     {path: "sign-in", component: SignInComponent},
     {path: "sign-up", component: SignUpComponent},
     {path: "teachers", component: TeachersComponent},
-    {path: "chats", component: ChatsComponent},
+    {path: "chats", component: ChatsComponent, canActivate: [chatGuard]},
     {path: "profile", component: ProfileComponent, canActivate: [authGuard]},
     {path: "admin/activate-teachers", component: ActiveTeachersComponent, canActivate: [authGuard]},
     {path: "admin/student-list", component: StudentsComponent, canActivate: [authGuard]},

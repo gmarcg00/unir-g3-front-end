@@ -8,6 +8,7 @@ import {Component, Input} from '@angular/core';
   styleUrl: './message.component.css'
 })
 export class MessageComponent {
+  @Input() color: string = "";
   @Input() content: string = "";
   @Input() direction: string = "";
 }
