@@ -35,7 +35,7 @@ export class SignInFormComponent {
       const response = await this.authService.signIn(email, password);
       localStorage.setItem("token", response.token);
       await Swal.fire("Success", "You have successfully signed in.", "success");
-      await this.router.navigateByUrl("/home");
+      await this.router.navigateByUrl("/dashboard");
       console.log(response);
     }catch (error: any){
       if(error.status === 401){

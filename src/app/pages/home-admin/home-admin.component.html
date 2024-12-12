@@ -1,0 +1,49 @@
+<div class="d-flex flex-column gap-4 justify-content-center align-items-center text-white app-bg">
+  <div class="d-flex flex-column justify-content-sm-start w-100 pt-3 text-center px-5">
+    <hr />
+    <h2>MAGOS Y BRUJAS EN ESPERA</h2>
+    <hr />
+  </div>
+  <div class="d-flex flex-wrap justify-content-center gap-3">
+    <div *ngFor="let teacher of teachers">
+      <app-teacher-card
+        [id]="teacher.id"
+        [name]="teacher.name"
+        [lastNames]="teacher.last_names"
+        [knowledgeBranches]="teacher.knowledge_branches"
+        [price]="teacher.price_hour"
+        [image]="teacher.image"
+      ></app-teacher-card>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center my-3">
+    <a class="btn btn-success btn-lg px-5 border-2 border-black" [routerLink]="['/admin/activate-teachers']"
+       aria-label="Ver todos los profesores">
+      VER TODOS
+    </a>
+  </div>
+
+  <div class="d-flex flex-column justify-content-sm-start w-100 pt-3 text-center px-5">
+    <hr />
+    <h2>LISTADO DE APRENDICES</h2>
+    <hr />
+  </div>
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+        <div *ngFor="let student of students">
+            <app-student-card
+                    [id]="student.id"
+                    [name]="student.name"
+                    [lastNames]="student.last_names"
+                    [image]="student.image"
+            >
+            </app-student-card>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center mt-3 mb-5">
+        <a class="btn btn-success btn-lg px-5 border-2 border-black" [routerLink]="['/admin/activate-teachers']"
+           aria-label="Ver todos los profesores">
+            VER TODOS
+        </a>
+    </div>
+</div>
