@@ -1,10 +1,10 @@
 import { Component, inject, Input } from '@angular/core';
 import { RouterLink, Router } from "@angular/router";
+import { NgIf, DecimalPipe } from "@angular/common";
 import { IData } from "../../interfaces/iData.interface";
 import { TeachersService } from "../../services/teachers.service";
 import { AuthService } from "../../services/auth.service";
 import Swal from "sweetalert2";
-import { NgIf, DecimalPipe } from "@angular/common";
 
 @Component({
   selector: 'app-teacher-card',
@@ -15,7 +15,7 @@ import { NgIf, DecimalPipe } from "@angular/common";
     DecimalPipe
   ],
   templateUrl: './teacher-card.component.html',
-  styleUrl: './teacher-card.component.css'
+  styleUrls: ['./teacher-card.component.css']
 })
 export class TeacherCardComponent {
   readonly ROLE_ADMIN = 1;
@@ -39,58 +39,6 @@ export class TeacherCardComponent {
     return this.knowledgeBranches.map(branch => branch.name);
   }
 
-  private handleError(error: any, message: string): void {
-    console.error('Error details:', error);
-    Swal.fire({
-      title: "Error",
-      text: message,
-      icon: "error",
-      confirmButtonText: 'OK'
-    });
-  }
-
-  async activateTeacher(id: number): Promise<void> {
-    if (this.loading) return;
-    this.loading = true;
-
-    try {
-      const token = this.authService.getToken();
-      await this.teachersService.activateTeacher(token, id);
-      await Swal.fire({
-        title: "Success",
-        text: "Teacher activated successfully",
-        icon: "success",
-        confirmButtonText: 'OK'
-      });
-      window.location.reload();
-    } catch (error) {
-      this.handleError(error, "An error occurred while activating the teacher");
-    } finally {
-      this.loading = false;
-    }
-  }
-
-  async deactivateTeacher(id: number): Promise<void> {
-    if (this.loading) return;
-    this.loading = true;
-
-    try {
-      const token = this.authService.getToken();
-      await this.teachersService.deactivateTeacher(token, id);
-      await Swal.fire({
-        title: "Success",
-        text: "Teacher deactivated successfully",
-        icon: "success",
-        confirmButtonText: 'OK'
-      });
-      window.location.reload();
-    } catch (error) {
-      this.handleError(error, "An error occurred while deactivating the teacher");
-    } finally {
-      this.loading = false;
-    }
-  }
-
   async contactTeacher(id: number): Promise<void> {
     if (this.loading) return;
     this.loading = true;
@@ -102,5 +50,57 @@ export class TeacherCardComponent {
     } finally {
       this.loading = false;
     }
+  }
+
+  async activateTeacher(id: number): Promise<void> {
+    if (this.loading) return;
+    this.loading = true;
+
+    try {
+      const token = this.authService.getToken();
+      await this.teachersService.activateTeacher(token, id);
+      this.isValidated = true;
+      Swal.fire({
+        title: "Success",
+        text: "Teacher activated successfully",
+        icon: "success",
+        confirmButtonText: 'OK'
+      });
+    } catch (error) {
+      this.handleError(error, "Unable to activate teacher");
+    } finally {
+      this.loading = false;
+    }
+  }
+
+  async deactivateTeacher(id: number): Promise<void> {
+    if (this.loading) return;
+    this.loading = true;
+
+    try {
+      const token = this.authService.getToken();
+      await this.teachersService.activateTeacher(token, id);
+      this.isValidated = false;
+      Swal.fire({
+        title: "Success",
+        text: "Teacher deactivated successfully",
+        icon: "success",
+        confirmButtonText: 'OK'
+      });
+    } catch (error) {
+      this.handleError(error, "Unable to deactivate teacher");
+    } finally {
+      this.loading = false;
+    }
+  }
+
+  private handleError(error: any, message: string): void {
+    console.error('Error details:', error);
+    Swal.fire({
+      title: "Error",
+      text: message,
+      icon: "error",
+      confirmButtonText: 'OK'
+    });
   }
 }

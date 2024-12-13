@@ -28,15 +28,16 @@
         </button>
         <button *ngIf="isValidated" (click)="deactivateTeacher(id)" class="btn btn-lg btn-danger" [disabled]="loading"
           aria-label="Desactivar profesor">
-          {{loading ? 'PROCESANDO...' : 'DAR BAJA'}}
+          {{loading ? 'PROCESANDO...' : 'DESACTIVAR'}}
         </button>
       </ng-container>
 
-      <!-- Student contact button -->
-      <button *ngIf="authService.getRole() === ROLE_STUDENT" (click)="contactTeacher(id)" class="btn btn-lg btn-primary"
-        [disabled]="loading" aria-label="Contactar profesor">
-        {{loading ? 'PROCESANDO...' : 'CONTACTAR'}}
-      </button>
+      <!-- Student buttons -->
+      <ng-container *ngIf="authService.getRole() === ROLE_STUDENT">
+        <button class="btn btn-lg btn-primary" (click)="contactTeacher(id)" aria-label="Contactar profesor">
+          CONTACTAR
+        </button>
+      </ng-container>
     </div>
   </div>
 </div>
