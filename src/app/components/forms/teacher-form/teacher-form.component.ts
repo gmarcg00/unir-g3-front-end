@@ -82,12 +82,12 @@ export class TeacherFormComponent {
     try{
       const response  = await this.authService.teacherSignUp(name,lastNames,phone,this.selectedImageBase64,this.selectedOptions,about,10,username,email,password,this.latitude,this.longitude);
       localStorage.setItem("token", response.token);
-      await Swal.fire("Success", "You have successfully signed up.", "success");
+      await Swal.fire("Éxito", "Ha iniciado sesión correctamente.", "success");
       await this.router.navigateByUrl("/dashboard");
     }catch (error: any){
       if(error.status === 409){
         const code = error.error?.code;
-        if(code === "CONFLICT") await Swal.fire("Error", "Email or username already used.", "error");
+        if(code === "CONFLICT") await Swal.fire("Error", "Correo electrónico o nombre de usuario ya utilizado.", "error");
       }
     }
   }

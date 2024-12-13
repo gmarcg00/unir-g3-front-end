@@ -36,11 +36,11 @@ export class TeacherCardComponent {
     const token = this.authService.getToken();
     this.teachersService.activateTeacher(token,id)
       .then(async () => {
-        await Swal.fire("Success", "Teacher activated successfully", "success");
+        await Swal.fire("Éxito", "Profesor activado correctamente", "success");
         window.location.reload();
       })
       .catch(async () => {
-        await Swal.fire("Error", "An error occurred while activating the teacher", "error");
+        await Swal.fire("Error", "Se ha producido un error al activar el profesor", "error");
       });
   }
 

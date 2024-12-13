@@ -31,7 +31,7 @@ export class HeaderComponent {
 
   async signOut(): Promise<void> {
     this.authService.signOut();
-    await Swal.fire("Success", "You have successfully signed out.", "success");
+    await Swal.fire("Éxito", "Ha iniciado sesión correctamente.", "success");
     await this.router.navigateByUrl("/home");
     this.refreshHeader();
   }

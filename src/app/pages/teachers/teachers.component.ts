@@ -60,7 +60,7 @@ export class TeachersComponent {
   async getKnowledgeBranches(){
     this.teachersService.getKnowledgeBranches()
       .then(response => this.knowledgeBranches = response.data)
-      .catch(() => Swal.fire("Error","An error occurred while fetching the data","error"));
+      .catch(() => Swal.fire("Error","Se ha producido un error al obtener los datos","error"));
   }
 
   async getTeachers() : Promise<void> {

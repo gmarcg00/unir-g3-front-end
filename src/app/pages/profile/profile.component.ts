@@ -31,7 +31,7 @@ export class ProfileComponent {
   async ngOnInit(){
     const token = this.authService.getTokenPayload();
     if(!token){
-      Swal.fire("Error", "You must be logged in to access this page.", "error");
+      Swal.fire("Error", "Debe iniciar sesión para acceder a esta página.", "error");
       this.router.navigateByUrl("/home");
     }
     this.setUserRole(token?.role || 0)
@@ -83,7 +83,7 @@ export class ProfileComponent {
 
   async signOut(): Promise<void> {
     this.authService.signOut();
-    await Swal.fire("Success", "You have successfully signed out.", "success");
+    await Swal.fire("Éxito", "Ha cerrado sesión correctamente.", "success");
     await this.router.navigateByUrl("/home");
   }
 

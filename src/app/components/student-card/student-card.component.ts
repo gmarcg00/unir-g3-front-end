@@ -28,11 +28,11 @@ export class StudentCardComponent {
     const token = this.authService.getToken();
     this.studentsService.deactivateStudent(token,id)
       .then(async () => {
-        await Swal.fire("Success", "Student deactivated successfully", "success");
+        await Swal.fire("Success", "Alumno desactivado correctamente", "success");
         window.location.reload();
       })
       .catch(async () => {
-        await Swal.fire("Error", "An error occurred while deactivating the student", "error");
+        await Swal.fire("Error", "Se ha producido un error al desactivar el estudiante", "error");
       });
   }
 }

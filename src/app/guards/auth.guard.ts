@@ -7,7 +7,7 @@ export const authGuard: CanActivateFn = async (route, state) => {
   const token = localStorage.getItem('token');
 
   if(token) return true;
-  await Swal.fire('Error', 'You must be signed in to access this page.', 'warning');
+  await Swal.fire('Error', 'Debe iniciar sesión para acceder a esta página.', 'warning');
   await router.navigateByUrl('/sign-in');
   return false;
 };

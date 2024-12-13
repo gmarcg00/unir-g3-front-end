@@ -37,12 +37,12 @@ export class HomeAdminComponent {
    getTeachers(): void {
     this.teachersService.getNonActiveTeachers(1,8)
       .then(response => this.teachers = response.data)
-      .catch( () => Swal.fire('Error', 'An error occurred while fetching the teachers.', 'error'))
+      .catch( () => Swal.fire('Error', 'Se ha producido un error al obtener los profesores.', 'error'))
   }
 
   getStudents(): void{
     this.studentsService.getAll(1,8)
       .then(response => this.students = response.data)
-      .catch( () => Swal.fire('Error', 'An error occurred while fetching the students.', 'error'));
+      .catch( () => Swal.fire('Error', 'Se ha producido un error al recuperar los estudiantes.', 'error'));
   }
 }
