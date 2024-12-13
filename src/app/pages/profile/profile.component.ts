@@ -6,7 +6,6 @@ import { Router } from "@angular/router";
 import { NgClass, NgIf } from "@angular/common";
 import { UserService } from "../../services/user.service";
 import { IAdminInfoResponseInterface } from "../../interfaces/iAdminInfoResponse.interface";
-import { IListResponseInterface } from "../../interfaces/iListResponse.interface";
 import { IStudentInfoInterface } from "../../interfaces/iStudentInfo.interface";
 import { ITeacherInfoInterface } from "../../interfaces/iTeacherInfoInterface";
 import { HttpClient } from '@angular/common/http';
@@ -16,7 +15,7 @@ import { HttpClient } from '@angular/common/http';
   standalone: true,
   imports: [ProfilePreviewComponent, NgClass, NgIf],
   templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css'
+  styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
   authService = inject(AuthService);
@@ -35,8 +34,9 @@ export class ProfileComponent {
     if (!token) {
       Swal.fire("Error", "You must be logged in to access this page.", "error");
       this.router.navigateByUrl("/home");
+      return;
     }
-    this.setUserRole(token?.role || 0)
+    this.setUserRole(token?.role || 0);
     await this.getData(token?.id || 0);
   }
 
@@ -100,6 +100,7 @@ export class ProfileComponent {
       await Swal.fire("Error", "Failed to update student profile.", "error");
     }
   }
+
   async editTeacherProfile(teacherData: ITeacherInfoInterface): Promise<void> {
     try {
       const updatedTeacherData = await this.http.put<ITeacherInfoInterface>(`/api/teachers/${teacherData.id}`, teacherData).toPromise();

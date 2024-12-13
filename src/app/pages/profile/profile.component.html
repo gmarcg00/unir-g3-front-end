@@ -43,7 +43,7 @@
         </div>
 
         <div *ngIf="isTeacher()" class="d-flex flex-column gap-2 w-100">
-          <button (click)="editTeacherProfile()" class="boton-editar-perfil">
+          <button *ngIf="teacherData" (click)="editTeacherProfile(teacherData)" class="boton-editar-perfil">
             <i class="fas fa-edit"></i> Editar perfil
           </button>
           <div class="d-flex flex-column gap-2 text-center mb-2">
@@ -82,7 +82,7 @@
         </div>
 
         <div *ngIf="isStudent()" class="d-flex flex-column gap-2 w-100">
-          <button (click)="editStudentProfile()" class="boton-editar-perfil">
+          <button *ngIf="studentData" (click)="editStudentProfile(studentData)" class="boton-editar-perfil">
             <i class="fas fa-edit"></i> Editar perfil
           </button>
         </div>
