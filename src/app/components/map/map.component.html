@@ -1,14 +1,14 @@
 <google-map width="100%" [zoom]="12" [center]="position">
   @for(teacher of teachers; track teacher.id){
-  <map-marker
-    #miMarker="mapMarker"
-    [position]="getPosition(teacher.latitude, teacher.longitude)"
-    (mapClick)="openInfoWindow(miMarker, infoWindow)"
-  >
+  <map-marker #miMarker="mapMarker" [position]="getPosition(teacher.latitude, teacher.longitude)"
+    (mapClick)="openInfoWindow(miMarker, infoWindow)">
     <map-info-window #infoWindow="mapInfoWindow">
-      <h5>{{ teacher.name }}</h5>
+      <img src="{{teacher.image}}" class="rounded-circle card-img w-75">
+      <hr>
+      <h5>{{ teacher.name}} {{ teacher.last_names }}</h5>
+      <button class="btn btn-sm btn-success" [routerLink]="['/teachers', teacher.id]">Ver perfil</button>
     </map-info-window>
   </map-marker>
   }
-  <map-marker [position]="position"></map-marker>
+  <map-marker [position]=" position"></map-marker>
 </google-map>
