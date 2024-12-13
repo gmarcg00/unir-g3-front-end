@@ -2,18 +2,24 @@ import { Component, inject, Output } from '@angular/core';
 import { ProfilePreviewComponent } from '../../components/profile-preview/profile-preview.component';
 import { AuthService } from "../../services/auth.service";
 import Swal from "sweetalert2";
+import { NgForOf } from "@angular/common";
 import { Router } from "@angular/router";
 import { NgClass, NgIf } from "@angular/common";
 import { UserService } from "../../services/user.service";
+import { TeachersService } from "../../services/teachers.service";
+import { StudentsService } from "../../services/students.service";
 import { IAdminInfoResponseInterface } from "../../interfaces/iAdminInfoResponse.interface";
 import { IListResponseInterface } from "../../interfaces/iListResponse.interface";
 import { IStudentInfoInterface } from "../../interfaces/iStudentInfo.interface";
 import { ITeacherInfoInterface } from "../../interfaces/iTeacherInfoInterface";
+import { StudentCardComponent } from "../../components/student-card/student-card.component";
+import { TeacherCardComponent } from "../../components/teacher-card/teacher-card.component";
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [ProfilePreviewComponent, NgClass, NgIf],
+  imports: [NgClass, NgIf,
+    StudentCardComponent,TeacherCardComponent, NgForOf],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
@@ -26,7 +32,37 @@ export class ProfileComponent {
   @Output() adminData: IAdminInfoResponseInterface | undefined;
   @Output() teacherData: ITeacherInfoInterface | undefined;
   @Output() studentData: IStudentInfoInterface | undefined;
+   teachersService = inject(TeachersService);
+    studentsService = inject(StudentsService);
+    teachers: ITeacherInfoInterface[] = [];
+    students: IStudentInfoInterface[] = [];
 
+
+  getTeachers(): void {
+      this.teachersService.getNonActiveTeachers(1, 8)
+        .then(response => this.teachers = response.data)
+        .catch(() => Swal.fire({
+          title: 'Ha ocurrido un error',
+          text: 'mientras se cargaban los profesores',
+          icon: 'error',
+          background: "#740001",
+          color: "#D4A017"
+        })
+        );
+    }
+
+    getStudents(): void {
+        this.studentsService.getAll(1, 8)
+          .then(response => this.students = response.data)
+          .catch(() => Swal.fire({
+            title: 'Ha ocurrido un error',
+            text: 'mientras se cargaban los estudiantes',
+            icon: 'error',
+            background: "#740001",
+            color: "#D4A017"
+          })
+          );
+      }
 
   async ngOnInit() {
     const token = this.authService.getTokenPayload();
