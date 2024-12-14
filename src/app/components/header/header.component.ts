@@ -42,6 +42,17 @@ export class HeaderComponent {
     }
   }
 
+  goHome(): void {
+    const token = this.authService.getToken();
+    if(!token) this.router.navigateByUrl("/home");
+    else{
+      const role = this.authService.getRole();
+      if(role === 1) this.router.navigateByUrl("/dashboard/admin");
+      else if(role === 2) this.router.navigateByUrl("/dashboard/teacher");
+      else if(role === 3) this.router.navigateByUrl("/dashboard/student");
+    }
+  }
+
   async signOut(): Promise<void> {
     this.authService.signOut();
     await Swal.fire({

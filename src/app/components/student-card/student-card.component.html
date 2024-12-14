@@ -7,7 +7,7 @@
     <div class="position-absolute position-button d-flex gap-2 justify-content-center">
       <button
         class="btn btn-lg btn-success"
-        routerLink="['']"
+        [routerLink]="['/profile']"
       > VER PERFIL</button>
       <button
         *ngIf="authService.getRole() === 1"

@@ -1,7 +1,7 @@
 <header>
 
   <div class="logo">
-    <a [routerLink]="['/home']">
+    <a (click)="goHome()">
       <img src="images/logos/hogwarts-logo.png" alt="Hogwarts Logo" id="hogwarts-logo" />
       <span>Hogwarts Profesores</span>
     </a>
@@ -32,8 +32,7 @@
         <!-- TEACHER ROLE-->
         @if (activeTeacher){
           <!-- cambiar router links chat a la ruta que sea necesaria -->
-          <li><a [routerLink]="['/dashboard/chats']">CHATS</a></li>
-          <li><a [routerLink]="['/teachers']">Ver alumnos</a></li>
+          <li><a [routerLink]="['/chats']">CHATS</a></li>
           <li class="pointer">
             <svg [routerLink]="['/profile']" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
                  class="bi bi-person" viewBox="0 0 16 16">
@@ -51,6 +50,7 @@
       <div *ngIf="actualRole === 3" class="d-flex">
         <!-- STUDENT ROLE-->
         <li><a [routerLink]="['/teachers']">Buscar profesores</a></li>
+        <li><a [routerLink]="['/chats']">CHATS</a></li>
         <li><a [routerLink]="['/home']" (click)="signOut()">Salir</a></li>
         <li class="pointer">
           <svg [routerLink]="['/profile']" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
