@@ -1,3 +1,7 @@
 .pointer{
   cursor: pointer;
 }
+
+.app-bg {
+  background-color: #00001B;
+}

@@ -3,7 +3,7 @@ import { ProfilePreviewComponent } from '../../components/profile-preview/profil
 import { AuthService } from "../../services/auth.service";
 import Swal from "sweetalert2";
 import { NgForOf } from "@angular/common";
-import { Router } from "@angular/router";
+import {Router, RouterLink} from "@angular/router";
 import { NgClass, NgIf } from "@angular/common";
 import { UserService } from "../../services/user.service";
 import { TeachersService } from "../../services/teachers.service";
@@ -19,7 +19,7 @@ import { TeacherCardComponent } from "../../components/teacher-card/teacher-card
   selector: 'app-profile',
   standalone: true,
   imports: [NgClass, NgIf,
-    StudentCardComponent,TeacherCardComponent, NgForOf],
+    StudentCardComponent, TeacherCardComponent, NgForOf, RouterLink],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
