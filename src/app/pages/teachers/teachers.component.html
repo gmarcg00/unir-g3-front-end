@@ -1,15 +1,14 @@
-<div class="d-flex flex-column gap-4 justify-content-center align-items-center">
-  <div class="d-flex flex-column justify-content-sm-start w-100 pt-3">
+<div class="d-flex flex-column  justify-content-center align-items-center app-bg">
+  <div class="d-flex flex-column justify-content-center w-100">
     <h2 class="m-0">LISTADO DE PROFESORES</h2>
-    <hr />
   </div>
-  <div class="d-flex flex-column flex-sm-row gap-3 w-100 ">
-    <div class="d-flex flex-column w-25">
+  <div class="d-flex flex-column flex-sm-row gap-3 w-100 filter-container">
+    <div class="d-flex flex-column w-25 left">
       <div class="my-2">
         <div (click)="toggleBranchesDropdown()" class="d-flex flex-row my-2 gap-5 pointer">
           <label class="form-label">Ramas de conocimiento</label>
           <div *ngIf="!isBranchesDropdownOpen">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16" style="color: white;">
               <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
             </svg>
           </div>
@@ -37,7 +36,7 @@
         <div (click)="togglePriceDropdown()" class="d-flex flex-row my-2 gap-5 pointer">
           <label class="form-label">Precio por hora</label>
           <div *ngIf="!isPriceDropdownOpen">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16" style="color: white;">
               <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
             </svg>
           </div>
@@ -61,7 +60,7 @@
         <div (click)="toggleAverageDropdown()" class="d-flex flex-row my-2 gap-5 pointer">
           <label class="form-label">Puntuación</label>
           <div *ngIf="!isAverageDropdownOpen">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16" style="color: white;">
               <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
             </svg>
           </div>
@@ -107,7 +106,7 @@
               class="page-item"
               [class.disabled]="currentPage === 1"
               (click)="changePage(currentPage - 1)">
-              <a class="page-link pointer">Previous</a>
+              <a class="page-link pointer">Anterior</a>
             </li>
 
             <!-- Botones de páginas -->
@@ -124,7 +123,7 @@
               class="page-item"
               [class.disabled]="currentPage === totalPages"
               (click)="changePage(currentPage + 1)">
-              <a class="page-link pointer">Next</a>
+              <a class="page-link pointer buttons">Siguiente</a>
             </li>
           </ul>
         </nav>

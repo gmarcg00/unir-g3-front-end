@@ -3,7 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { environment } from "../../environments/environment";
 import { IListResponseInterface } from "../interfaces/iListResponse.interface";
 import { firstValueFrom } from "rxjs";
-import { Observable } from 'rxjs';
+
 import { ITeacherInfoInterface } from '../interfaces/iTeacherInfoInterface';
 
 @Injectable({
@@ -14,9 +14,8 @@ export class TeachersService {
   private httpClient = inject(HttpClient);
   private teachersUrl = `${environment.API_URL}/teachers`;
   private knowledgeBranchesUrl = `${environment.API_URL}/knowledge-branches`;
-  private apiUrl = 'http://localhost:3000/api';
+  private apiUrl: string = `${environment.API_URL}/teachers`;
 
-  constructor(private http: HttpClient) {}
 
   getTeachers(page: number, pageSize: number, branches: number[], prices: number[], averages: number[], latitude: number, longitude: number, range: number): Promise<IListResponseInterface> {
     let url: string = `${this.teachersUrl}?page=${page}&page_size=${pageSize}`;
@@ -48,16 +47,20 @@ export class TeachersService {
     return firstValueFrom(this.httpClient.get<IListResponseInterface>(`${this.knowledgeBranchesUrl}`));
   }
 
+  getTeachersByCity(city: string, distance: number) {
+    return firstValueFrom(
+      this.httpClient.get<{ data: ITeacherInfoInterface[] }>(
+        `${this.teachersUrl}?city=${city}&distance=${distance}`
+      )
+    );
+  }
+
   getStudentsByTeacher(id: number): Promise<IListResponseInterface> {
     return firstValueFrom(this.httpClient.get<IListResponseInterface>(`${this.teachersUrl}/${id}/students`));
   }
 
   getTeacherInfo(id: number): Promise<ITeacherInfoInterface> {
     return firstValueFrom(this.httpClient.get<ITeacherInfoInterface>(`${this.teachersUrl}/${id}/info`));
-  }
-
-  getPendingTeachers(): Observable<ITeacherInfoInterface[]> {
-    return this.http.get<ITeacherInfoInterface[]>(`${this.apiUrl}/teachers/pending`);
   }
 
 }

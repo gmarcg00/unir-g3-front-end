@@ -1,48 +1,53 @@
 <div class="d-flex flex-column justify-content-center align-items-center app-bg">
-
-  <section>
-    <div class="px-4">
-      <h2 class="text-center text-white pt-3 pb-1 mb-0">¿Quieres aprender de los mejores hechizeros del mundo? Cada mago legendario empezó como un estudiante decidido.Nuestros profesores te guiarán en un viaje mágico para descubrir tus poderes ocultos.</h2>
-      <hr />
+  <section class="title">
+    <div class="px-4 title-phrase">
+      <h2 class="text-center text-white pt-3 pb-1 mb-0">
+        ¿Quieres aprender de los mejores hechiceros del mundo? Cada mago legendario empezó como un estudiante decidido. Nuestros profesores te guiarán en un viaje mágico para descubrir tus poderes ocultos.
+      </h2>
     </div>
   </section>
 
   <!-- Best Rated Teachers Section -->
-  <section class="d-flex flex-column gap-2 my-2 w-100 text-white  border border-4 border-black shadow">
-    <div class="px-4">
+  <section class="d-flex flex-column gap-2 my-2 w-100 text-white ">
+    <div class="px-4 subtitle">
       <h2 class="text-center pt-3 pb-1 mb-0">ENCUENTRA A LOS MEJORES MAGOS Y BRUJAS</h2>
-      <hr />
     </div>
-    <div class="d-flex flex-row px-3 pb-2">
-      <div class="d-flex flex-column gap-2 w-50 h-100 px-2">
-        <div class="" style="max-height: 60%">
-          <app-map [range]="distance" aria-label="Mapa de profesores cercanos"></app-map>
-        </div>
-        <div class="d-flex flex-column gap-3 h-100 text-center py-2 px-2" style="min-height: 40%">
-          <h4>AGITA TU VARITA PARA SELECCIONA TUS PREFERENCIAS</h4>
-          <div class="d-flex flex-row gap-3 w-100">
-            <div class="d-flex justify-content-center align-items-center">
+    <div class="d-flex flex-column flex-md-row gap-3 w-100">
+      <div class="d-flex flex-column gap-3 w-100 w-md-50 px-2">
+        <div class="d-flex flex-column gap-3 h-100 text-center py-2 px-2" style="padding: 0 !important;">
+
+          <!-- Selección del radio de búsqueda -->
+          <div class="d-flex flex-column gap-3 w-100 mt-3">
+            <div class="d-flex justify-content-center align-items-center w-100">
               <h6 class="mb-0">Selecciona el radio de búsqueda</h6>
             </div>
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"
-                      aria-label="Seleccionar distancia">
-                {{ distance }} KM
-              </button>
-              <ul class="dropdown-menu" role="menu">
-                <li><a class="dropdown-item" (click)="selectDistance(1)" role="menuitem">1 KM</a></li>
-                <li><a class="dropdown-item" (click)="selectDistance(2)" role="menuitem">2 KM</a></li>
-                <li><a class="dropdown-item" (click)="selectDistance(5)" role="menuitem">5 KM</a></li>
-                <li><a class="dropdown-item" (click)="selectDistance(10)" role="menuitem">10 KM</a></li>
-                <li><a class="dropdown-item" (click)="selectDistance(20)" role="menuitem">20 KM</a></li>
-                <li><a class="dropdown-item" (click)="selectDistance(30)" role="menuitem">30 KM</a></li>
-              </ul>
+            <div class="d-flex justify-content-center align-items-center w-100">
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Seleccionar distancia">
+                  {{ distance }} KM
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a class="dropdown-item" (click)="selectDistance(1)" role="menuitem">1 KM</a></li>
+                  <li><a class="dropdown-item" (click)="selectDistance(2)" role="menuitem">2 KM</a></li>
+                  <li><a class="dropdown-item" (click)="selectDistance(5)" role="menuitem">5 KM</a></li>
+                  <li><a class="dropdown-item" (click)="selectDistance(10)" role="menuitem">10 KM</a></li>
+                  <li><a class="dropdown-item" (click)="selectDistance(20)" role="menuitem">20 KM</a></li>
+                  <li><a class="dropdown-item" (click)="selectDistance(30)" role="menuitem">30 KM</a></li>
+                </ul>
+              </div>
             </div>
           </div>
-
         </div>
+
+        <!-- Mapa -->
+        <div class="map-container" style="flex-grow: 1; max-height: 60%; overflow: hidden;">
+          <app-map [range]="distance" aria-label="Mapa de profesores cercanos"></app-map>
+        </div>
+
       </div>
-      <div class="w-50 px-2">
+
+      <!-- Listado de profesores -->
+      <div class="w-100 w-md-50 px-2">
         <div class="d-flex flex-wrap justify-content-center gap-2 mb-4" style="min-height:450px">
           <div *ngIf="isLoading" class="d-flex justify-content-center align-items-center" aria-live="polite">
             <div class="spinner-border" role="status" style="width: 5rem; height: 5rem;">
@@ -63,7 +68,6 @@
           </a>
         </div>
       </div>
-
     </div>
   </section>
 </div>

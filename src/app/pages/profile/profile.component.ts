@@ -45,8 +45,8 @@ export class ProfileComponent {
           title: 'Ha ocurrido un error',
           text: 'mientras se cargaban los profesores',
           icon: 'error',
-          background: "#740001",
-          color: "#D4A017"
+            background: "#202020",
+            color: "#fff",
         })
         );
     }
@@ -58,8 +58,8 @@ export class ProfileComponent {
             title: 'Ha ocurrido un error',
             text: 'mientras se cargaban los estudiantes',
             icon: 'error',
-            background: "#740001",
-            color: "#D4A017"
+              background: "#202020",
+              color: "#fff",
           })
           );
       }
@@ -71,8 +71,8 @@ export class ProfileComponent {
         title: 'Error !!',
         text: 'Debes entrar en tu cuenta para ver esta página',
         icon: 'error',
-        background: "#740001",
-        color: "#D4A017"
+        background: "#202020",
+        color: "#fff",
       })
       this.router.navigateByUrl("/home");
     }

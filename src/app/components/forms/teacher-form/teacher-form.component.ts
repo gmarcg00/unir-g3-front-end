@@ -89,7 +89,6 @@ export class TeacherFormComponent {
         showConfirmButton: false,
         timer: 1500
       })
-
       await this.router.navigateByUrl("/dashboard");
     } catch (error: any) {
       if (error.status === 409) {
@@ -99,8 +98,8 @@ export class TeacherFormComponent {
             title: "Error",
             text: "El correo o el usuario ya está en uso",
             icon: "error",
-            background: "#740001",
-            color: "#D4A017"
+            background: "#202020",
+            color: "#fff",
           })
       }
     }

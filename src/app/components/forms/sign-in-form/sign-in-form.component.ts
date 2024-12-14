@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from "../../../services/auth.service";
-import { HttpErrorResponse } from "@angular/common/http";
+
 import Swal from 'sweetalert2';
 import { Router, RouterLink } from "@angular/router";
 
@@ -10,11 +10,11 @@ import { Router, RouterLink } from "@angular/router";
   standalone: true,
   imports: [ReactiveFormsModule, RouterLink],
   templateUrl: './sign-in-form.component.html',
-  styleUrl: './sign-in-form.component.css'
+  styleUrls: ['./sign-in-form.component.css']
 })
 export class SignInFormComponent {
   modelForm: FormGroup;
-  router = inject(Router)
+  router = inject(Router);
   authService = inject(AuthService);
 
   constructor() {
@@ -26,7 +26,7 @@ export class SignInFormComponent {
       password: new FormControl(null, [
         Validators.minLength(3)
       ])
-    })
+    });
   }
 
   async signIn() {
@@ -56,8 +56,7 @@ export class SignInFormComponent {
         });
       }
     }
-
-    console.log(this.modelForm.value);
     this.modelForm.reset();
   }
 }
+

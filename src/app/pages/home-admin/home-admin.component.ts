@@ -3,7 +3,6 @@ import { NgForOf } from "@angular/common";
 import { TeacherCardComponent } from "../../components/teacher-card/teacher-card.component";
 import { TeachersService } from "../../services/teachers.service";
 import { ITeacherInfoInterface } from "../../interfaces/iTeacherInfoInterface";
-import { IListResponseInterface } from "../../interfaces/iListResponse.interface";
 import Swal from "sweetalert2";
 import { RouterLink } from "@angular/router";
 import { StudentsService } from "../../services/students.service";
@@ -43,8 +42,7 @@ export class HomeAdminComponent {
         icon: 'error',
         background: "#740001",
         color: "#D4A017"
-      })
-      );
+      }));
   }
 
   getStudents(): void {
@@ -56,7 +54,6 @@ export class HomeAdminComponent {
         icon: 'error',
         background: "#740001",
         color: "#D4A017"
-      })
-      );
+      }));
   }
 }
