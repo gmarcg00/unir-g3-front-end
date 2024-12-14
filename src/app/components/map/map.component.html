@@ -3,10 +3,12 @@
   <map-marker #miMarker="mapMarker" [position]="getPosition(teacher.latitude, teacher.longitude)"
     (mapClick)="openInfoWindow(miMarker, infoWindow)">
     <map-info-window #infoWindow="mapInfoWindow">
-      <img src="{{teacher.image}}" class="rounded-circle card-img w-75">
-      <hr>
-      <h5>{{ teacher.name}} {{ teacher.last_names }}</h5>
-      <button class="btn btn-sm btn-success" [routerLink]="['/teachers', teacher.id]">Ver perfil</button>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <img src="{{teacher.image}}" class="rounded-circle card-img w-50">
+        <hr>
+        <h5 class="text-dark">{{ teacher.name}} {{ teacher.last_names }}</h5>
+        <button class="btn btn-sm btn-success" [routerLink]="['/teachers', teacher.id]">Ver perfil</button>
+      </div>
     </map-info-window>
   </map-marker>
   }
