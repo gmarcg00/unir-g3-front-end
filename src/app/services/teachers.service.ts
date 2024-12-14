@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { environment } from "../../environments/environment";
 import { IListResponseInterface } from "../interfaces/iListResponse.interface";
 import { firstValueFrom } from "rxjs";
+
 import { ITeacherInfoInterface } from '../interfaces/iTeacherInfoInterface';
 
 @Injectable({
@@ -14,6 +15,7 @@ export class TeachersService {
   private teachersUrl = `${environment.API_URL}/teachers`;
   private knowledgeBranchesUrl = `${environment.API_URL}/knowledge-branches`;
   private apiUrl: string = `${environment.API_URL}/teachers`;
+
 
   getTeachers(page: number, pageSize: number, branches: number[], prices: number[], averages: number[], latitude: number, longitude: number, range: number): Promise<IListResponseInterface> {
     let url: string = `${this.teachersUrl}?page=${page}&page_size=${pageSize}`;
@@ -52,4 +54,13 @@ export class TeachersService {
       )
     );
   }
+
+  getStudentsByTeacher(id: number): Promise<IListResponseInterface> {
+    return firstValueFrom(this.httpClient.get<IListResponseInterface>(`${this.teachersUrl}/${id}/students`));
+  }
+
+  getTeacherInfo(id: number): Promise<ITeacherInfoInterface> {
+    return firstValueFrom(this.httpClient.get<ITeacherInfoInterface>(`${this.teachersUrl}/${id}/info`));
+  }
+
 }

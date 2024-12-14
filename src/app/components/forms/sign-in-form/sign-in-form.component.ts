@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from "../../../services/auth.service";
+
 import Swal from 'sweetalert2';
 import { Router, RouterLink } from "@angular/router";
 
@@ -33,60 +34,28 @@ export class SignInFormComponent {
     try {
       const response = await this.authService.signIn(email, password);
       localStorage.setItem("token", response.token);
-
-      // Personaliza el estilo del SweetAlert
       await Swal.fire({
-        title: "Éxito",
-        text: "Ha iniciado sesión correctamente.",
+        title: "Bienvenido",
+        text: "al hogar de la mágia",
         icon: "success",
-        confirmButtonText: 'Aceptar',
-        customClass: {
-          popup: 'swal-popup',
-          confirmButton: 'swal-confirm-button'
-        },
-        didOpen: () => {
-          const popup = document.querySelector('.swal-popup');
-          const button = document.querySelector('.swal-confirm-button');
-
-          // Aplicar estilos dinámicamente
-          if (popup) {
-            popup.setAttribute('style', 'font-family: "Open Sans", sans-serif; background-color: #FFFFFF !important;');
-          }
-          if (button) {
-            button.setAttribute('style', 'background-color: #D4A017 !important; color: white; border: none;');
-          }
-        }
-      });
-
+        background: "#202020",
+        color: "#fff",
+        showConfirmButton: false,
+        timer: 1500
+      })
       await this.router.navigateByUrl("/dashboard");
       console.log(response);
     } catch (error: any) {
       if (error.status === 401) {
         Swal.fire({
           title: "Error",
-          text: "Correo electrónico o contraseña no válidos",
+          text: "Email o password incorrectos",
           icon: "error",
-          customClass: {
-            popup: 'swal-popup',
-            confirmButton: 'swal-confirm-button'
-          },
-          didOpen: () => {
-            const popup = document.querySelector('.swal-popup');
-            const button = document.querySelector('.swal-confirm-button');
-
-            // Aplicar estilos dinámicamente
-            if (popup) {
-              popup.setAttribute('style', 'font-family: "Open Sans", sans-serif; background-color: #FFFFFF !important;');
-            }
-            if (button) {
-              button.setAttribute('style', 'background-color: #D4A017 !important; color: white; border: none;');
-            }
-          }
+          background: "#740001",
+          color: "#D4A017"
         });
       }
     }
-
-    console.log(this.modelForm.value);
     this.modelForm.reset();
   }
 }

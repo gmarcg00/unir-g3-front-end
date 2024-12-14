@@ -1,11 +1,11 @@
-import {Component, inject, Input} from '@angular/core';
-import { RouterLink} from "@angular/router";
-import {IData} from "../../interfaces/iData.interface";
-import {TeachersService} from "../../services/teachers.service";
-import {AuthService} from "../../services/auth.service";
-import {Router} from "@angular/router";
+import { Component, inject, Input } from '@angular/core';
+import { RouterLink } from "@angular/router";
+import { IData } from "../../interfaces/iData.interface";
+import { TeachersService } from "../../services/teachers.service";
+import { AuthService } from "../../services/auth.service";
+import { Router } from "@angular/router";
 import Swal from "sweetalert2";
-import {NgIf} from "@angular/common";
+import { NgIf } from "@angular/common";
 
 @Component({
   selector: 'app-teacher-card',
@@ -29,18 +29,30 @@ export class TeacherCardComponent {
   authService = inject(AuthService);
 
   getKnowledgeBranches(): string[] {
-      return this.knowledgeBranches.map(branch => branch.name);
+    return this.knowledgeBranches.map(branch => branch.name);
   }
 
   activateTeacher(id: number): void {
     const token = this.authService.getToken();
-    this.teachersService.activateTeacher(token,id)
+    this.teachersService.activateTeacher(token, id)
       .then(async () => {
-        await Swal.fire("Éxito", "Profesor activado correctamente", "success");
+        await Swal.fire({
+          title: 'Activado !!',
+          text: 'El profesaro a sido activado con exito',
+          icon: 'error',
+          background: "#202020",
+          color: "#fff"
+        })
         window.location.reload();
       })
       .catch(async () => {
-        await Swal.fire("Error", "Se ha producido un error al activar el profesor", "error");
+        await Swal.fire({
+          title: 'Error ha ocurrido ',
+          text: 'Mientras activabamos el profesor',
+          icon: 'error',
+          background: "#740001",
+          color: "#D4A017"
+        })
       });
   }
 

@@ -1,0 +1,16 @@
+.app-bg{
+  background-color: #00001B;
+}
+
+.chats-section{
+  height: 72vh;
+  overflow-y: auto;
+}
+
+.conversation-section{
+  min-width: 65%;
+}
+
+.bright:hover{
+  filter: brightness(1.2);
+}

@@ -8,30 +8,14 @@
   </section>
 
   <!-- Best Rated Teachers Section -->
-  <section class="d-flex flex-column gap-2 my-2 w-100 text-white border border-4 border-black shadow">
+  <section class="d-flex flex-column gap-2 my-2 w-100 text-white ">
     <div class="px-4 subtitle">
       <h2 class="text-center pt-3 pb-1 mb-0">ENCUENTRA A LOS MEJORES MAGOS Y BRUJAS</h2>
     </div>
     <div class="d-flex flex-column flex-md-row gap-3 w-100">
       <div class="d-flex flex-column gap-3 w-100 w-md-50 px-2">
-        <div class="d-flex flex-column gap-3 h-100 text-center py-2 px-2" style="padding: 0px !important;">
-          
-          <!-- Campo para ingresar la ciudad -->
-          <div class="d-flex flex-column gap-3 w-100">
-            <input 
-              type="text" 
-              class="form-control" 
-              [(ngModel)]="city" 
-              placeholder="Busca tu ciudad" 
-              aria-label="Buscar ciudad">
-            <button 
-              class="btn btn-primary" 
-              (click)="searchByCity()" 
-              aria-label="Buscar">
-              Buscar
-            </button>
-          </div>
-          
+        <div class="d-flex flex-column gap-3 h-100 text-center py-2 px-2" style="padding: 0 !important;">
+
           <!-- Selección del radio de búsqueda -->
           <div class="d-flex flex-column gap-3 w-100 mt-3">
             <div class="d-flex justify-content-center align-items-center w-100">
@@ -59,7 +43,7 @@
         <div class="map-container" style="flex-grow: 1; max-height: 60%; overflow: hidden;">
           <app-map [range]="distance" aria-label="Mapa de profesores cercanos"></app-map>
         </div>
-        
+
       </div>
 
       <!-- Listado de profesores -->
