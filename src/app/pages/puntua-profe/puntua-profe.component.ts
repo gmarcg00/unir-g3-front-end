@@ -18,7 +18,7 @@ import { ReviewsService } from '../../services/reviews.service';
 export class PuntuaProfeComponent {
 
   /// comporvar que es pasa els parametres
-  ///         pagina a app-routes
+  ///         pagina a app-routesgit 
   /// 1 comprobar que existe el review 
   /// Si existe coger los datos y mostrarlos en el formulario.
   /// 2 si no existe lo creamos.
