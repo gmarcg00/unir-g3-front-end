@@ -16,6 +16,11 @@
         (click)="activateTeacher(id)"
         class="btn btn-lg btn-success"
       > DAR ALTA</button>
+      <button
+        *ngIf="isValorable"
+        (click)="reviewTeacher()"
+        class="btn btn-lg btn-success"
+      > VALORAR</button>
     </div>
   </div>
 </div>
