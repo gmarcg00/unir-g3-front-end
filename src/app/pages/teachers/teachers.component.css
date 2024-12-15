@@ -1,3 +1,292 @@
-.pointer{
-    cursor: pointer;
+/* Estilo base para toda la aplicación */
+
+.app-bg {
+  background-color: #00001B;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, input, button, a {
+    font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+    font-family: "Cinzel", serif; /* Título principal en Cinzel */
+    font-weight: 700;
+    color: #D4A017; /* Color dorado para el título principal */
+    font-size: 36px;
+}
+
+h2 {
+    font-family: "Cinzel", serif; /* Título secundario */
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+}
+
+h3, h4, h5, h6 {
+    font-family: "Open Sans", sans-serif; /* Los demás títulos en Open Sans */
+    color: #D4A017;
+}
+
+.form-label {
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    padding: 0 10px;
+    font-weight: 500;
+}
+
+svg {
+    color: #D4A017;
+}
+
+.left {
+    padding: 10px;
+    border-radius: 20px;
+    background-color: #00001B;
+}
+
+/* Estilos específicos para la columna de filtros */
+.filters-column {
+    background-color: #00001B; /* Fondo azul oscuro */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 20px; /* Bordes redondeados */
+    color: #ffffff; /* Texto blanco */
+    display: flex;
+    flex-wrap: nowrap; /* No permite el ajuste de los filtros */
+    gap: 20px; /* Espacio entre filtros */
+    justify-content: flex-start; /* Alinea los filtros a la izquierda */
+    width: 100%; /* Asegura que los filtros ocupen todo el espacio disponible */
+    overflow: hidden; /* Evita que se desborden */
+}
+
+.filters-column .form-label,
+.filters-column label {
+    color: #ffffff; /* Color blanco para las etiquetas */
+    font-size: 16px;
+}
+
+.filters-column input[type="checkbox"] {
+    accent-color: #D4A017; /* Checkbox con color amarillo */
+}
+
+.filters-column .btn {
+    background-color: #D4A017; /* Botones amarillos */
+    color: #00001B; /* Texto oscuro para contraste */
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filters-column .btn:hover {
+    background-color: #f0c041; /* Resaltar en hover */
+    filter: brightness(1.3);
+}
+
+.filters-column .btn:disabled {
+    background-color: #666666; /* Botones deshabilitados en gris */
+    color: #cccccc;
+}
+
+.filters-column select {
+    background-color: #003366;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+/* Estilo para el fondo de la aplicación */
+.app-bg {
+    background-color: #00001B;
+    color: #ffffff;
+}
+
+body {
+    background-color: #1a1a3c; /* Fondo oscuro para contraste */
+    color: #ffffff;
+}
+
+.m-0 {
+    padding: 10% 0;
+}
+
+.filter-container {
+    padding-bottom: 5%;
+}
+
+/* Estilos de los botones */
+.btn {
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    background-color: #D4A017;
+    color: white; /* Texto oscuro para contraste */
+    border-radius: 8px;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    filter: brightness(1.3);
+    background-color: #f0c041; /* Resaltar en hover */
+    color: #00001B;
+}
+
+.page-link {
+    color: #D4A017;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.page-item.active .page-link {
+    background-color: #D4A017;
+    border-color: #D4A017;
+    color: #333333;
+}
+
+.page-item.disabled .page-link {
+    color: #D4A017;
+}
+
+/* Estilos de disposición y responsividad */
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.w-25 {
+    width: 25%;
+}
+
+.w-75 {
+    width: 75%;
+}
+
+.gap-3 {
+    gap: 1rem;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.my-2 {
+    margin: 0.5rem 0;
+}
+
+/* Nuevos estilos para que los filtros y profesores se alineen correctamente */
+.filters-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.filters-column {
+    width: auto; /* Los filtros tendrán el tamaño automático según su contenido */
+    min-width: 200px; /* Evita que los filtros sean demasiado pequeños */
+}
+
+.professor-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra las tarjetas de profesores */
+    gap: 2rem;
+}
+
+/* Botones de paginación centrados */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.page-item {
+    list-style: none;
+}
+
+.page-link {
+    padding: 10px 15px;
+    border-radius: 8px;
+    background-color: #D4A017;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.page-item.active .page-link {
+    background-color: #D4A017; /* Resaltado de la página activa */
+}
+
+.page-item.disabled .page-link {
+    background-color: #D4A017;
+    color: white;
+}
+
+.buttons{
+    text-transform: capitalize;
+}
+
+/* Responsividad */
+@media (max-width: 992px) {
+    .filters-column {
+        width: 100%; /* Los filtros ocupan toda la fila */
+        margin-bottom: 20px;
+    }
+
+    .professor-cards {
+        justify-content: center; /* Centra las tarjetas de profesores */
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 576px) {
+    .filters-column {
+        width: 100%; /* Filtros en una sola columna */
+        padding: 10px;
+    }
+
+    .professor-cards {
+        justify-content: center; /* Centra las tarjetas en pantallas pequeñas */
+    }
+
+    .pagination {
+        justify-content: center; /* Paginación centrada */
+    }
+
+    .left{
+        width: 80% !important;
+        margin: 0 auto;
+    }
+
+    .w-75{
+        width: 100% !important;
+    }
+
+    .my-2{
+        margin: 0 auto !important;
+    }
 }

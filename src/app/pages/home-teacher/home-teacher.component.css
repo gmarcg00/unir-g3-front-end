@@ -1,0 +1,26 @@
+.app-bg {
+    background-color: #00001B;
+}
+
+.alert {
+    color: #D4A017;
+}
+
+.btn {
+    border: none;
+    background-color: #D4A017;
+    opacity: 100;
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    width: 100%;
+}
+
+.btn :hover {
+    background-color: black;
+    color: #D4A017;
+}
+
+.btn-success:hover {
+    filter: brightness(1.3);
+}

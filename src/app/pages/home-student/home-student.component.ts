@@ -47,7 +47,7 @@ export class HomeStudentComponent {
   }
 
   getTeachers(): void {
-    this.teachersService.getNonActiveTeachers(1,4)
+    this.teachersService.getTeachers(1, 4, [], [], [], -1, -1, -1)
       .then(response => this.teachers = response.data)
       .catch( () => Swal.fire('Error', 'An error occurred while fetching the teachers.', 'error'))
       .finally(() => this.isLoading = false);
