@@ -33,6 +33,8 @@
                   <li><a class="dropdown-item" (click)="selectDistance(10)" role="menuitem">10 KM</a></li>
                   <li><a class="dropdown-item" (click)="selectDistance(20)" role="menuitem">20 KM</a></li>
                   <li><a class="dropdown-item" (click)="selectDistance(30)" role="menuitem">30 KM</a></li>
+                  <li><a class="dropdown-item" (click)="selectDistance(100)" role="menuitem">100 KM</a></li>
+                  <li><a class="dropdown-item" (click)="selectDistance(200)" role="menuitem">200 KM</a></li>
                 </ul>
               </div>
             </div>
@@ -41,7 +43,7 @@
 
         <!-- Mapa -->
         <div class="map-container" style="flex-grow: 1; max-height: 60%; overflow: hidden;">
-          <app-map [range]="distance" aria-label="Mapa de profesores cercanos"></app-map>
+          <app-map [position]="getPosition(latitude,longitude)" [teachers]="mapTeachers" [range]="distance" aria-label="Mapa de profesores cercanos"></app-map>
         </div>
 
       </div>
@@ -49,12 +51,7 @@
       <!-- Listado de profesores -->
       <div class="w-100 w-md-50 px-2">
         <div class="d-flex flex-wrap justify-content-center gap-2 mb-4" style="min-height:450px">
-          <div *ngIf="isLoading" class="d-flex justify-content-center align-items-center" aria-live="polite">
-            <div class="spinner-border" role="status" style="width: 5rem; height: 5rem;">
-              <span class="visually-hidden">Cargando profesores...</span>
-            </div>
-          </div>
-          <div *ngFor="let teacher of teachers">
+          <div *ngFor="let teacher of bestTeachers">
             <app-teacher-card [id]="teacher.id" [name]="teacher.name" [lastNames]="teacher.last_names"
                               [knowledgeBranches]="teacher.knowledge_branches" [price]="teacher.price_hour"
                               [image]="teacher.image || 'assets/images/default-teacher.png'" class="h-100">

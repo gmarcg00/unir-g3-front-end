@@ -1,7 +1,6 @@
-<p>Usuario que se pide el preview: {{userToPreviewId}}</p>
-<div class="perfil-contenedor">
+<div class="perfil-contenedor" style="min-height: 70vh">
     <!-- Información básica a la izquierda -->
-    <section class="profesor-info">
+    <section class="profesor-info" >
         <div class="w-100" style="height: 25vh;">
             <img src="{{teacherData?.image}}" class="w-100 h-100 object-fit-contain" alt="Imagen profesor">
         </div>
@@ -15,15 +14,11 @@
                     <!-- Mostrar las ramas de conocimiento -->
                     {{ getKnowledgeBranches().join(", ") }}
                 </h3>
-                <p class="profesor-precio">
-                    <strong>Asignatura:</strong> {{teacherData?.knowledge_branches}}
-                </p>
+
                 <p class="profesor-precio">
                     <strong>Precio por hora:</strong> {{teacherData?.price_hour}}€
                 </p>
-                <p class="profesor-experiencia">
-                    <strong>Años de experiencia:</strong> {{teacherData?.description}} <!-- Aquí puedes poner un campo adecuado si tienes los años -->
-                </p>
+              <p class="profesor-experiencia"><strong>Años de experiencia:</strong> 10 años</p>
                 <p class="profesor-puntuacion">
                     <strong>Puntuación:</strong> 4.8/5 <!-- Si tienes puntuaciones reales, puedes vinculadas con un valor -->
                 </p>
@@ -45,14 +40,12 @@
             <h2>Información de contacto</h2>
             <p><strong>Teléfono:</strong> {{teacherData?.phone}}</p>
             <p><strong>Email:</strong> {{teacherData?.email}}</p>
-            <p><strong>Ubicación:</strong> {{teacherData?.latitude}}, {{teacherData?.longitude}}</p>
         </div>
 
         <!-- Mostrar la información de la ubicación -->
         <div class="profesor-ubicacion">
             <h2>Ubicación</h2>
-            <p><strong>Latitud:</strong> {{teacherData?.latitude}}</p>
-            <p><strong>Longitud:</strong> {{teacherData?.longitude}}</p>
+            <app-map [teachers]="teachers" [range]="10" [position]="getPosition(teacherData?.latitude,teacherData?.longitude)" ></app-map>
         </div>
     </section>
 </div>

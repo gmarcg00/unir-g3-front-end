@@ -43,7 +43,7 @@ export const routes: Routes = [
   { path: 'testimonios', component: TestimoniosComponent },
   { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
   { path: 'como-funciona', component: ComoFuncionaComponent },
-  { path: 'preview-usuario/:id', component: PreviewUsuarioComponent },
+  { path: 'preview-usuario/:id', component: PreviewUsuarioComponent, canActivate: [authGuard] },
   { path: '**', component: NotFoundComponent }
 
 ];

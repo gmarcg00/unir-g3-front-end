@@ -7,10 +7,9 @@
         <img src="{{teacher.image}}" class="rounded-circle card-img w-50">
         <hr>
         <h5 class="text-dark">{{ teacher.name}} {{ teacher.last_names }}</h5>
-        <button class="btn btn-sm btn-success" [routerLink]="['/teachers', teacher.id]">Ver perfil</button>
+        <button class="btn btn-sm btn-success" [routerLink]="['/profile-preview', teacher.id]">Ver perfil</button>
       </div>
     </map-info-window>
   </map-marker>
   }
-  <map-marker [position]=" position"></map-marker>
 </google-map>

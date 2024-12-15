@@ -17,27 +17,10 @@ import { RouterLink } from '@angular/router';
 
 export class MapComponent {
 
-  position: any = "";
-  latitude: number = 0;
-  longitude: number = 0;
+  @Input() position: any = "";
   @Input() range: number = 3;
-  teachers: ITeacherInfoInterface[] = [];
-  teachersService = inject(TeachersService);
+  @Input() teachers: ITeacherInfoInterface[] = [];
 
-  ngOnInit() {
-    navigator.geolocation.getCurrentPosition((position) => {
-      this.position = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-      this.latitude = position.coords.latitude;
-      this.longitude = position.coords.longitude;
-      this.getTeachers();
-    })
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    if (changes['range']) {
-      this.getTeachers();
-    }
-  }
 
   getPosition(lat: number, lng: number) {
     return new google.maps.LatLng(lat, lng);
@@ -47,8 +30,4 @@ export class MapComponent {
     infoWindow.open(marker);
   }
 
-  async getTeachers(): Promise<void> {
-    const response: IListResponseInterface = await this.teachersService.getTeachers(1, 40, [], [], [], this.latitude, this.longitude, this.range);
-    this.teachers = response.data;
-  }
 }
