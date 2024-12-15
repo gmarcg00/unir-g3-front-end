@@ -37,6 +37,10 @@ export class HomeStudentComponent {
   distance: number = 3;
   isLoading: boolean = true;
 
+  position: any = "";
+  latitude: number = 0;
+  longitude: number = 0;
+
   ngOnInit() {
     this.getMyTeachers();
     this.getTeachers();
@@ -50,7 +54,12 @@ export class HomeStudentComponent {
   }
 
   getTeachers(): void {
-    this.teachersService.getTeachers(1, 4, [], [], [], -1, -1, -1)
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.position = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      this.latitude = position.coords.latitude;
+      this.longitude = position.coords.longitude;
+    })
+    this.teachersService.getTeachers(1, 4, [], [], [], this.latitude, this.longitude, -1)
       .then(response => this.teachers = response.data)
       .catch( () => Swal.fire('Error', 'An error occurred while fetching the teachers.', 'error'))
       .finally(() => this.isLoading = false);
@@ -63,6 +72,14 @@ export class HomeStudentComponent {
    */
   selectDistance(distance: number): void {
     this.distance = distance;
+    this.getTeachers();
+  }
+
+  getPosition(lat: number | undefined, lng: number | undefined): google.maps.LatLng | null {
+    if (lat === undefined || lng === undefined) {
+      return null;
+    }
+    return new google.maps.LatLng(lat, lng);
   }
 
 }
