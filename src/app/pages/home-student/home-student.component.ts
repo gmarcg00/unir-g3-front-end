@@ -1,3 +1,4 @@
+
 import {Component, inject} from '@angular/core';
 import {MapComponent} from "../../components/map/map.component";
 import {NgForOf, NgIf} from "@angular/common";
@@ -8,6 +9,7 @@ import {AuthService} from "../../services/auth.service";
 import {ITeacherInfoInterface} from "../../interfaces/iTeacherInfoInterface";
 import Swal from "sweetalert2";
 import {StudentsService} from "../../services/students.service";
+
 
 @Component({
   selector: 'app-home-student',
@@ -23,6 +25,7 @@ import {StudentsService} from "../../services/students.service";
   styleUrl: './home-student.component.css'
 })
 export class HomeStudentComponent {
+
 
   router = inject(Router);
   teachersService = inject(TeachersService);
