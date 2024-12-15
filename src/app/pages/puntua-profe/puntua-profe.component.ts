@@ -5,25 +5,18 @@ import { AuthService } from '../../services/auth.service';
 import { StudentsService } from '../../services/students.service';
 import Swal from 'sweetalert2';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ReviewsService } from '../../services/reviews.service';
+import { ITeacherInfoInterface } from '../../interfaces/iTeacherInfoInterface';
 
 @Component({
   selector: 'app-puntua-profe',
   standalone: true,
-  imports: [NgForOf, FormsModule],
+  imports: [NgForOf, FormsModule, RouterLink],
   templateUrl: './puntua-profe.component.html',
   styleUrl: './puntua-profe.component.css'
 })
 export class PuntuaProfeComponent {
-
-  /// comporvar que es pasa els parametres
-  ///         pagina a app-routes ya está hecho
-  ///         comprobar si es un profesor o un alumno
-  /// 1 comprobar que existe el review 
-  /// Si existe coger los datos y mostrarlos en el formulario.
-  /// 2 si no existe lo creamos.
-
 
   teachersService = inject(TeachersService);
   studentsService = inject(StudentsService);
@@ -35,7 +28,8 @@ export class PuntuaProfeComponent {
   rating: number = 1;
   stars: number[] = [1, 2, 3, 4, 5];
   selectedRating: number = this.rating;
-
+  teacherData: any;
+  ratingText: string = "";
 
   constructor(private router: Router) {
     const navigation = this.router.getCurrentNavigation();
@@ -45,6 +39,22 @@ export class PuntuaProfeComponent {
     const studentStrId = navigation?.extras.state?.['studentId'] || null;
     console.log("recibiendo student ID", studentStrId);
     this.studentId = Number(studentStrId);
+    // Deberiamos hacer comprobaciones para ver que el alumno esta validado.
+    // Lo dejo para el final si me da tiempo.
+    const resp = this.teachersService.getTeacherInfo(this.teacherId);
+    resp.then((data) => {
+      this.teacherData = data;
+      console.log(this.teacherData);
+    })
+    const respReview = this.reviewsService.getTeacherRate(this.studentId, this.teacherId);
+    respReview.then((data) => {
+      if (data) {
+        this.selectedRating = data.rating;
+        this.ratingText = data.text_rating;
+      } else {
+        this.ratingText = "no data";
+      }
+    })
   }
 
   selectRating(rating: number): void {
@@ -54,29 +64,22 @@ export class PuntuaProfeComponent {
 
   saveReview(reviewForm: any): void {
     console.log(this.selectedRating);
-    const review = reviewForm.value.reviewText;
-    console.log(review);
+    let review = reviewForm.value.reviewText;
+    if (review === "") {
+      review = this.ratingText;
+    }
+    console.log("texto review:", review);
     const rating = this.selectedRating;
     console.log(typeof review, typeof rating);
     console.log(this.studentId, this.teacherId, rating, review);
+    const resp = this.reviewsService.insertReview(this.studentId, this.teacherId, rating, review);
+    // validar que son correctos los datos ...
+    resp.then((data) => {
+      console.log(data);
+      if (data) {
+        this.router.navigate(['/teachers']);
+      }
+    })
   }
-
-  // cleanModal() {
-  //   this.teacherId = 0;
-  //   this.teacherName = "";
-  //   this.image = "";
-  //   this.review = "Introduce tu valoración";
-  //   this.rating = 1;
-  //   this.studentId = 0;
-  // }
-  // saveReview(reviewForm: any) {
-  //   console.log(reviewForm.value);
-  //   const review = reviewForm.value.reviewText;
-  //   const rating = reviewForm.value.rating;
-  //   console.log(typeof rating, ",", typeof review);
-  //   const resp = this.reviewsService.insertReview(2, 9, 3, review);
-  //   console.log(resp);
-
-  // }
 
 }

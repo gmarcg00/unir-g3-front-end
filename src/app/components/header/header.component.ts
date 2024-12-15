@@ -21,9 +21,9 @@ export class HeaderComponent {
   router = inject(Router);
   activeTeacher: boolean = false;
 
+  // AQUI ES COMO HACER UN REVIEW DE UN PROFE
   navigateSnape() {
-    this.router.navigate(['/review'], { state: { teacherId: 8, studentId: 2 } });
-
+    this.router.navigate(['/review'], { state: { teacherId: 26, studentId: 2 } });
   }
 
   ngOnInit() {

@@ -1,38 +1,39 @@
-<p>El profesor {{teacherId}} ha sido valorado por el alumno {{studentId}} </p>
-
 <!--Empieza el formulario-->
-<!-- <form #reviewForm="ngForm" (ngSubmit)="saveReview(reviewForm)">
-    <div class="modal-body">
-        <div class="d-flex justify-content-center my-3">
-            <img src="{{image}}" class="review-image" alt="...">
-            <div class="ms-3">
-                <p class="mb-0">{{teacherName}}</p>
-                <p>APELLIDOS</p>
+<form #reviewForm="ngForm" (ngSubmit)="saveReview(reviewForm)">
+    <div class="card mx-auto" style="max-width: 400px; margin-top: 20px; margin-bottom: 20px; ">
+        <!-- Imagen del profesor -->
+        <div class="d-flex justify-content-center">
+            <img src="{{teacherData.image}}" class="card-img-top" alt="...">
+        </div>
+        <!-- Contenido del formulario -->
+        <div class="card-body">
+            <!-- Nombre del profesor -->
+            <h5 class="card-title text-center fw-bold mb-1">{{teacherData.name}} {{teacherData.last_names}}</h5>
+            <p class="text-center text-muted">Este formulario contiene un hechizo de veracidad y sinceridad si mientes
+                te vas a mear en la cama hasta que rectifiques tu reseña, quedas advertido.</p>
+
+            <!-- Estrellas para valoración -->
+            <div class="stars-container text-center mb-3">
+                <!-- <label class="form-label fw-bold">Tu valoración</label> -->
+                <div>
+                    <span class="star" *ngFor="let star of stars; let index = index"
+                        [class.selected]="index < selectedRating" (click)="selectRating(index+1)">
+                        &#9733;
+                    </span>
+                </div>
             </div>
-            <h2></h2>
-        </div>
-
-        <div class="stars-container">
-            <label class="form-label">Tu valoración</label>
-            <div>
-                <span class="star" *ngFor="let star of stars; let index = index"
-                    [class.selected]="index < selectedRating" (click)="selectRating(index+1)">
-                    &#9733;
-                </span>
+            <!-- Texto para reseña -->
+            <div class="mb-3">
+                <label for="reviewFormControlText" class="form-label fw-bold">Tu reseña </label>
+                <textarea class="form-control" id="reviewFormControlText" name="reviewText" ngModel rows="3"
+                    value="{{ratingText}}"></textarea>
             </div>
 
-            <p>Valor seleccionado: <span>{{ selectedRating }}</span></p>
+            <!-- Botones -->
+            <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-secondary" [routerLink]="['/teachers']">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
         </div>
-
-        <div class="mb-3">
-            <label for="reviewFormControlText" class="form-label">Tu reseña</label>
-            <textarea class="form-control" id="reviewFormControlText" name="reviewText" ngModel placeholder="{{review}}"
-                rows="3"> </textarea>
-        </div>
-
     </div>
-    <div class="modal-footer justify-content-between mt-4">
-        <button type="button" class="btn" data-bs-dismiss="modal">Cancelar</button>
-        <button type="submit" class="btn" data-bs-dismiss="modal" onclick="claenModal()">Guardar</button>
-    </div>
-</form> -->
+</form>
