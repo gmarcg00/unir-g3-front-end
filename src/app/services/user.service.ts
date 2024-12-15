@@ -10,10 +10,6 @@ import {ITeacherInfoInterface} from "../interfaces/iTeacherInfoInterface";
   providedIn: 'root'
 })
 export class UserService {
-  getPendingTeachers(): ITeacherInfoInterface[] | PromiseLike<ITeacherInfoInterface[]> {
-    throw new Error('Method not implemented.');
-  }
-
   private httpClient = inject(HttpClient);
   private adminUrl = `${environment.API_URL}/admins`;
   private teacherUrl = `${environment.API_URL}/teachers`;

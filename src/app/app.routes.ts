@@ -19,6 +19,7 @@ import { TestimoniosComponent } from "./pages/testimonios/testimonios.component"
 import { PreguntasFrecuentesComponent } from "./pages/preguntas-frecuentes/preguntas-frecuentes.component";
 import { ComoFuncionaComponent } from "./pages/como-funciona/como-funciona.component";
 import { NotFoundComponent } from "./pages/not-found/not-found.component";
+import { PreviewUsuarioComponent } from './pages/preview-usuario/preview-usuario.component';
 import { PuntuaProfeComponent } from "./pages/puntua-profe/puntua-profe.component";
 
 
@@ -44,5 +45,8 @@ export const routes: Routes = [
   { path: 'testimonios', component: TestimoniosComponent },
   { path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
   { path: 'como-funciona', component: ComoFuncionaComponent },
+  { path: 'preview-usuario/:id', component: PreviewUsuarioComponent, canActivate: [authGuard] },
   { path: '**', component: NotFoundComponent }
+
+
 ];

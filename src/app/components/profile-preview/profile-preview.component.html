@@ -1,14 +1,73 @@
-<article class="d-flex flex-column align-items-center card">
-  <div class="mt-5 mb-3">
-    <img
-      src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
-      class="rounded-circle shadow-4 card-img"
-      alt="Avatar"
-    />
-  </div>
+<head>
+  <link src="preview.usuario.component.css" rel="stylesheet">
+</head>
 
-  <h4>NOMBRE Y APELLIDOS</h4>
-  <button class="btn btn-dark mt-2"><a
-    [routerLink]="['/profile']"
-    >VER FICHA</a></button>
-</article>
+<body>
+<div class="perfil-contenedor">
+  <!-- Información básica a la izquierda -->
+  <section class="profesor-info">
+      <div class="w-100" style="height: 25vh;">
+          <!-- Imagen que cambia según el rol -->
+          <img *ngIf="adminData" src="{{adminData.image}}" class="w-100 h-100 object-fit-contain" alt="Imagen administrador">
+          <img *ngIf="teacherData" src="{{teacherData.image}}" class="w-100 h-100 object-fit-contain" alt="Imagen profesor">
+          <img *ngIf="studentData" src="{{studentData.image}}" class="w-100 h-100 object-fit-contain" alt="Imagen estudiante">
+      </div>
+      <h1 *ngIf="adminData">{{adminData.name}} {{adminData.last_names}}</h1>
+      <h1 *ngIf="teacherData">{{teacherData.name}} {{teacherData.last_names}}</h1>
+      <h1 *ngIf="studentData">{{studentData.name}} {{studentData.last_names}}</h1>
+
+      <!-- Menú de opciones -->
+      <div *ngIf="isAdmin()" class="d-flex flex-column gap-2 w-100">
+          <!-- Opciones visibles solo para el Admin -->
+          <div class="w-100 p-3 rounded-2">
+              <p class="text-white">Información personal</p>
+          </div>
+          <div [routerLink]="['/admin/activate-teachers']" class="w-100 p-3 rounded-2">
+              <p class="text-white">Profesores en espera</p>
+          </div>
+      </div>
+
+      <div *ngIf="isTeacher()" class="d-flex flex-column gap-2 w-100">
+          <!-- Opciones visibles solo para el Profesor -->
+          <div class="w-100 p-3 rounded-2">
+              <p class="text-white">Mis chats</p>
+          </div>
+      </div>
+
+      <div *ngIf="isStudent()" class="d-flex flex-column gap-2 w-100">
+          <!-- Opciones visibles solo para el Alumno -->
+          <div class="w-100 p-3 rounded-2">
+              <p class="text-white">Mis chats</p>
+          </div>
+      </div>
+  </section>
+
+  <!-- Detalles adicionales a la derecha -->
+  <section *ngIf="isTeacher()" class="profesor-detalles">
+      <!-- Detalles sobre el profesor -->
+      <h2>Acerca del Profesor</h2>
+      <p>Apasionado por la enseñanza...</p>
+  </section>
+
+  <section *ngIf="isAdmin()" class="profesor-detalles">
+      <!-- Detalles sobre el administrador -->
+      <div *ngIf="menuOptionSelected === 'info'">
+          <h2>Acerca del Administrador</h2>
+          <p>El administrador es responsable de...</p>
+      </div>
+
+      <div *ngIf="menuOptionSelected === 'enable-teachers'">
+          <h2>Profesores en espera</h2>
+          <div *ngFor="let teacher of teachers">
+              <app-teacher-card [id]="teacher.id" [name]="teacher.name"></app-teacher-card>
+          </div>
+      </div>
+  </section>
+
+  <section *ngIf="isStudent()" class="profesor-detalles">
+      <!-- Detalles sobre el alumno -->
+      <h2>Acerca de mi</h2>
+      <p>El alumno es una persona comprometida...</p>
+  </section>
+</div>
+</body>

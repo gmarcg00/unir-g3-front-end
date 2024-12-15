@@ -123,8 +123,8 @@
     },
     {
       "type": "text",
-      "version": 631,
-      "versionNonce": 1265696461,
+      "version": 632,
+      "versionNonce": 23299076,
       "isDeleted": false,
       "id": "rwokMDv6XxwifCW7YHCdC",
       "fillStyle": "solid",
@@ -146,7 +146,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1733836413205,
+      "updated": 1734284195880,
       "link": null,
       "locked": false,
       "fontSize": 28.6222352071281,
@@ -161,8 +161,8 @@
     },
     {
       "type": "text",
-      "version": 667,
-      "versionNonce": 524083331,
+      "version": 668,
+      "versionNonce": 1535749692,
       "isDeleted": false,
       "id": "lXR9c_J2BDKDQSbV21fTL",
       "fillStyle": "solid",
@@ -184,7 +184,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1733836413206,
+      "updated": 1734284195881,
       "link": null,
       "locked": false,
       "fontSize": 40.07112928997934,
@@ -199,8 +199,8 @@
     },
     {
       "type": "text",
-      "version": 697,
-      "versionNonce": 669097261,
+      "version": 698,
+      "versionNonce": 1037853572,
       "isDeleted": false,
       "id": "xy8y6rq77_Hewrp8xH9xE",
       "fillStyle": "solid",
@@ -222,7 +222,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1733836413206,
+      "updated": 1734284195881,
       "link": null,
       "locked": false,
       "fontSize": 40.07112928997934,
@@ -237,8 +237,8 @@
     },
     {
       "type": "text",
-      "version": 690,
-      "versionNonce": 1987303459,
+      "version": 691,
+      "versionNonce": 1731233468,
       "isDeleted": false,
       "id": "TaWfc9Lxw8k07Lh1Hu6yH",
       "fillStyle": "solid",
@@ -260,7 +260,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1733836413207,
+      "updated": 1734284195882,
       "link": null,
       "locked": false,
       "fontSize": 40.07112928997934,
@@ -275,8 +275,8 @@
     },
     {
       "type": "text",
-      "version": 694,
-      "versionNonce": 1030713229,
+      "version": 695,
+      "versionNonce": 1192055556,
       "isDeleted": false,
       "id": "ENYAZ542-HriAglJCIdAH",
       "fillStyle": "solid",
@@ -298,7 +298,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1733836413208,
+      "updated": 1734284195882,
       "link": null,
       "locked": false,
       "fontSize": 40.07112928997934,
@@ -313,8 +313,8 @@
     },
     {
       "type": "text",
-      "version": 744,
-      "versionNonce": 657120195,
+      "version": 745,
+      "versionNonce": 2036879164,
       "isDeleted": false,
       "id": "HBSZA5ciV1gBP__xrh3Wo",
       "fillStyle": "solid",
@@ -336,7 +336,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1733836413208,
+      "updated": 1734284195883,
       "link": null,
       "locked": false,
       "fontSize": 40.07112928997934,
@@ -351,8 +351,8 @@
     },
     {
       "type": "text",
-      "version": 595,
-      "versionNonce": 1515451885,
+      "version": 596,
+      "versionNonce": 1802785412,
       "isDeleted": false,
       "id": "YusFSE2f1N4nbzgyZTqrk",
       "fillStyle": "solid",
@@ -374,7 +374,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1733836413209,
+      "updated": 1734284195883,
       "link": null,
       "locked": false,
       "fontSize": 40.07112928997934,
@@ -389,8 +389,8 @@
     },
     {
       "type": "text",
-      "version": 619,
-      "versionNonce": 494955363,
+      "version": 620,
+      "versionNonce": 1922238396,
       "isDeleted": false,
       "id": "eIQHQtJ458cCflDSQU-2f",
       "fillStyle": "solid",
@@ -412,7 +412,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1733836413209,
+      "updated": 1734284195884,
       "link": null,
       "locked": false,
       "fontSize": 40.07112928997934,
@@ -427,8 +427,8 @@
     },
     {
       "type": "text",
-      "version": 625,
-      "versionNonce": 1234743373,
+      "version": 626,
+      "versionNonce": 2043634180,
       "isDeleted": false,
       "id": "Sk5PhewalSIf2-RuALYMo",
       "fillStyle": "solid",
@@ -450,7 +450,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1733836413209,
+      "updated": 1734284195884,
       "link": null,
       "locked": false,
       "fontSize": 40.07112928997934,
@@ -1420,8 +1420,8 @@
     },
     {
       "type": "text",
-      "version": 126,
-      "versionNonce": 1036191491,
+      "version": 127,
+      "versionNonce": 1456648252,
       "isDeleted": false,
       "id": "7UppDzbY7iybdVnve3ESQ",
       "fillStyle": "solid",
@@ -1441,7 +1441,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1733836413210,
+      "updated": 1734284195884,
       "link": null,
       "locked": false,
       "fontSize": 31.663545590286247,
@@ -1452,7 +1452,7 @@
       "containerId": null,
       "originalText": "home",
       "lineHeight": 1.25,
-      "baseline": 28
+      "baseline": 27
     },
     {
       "type": "rectangle",
@@ -1551,7 +1551,7 @@
       "containerId": "7hTnvjNKZNKMKbbB_R_lw",
       "originalText": "Escudo\nTipo harry\npotter",
       "lineHeight": 1.25,
-      "baseline": 74
+      "baseline": 75
     },
     {
       "type": "rectangle",
@@ -2569,8 +2569,8 @@
     },
     {
       "type": "text",
-      "version": 303,
-      "versionNonce": 1584475811,
+      "version": 304,
+      "versionNonce": 958169476,
       "isDeleted": false,
       "id": "VFO7Okp9Zd4tDplYcSEwb",
       "fillStyle": "solid",
@@ -2590,7 +2590,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1733836413214,
+      "updated": 1734284195885,
       "link": null,
       "locked": false,
       "fontSize": 31.663545590286247,
@@ -2601,7 +2601,7 @@
       "containerId": null,
       "originalText": "ADMIN",
       "lineHeight": 1.25,
-      "baseline": 28
+      "baseline": 27
     },
     {
       "type": "rectangle",
@@ -2700,7 +2700,7 @@
       "containerId": "td_MabfQfgPP-WO-BnpoF",
       "originalText": "Escudo\nTipo harry\npotter",
       "lineHeight": 1.25,
-      "baseline": 74
+      "baseline": 75
     },
     {
       "type": "rectangle",
@@ -2810,7 +2810,7 @@
       "containerId": null,
       "originalText": "LISTA DE PROFESORES ( AL CARGAR)\n TODOS JUSTOS\nCON FILTRO , VALIDADOS O SIN ",
       "lineHeight": 1.15,
-      "baseline": 115
+      "baseline": 116
     },
     {
       "type": "ellipse",
@@ -3000,7 +3000,7 @@
       "containerId": null,
       "originalText": "mapa",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "text",
@@ -3036,7 +3036,7 @@
       "containerId": null,
       "originalText": "MAPA",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -3222,7 +3222,7 @@
       "containerId": "DxqNstWGLkNjywkj87Q2W",
       "originalText": "FILTRAR",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -3428,7 +3428,7 @@
       "containerId": "rzX9mNQuhg_gv9XFyd-VD",
       "originalText": "VALIDADOS",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "arrow",
@@ -3517,7 +3517,7 @@
       "containerId": "x9Yi6ZT2P18otJGT_Jbur",
       "originalText": "NO VALIDADOS",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "text",
@@ -3589,7 +3589,7 @@
       "containerId": null,
       "originalText": "DESACTIVAR",
       "lineHeight": 1.15,
-      "baseline": 23
+      "baseline": 22
     },
     {
       "type": "text",
@@ -3774,7 +3774,7 @@
       "containerId": null,
       "originalText": "LISTA DE ALUMNOS ( SOLO AL CLICK ENLACE)\n TODOS JUSTOS\nCON FILTRO , VALIDADOS O SIN ",
       "lineHeight": 1.15,
-      "baseline": 115
+      "baseline": 116
     },
     {
       "type": "arrow",
@@ -3858,7 +3858,7 @@
       "containerId": null,
       "originalText": "LOS DE BAJA DE COLOR DIFERENTE , PALIDO?",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -4101,7 +4101,7 @@
       "containerId": null,
       "originalText": "ALUMNO ACTIVO",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -4268,7 +4268,7 @@
       "containerId": null,
       "originalText": "DAR ALTA",
       "lineHeight": 1.15,
-      "baseline": 23
+      "baseline": 22
     },
     {
       "type": "text",
@@ -4344,7 +4344,7 @@
       "containerId": null,
       "originalText": "ALUMNO NO ACTIVO",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "arrow",
@@ -5305,8 +5305,8 @@
     },
     {
       "type": "text",
-      "version": 522,
-      "versionNonce": 37315139,
+      "version": 523,
+      "versionNonce": 1443449020,
       "isDeleted": false,
       "id": "Xy3AVvKUS_jkhbUw9q96D",
       "fillStyle": "solid",
@@ -5326,7 +5326,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1733836413224,
+      "updated": 1734284195890,
       "link": null,
       "locked": false,
       "fontSize": 31.663545590286247,
@@ -5337,7 +5337,7 @@
       "containerId": null,
       "originalText": "PERFIL ADMIN",
       "lineHeight": 1.25,
-      "baseline": 28
+      "baseline": 27
     },
     {
       "type": "rectangle",
@@ -5436,7 +5436,7 @@
       "containerId": "ZpvvoWlYOLWeFkv3V8cvU",
       "originalText": "Escudo\nTipo harry\npotter",
       "lineHeight": 1.25,
-      "baseline": 74
+      "baseline": 75
     },
     {
       "type": "text",
@@ -5783,7 +5783,7 @@
       "containerId": null,
       "originalText": "GUARDAR",
       "lineHeight": 1.15,
-      "baseline": 23
+      "baseline": 22
     },
     {
       "type": "text",
@@ -6056,7 +6056,7 @@
       "containerId": "Osx0uu-Top1FfXHYwGNw5",
       "originalText": "SALIR",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "arrow",
@@ -6182,7 +6182,7 @@
       "containerId": "RKemH0NUjo6K-lvHpNnfp",
       "originalText": "SWEEAT aLERT\nREDISEÑAR \nY HOME PAGE",
       "lineHeight": 1.15,
-      "baseline": 115
+      "baseline": 116
     },
     {
       "type": "line",
@@ -6296,7 +6296,7 @@
       "containerId": "dlXSWJzQxiO2BpcpQgzau",
       "originalText": "PIE PAGINA",
       "lineHeight": 1.25,
-      "baseline": 35
+      "baseline": 34
     },
     {
       "type": "rectangle",
@@ -7242,8 +7242,8 @@
     },
     {
       "type": "text",
-      "version": 341,
-      "versionNonce": 1647777645,
+      "version": 342,
+      "versionNonce": 1620685060,
       "isDeleted": false,
       "id": "LPBpnBNJGb7_hhnXHM7HD",
       "fillStyle": "solid",
@@ -7263,7 +7263,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1733836413226,
+      "updated": 1734284195891,
       "link": null,
       "locked": false,
       "fontSize": 31.663545590286247,
@@ -7274,7 +7274,7 @@
       "containerId": null,
       "originalText": "ALUMNOS",
       "lineHeight": 1.25,
-      "baseline": 28
+      "baseline": 27
     },
     {
       "type": "rectangle",
@@ -7373,7 +7373,7 @@
       "containerId": "aZR05WO_lGgiKvuOkAeX2",
       "originalText": "Escudo\nTipo harry\npotter",
       "lineHeight": 1.25,
-      "baseline": 74
+      "baseline": 75
     },
     {
       "type": "rectangle",
@@ -7681,7 +7681,7 @@
       "containerId": null,
       "originalText": "MIS PROFESORES",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "arrow",
@@ -8642,8 +8642,8 @@
     },
     {
       "type": "text",
-      "version": 563,
-      "versionNonce": 1375347171,
+      "version": 564,
+      "versionNonce": 1406718268,
       "isDeleted": false,
       "id": "6LFysm2-wRYvMnjL_IldL",
       "fillStyle": "solid",
@@ -8663,7 +8663,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1733836413228,
+      "updated": 1734284195892,
       "link": null,
       "locked": false,
       "fontSize": 31.663545590286247,
@@ -8674,7 +8674,7 @@
       "containerId": null,
       "originalText": "PERFIL ALUMNO",
       "lineHeight": 1.25,
-      "baseline": 28
+      "baseline": 27
     },
     {
       "type": "rectangle",
@@ -8773,7 +8773,7 @@
       "containerId": "2HFigCYYEaGArCzf1v7ds",
       "originalText": "Escudo\nTipo harry\npotter",
       "lineHeight": 1.25,
-      "baseline": 74
+      "baseline": 75
     },
     {
       "type": "ellipse",
@@ -9099,7 +9099,7 @@
       "containerId": "COb9CA4o605pbkkXrQDO5",
       "originalText": "SALIR",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -9168,7 +9168,7 @@
       "containerId": null,
       "originalText": "MAPA",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "ellipse",
@@ -9506,7 +9506,7 @@
       "containerId": "ryVA5Kv9aghWsIMOVq4ni",
       "originalText": "LISTADO CON FILTROS ",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "text",
@@ -9542,7 +9542,7 @@
       "containerId": null,
       "originalText": "MAPA Y PROFES POR FILTROS",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -9673,7 +9673,7 @@
       "containerId": null,
       "originalText": "PERFIL",
       "lineHeight": 1.15,
-      "baseline": 16
+      "baseline": 15
     },
     {
       "type": "text",
@@ -9780,7 +9780,7 @@
       "containerId": null,
       "originalText": "CONTACTAR",
       "lineHeight": 1.15,
-      "baseline": 16
+      "baseline": 15
     },
     {
       "type": "rectangle",
@@ -9911,7 +9911,7 @@
       "containerId": null,
       "originalText": "PERFIL",
       "lineHeight": 1.15,
-      "baseline": 16
+      "baseline": 15
     },
     {
       "type": "text",
@@ -10018,7 +10018,7 @@
       "containerId": null,
       "originalText": "CONTACTAR",
       "lineHeight": 1.15,
-      "baseline": 16
+      "baseline": 15
     },
     {
       "type": "rectangle",
@@ -10154,7 +10154,7 @@
       "containerId": null,
       "originalText": "PERFIL",
       "lineHeight": 1.15,
-      "baseline": 16
+      "baseline": 15
     },
     {
       "type": "text",
@@ -10261,7 +10261,7 @@
       "containerId": null,
       "originalText": "CONTACTAR",
       "lineHeight": 1.15,
-      "baseline": 16
+      "baseline": 15
     },
     {
       "type": "rectangle",
@@ -10392,7 +10392,7 @@
       "containerId": null,
       "originalText": "PERFIL",
       "lineHeight": 1.15,
-      "baseline": 16
+      "baseline": 15
     },
     {
       "type": "text",
@@ -10499,7 +10499,7 @@
       "containerId": null,
       "originalText": "CONTACTAR",
       "lineHeight": 1.15,
-      "baseline": 16
+      "baseline": 15
     },
     {
       "type": "rectangle",
@@ -10802,7 +10802,7 @@
       "containerId": null,
       "originalText": "MIS CHATS",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -10975,7 +10975,7 @@
       "containerId": "pkCOwotZFk7034TAKjOB4",
       "originalText": "CHAT 1",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -11049,7 +11049,7 @@
       "containerId": "3nL8PNeutVuwQ6oiGV5Fx",
       "originalText": "CHAT 2",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -11123,7 +11123,7 @@
       "containerId": "cOLIUUT3LFjqFAT7r2Cgn",
       "originalText": "CHAT 3",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -11197,7 +11197,7 @@
       "containerId": "GQIpLDK8OxPrjYZagCZ0G",
       "originalText": "CHAT 4",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -11264,7 +11264,7 @@
       "containerId": null,
       "originalText": "LISTA CHATS",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -11329,7 +11329,7 @@
       "containerId": null,
       "originalText": "VENTANA CHAT #1",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -11399,7 +11399,7 @@
       "containerId": "fiJkkGEzyoXUYRCQwwkrR",
       "originalText": "MI MENSAJE",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -11469,7 +11469,7 @@
       "containerId": "CAMs877Bp-vdsh_w2_802",
       "originalText": "SU MENSAJE",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -11539,7 +11539,7 @@
       "containerId": "GeRK0_qqOit4JvWY4P3Yd",
       "originalText": "MI MENSAJE",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -11609,7 +11609,7 @@
       "containerId": "cS5DjBKvoMQFboWszQQwq",
       "originalText": "SU MENSAJE",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "arrow",
@@ -11689,7 +11689,7 @@
       "containerId": null,
       "originalText": "CREA UN NUEVO CHAT",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -11759,7 +11759,7 @@
       "containerId": "98v7Q3CC7Hrpf-wDXs8QJ",
       "originalText": "NUEVO CHAT ",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -11930,7 +11930,7 @@
       "containerId": "gNmKiItCuTN4ZuymPeR02",
       "originalText": "CONTRATAR",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "arrow",
@@ -12095,7 +12095,7 @@
       "containerId": null,
       "originalText": "POP UP  VALORACION",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -12169,7 +12169,7 @@
       "containerId": "_Lzk_rz1q7oxmwq8Q-oDl",
       "originalText": "COMENTARIOS",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -12243,7 +12243,7 @@
       "containerId": "cRgkS_7RbrJrVZ6EvGASG",
       "originalText": "NOTA 1-5",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -12317,7 +12317,7 @@
       "containerId": "w_JOgFZpb7Jcq1Riyv6En",
       "originalText": "CANCELAR",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -12391,7 +12391,7 @@
       "containerId": "s44qVwnm2Eq9mJO85viS8",
       "originalText": "ACEPTAR",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -13395,8 +13395,8 @@
     },
     {
       "type": "text",
-      "version": 388,
-      "versionNonce": 936423235,
+      "version": 389,
+      "versionNonce": 264564868,
       "isDeleted": false,
       "id": "YhN5XYSm2zYF2NcCmG1Z1",
       "fillStyle": "solid",
@@ -13416,7 +13416,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1733836413261,
+      "updated": 1734284195898,
       "link": null,
       "locked": false,
       "fontSize": 31.663545590286247,
@@ -13427,7 +13427,7 @@
       "containerId": null,
       "originalText": "PROFES",
       "lineHeight": 1.25,
-      "baseline": 28
+      "baseline": 27
     },
     {
       "type": "rectangle",
@@ -13526,7 +13526,7 @@
       "containerId": "JXADKYMmFFaY0Bg_VLPHQ",
       "originalText": "Escudo\nTipo harry\npotter",
       "lineHeight": 1.25,
-      "baseline": 74
+      "baseline": 75
     },
     {
       "type": "rectangle",
@@ -14730,8 +14730,8 @@
     },
     {
       "type": "text",
-      "version": 675,
-      "versionNonce": 1850153581,
+      "version": 676,
+      "versionNonce": 1872972220,
       "isDeleted": false,
       "id": "gvCsFdNdyLc-nANv8EeyH",
       "fillStyle": "solid",
@@ -14756,7 +14756,7 @@
           "type": "arrow"
         }
       ],
-      "updated": 1733836413262,
+      "updated": 1734284195899,
       "link": null,
       "locked": false,
       "fontSize": 31.663545590286247,
@@ -14767,7 +14767,7 @@
       "containerId": null,
       "originalText": "PERFIL PROFES",
       "lineHeight": 1.25,
-      "baseline": 28
+      "baseline": 27
     },
     {
       "type": "rectangle",
@@ -14866,7 +14866,7 @@
       "containerId": "Q5gvlpfRBXKB6CvRv7B_O",
       "originalText": "Escudo\nTipo harry\npotter",
       "lineHeight": 1.25,
-      "baseline": 74
+      "baseline": 75
     },
     {
       "type": "ellipse",
@@ -15172,7 +15172,7 @@
       "containerId": null,
       "originalText": "GUARDAR",
       "lineHeight": 1.15,
-      "baseline": 23
+      "baseline": 22
     },
     {
       "type": "text",
@@ -15458,7 +15458,7 @@
       "containerId": "Qx9M0mqMb5wLTDqPiMCHL",
       "originalText": "VALORACIONES",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "arrow",
@@ -15638,7 +15638,7 @@
       "containerId": null,
       "originalText": "PERFIL",
       "lineHeight": 1.15,
-      "baseline": 16
+      "baseline": 15
     },
     {
       "type": "text",
@@ -15750,7 +15750,7 @@
       "containerId": null,
       "originalText": "CONTACTAR",
       "lineHeight": 1.15,
-      "baseline": 16
+      "baseline": 15
     },
     {
       "type": "text",
@@ -15962,7 +15962,7 @@
       "containerId": null,
       "originalText": "PERFIL",
       "lineHeight": 1.15,
-      "baseline": 16
+      "baseline": 15
     },
     {
       "type": "text",
@@ -16069,7 +16069,7 @@
       "containerId": null,
       "originalText": "CONTACTAR",
       "lineHeight": 1.15,
-      "baseline": 16
+      "baseline": 15
     },
     {
       "type": "rectangle",
@@ -16200,7 +16200,7 @@
       "containerId": null,
       "originalText": "PERFIL",
       "lineHeight": 1.15,
-      "baseline": 16
+      "baseline": 15
     },
     {
       "type": "text",
@@ -16307,7 +16307,7 @@
       "containerId": null,
       "originalText": "CONTACTAR",
       "lineHeight": 1.15,
-      "baseline": 16
+      "baseline": 15
     },
     {
       "type": "arrow",
@@ -16786,8 +16786,8 @@
     },
     {
       "type": "text",
-      "version": 734,
-      "versionNonce": 2069378445,
+      "version": 735,
+      "versionNonce": 1180450820,
       "isDeleted": false,
       "id": "jWBFyburcwLrKC75u5uyx",
       "fillStyle": "solid",
@@ -16809,7 +16809,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1733836413269,
+      "updated": 1734284195903,
       "link": null,
       "locked": false,
       "fontSize": 40.07112928997934,
@@ -17118,7 +17118,7 @@
       "containerId": null,
       "originalText": "GUARDAR",
       "lineHeight": 1.15,
-      "baseline": 23
+      "baseline": 22
     },
     {
       "type": "text",
@@ -17319,7 +17319,7 @@
       "containerId": null,
       "originalText": "MIS CHATS",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -17487,7 +17487,7 @@
       "containerId": "8_qNan6o6qa3txct3TLCv",
       "originalText": "CHAT 1",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -17561,7 +17561,7 @@
       "containerId": "wP1PYGJmxzphaZepoxfDi",
       "originalText": "CHAT 2",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -17635,7 +17635,7 @@
       "containerId": "G2oMgGIAHsFucxuj-qzjg",
       "originalText": "CHAT 3",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -17709,7 +17709,7 @@
       "containerId": "0BatUnqC9M8TKF4Xsa5YW",
       "originalText": "CHAT 4",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -17776,7 +17776,7 @@
       "containerId": null,
       "originalText": "LISTA CHATS",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -17841,7 +17841,7 @@
       "containerId": null,
       "originalText": "VENTANA CHAT #1",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -17911,7 +17911,7 @@
       "containerId": "qgPKEl1YdlyOuhmPQtIfO",
       "originalText": "MI MENSAJE",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -17981,7 +17981,7 @@
       "containerId": "8hGSlyoNZ_eVsy29NZO2g",
       "originalText": "SU MENSAJE",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -18051,7 +18051,7 @@
       "containerId": "-5PVZq7Ktiath9upSeouX",
       "originalText": "MI MENSAJE",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -18121,7 +18121,7 @@
       "containerId": "G3yylShEx-1KNf6AxURm1",
       "originalText": "SU MENSAJE",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -18191,7 +18191,7 @@
       "containerId": "shdcY3DVw2noY3fiubC2j",
       "originalText": "NUEVO CHAT ",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "arrow",
@@ -18437,7 +18437,7 @@
       "containerId": null,
       "originalText": "POP UP  VALORACION",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -18511,7 +18511,7 @@
       "containerId": "PWRu_RC22T02L1F5KP9Bz",
       "originalText": "COMENTARIOIS",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -18585,7 +18585,7 @@
       "containerId": "QjP4OWNXwvIfp5762flIc",
       "originalText": "NOTA 1-5",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -18659,7 +18659,7 @@
       "containerId": "nTLh1BRwnc5bt0l0VJ2E3",
       "originalText": "CANCELAR",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "rectangle",
@@ -18733,7 +18733,7 @@
       "containerId": "kIEAZlEU--UJK4Ly1a-SL",
       "originalText": "ACEPTAR",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "arrow",
@@ -18886,7 +18886,7 @@
       "containerId": "Li-p6n7vBX-Epo-mfiJgO",
       "originalText": "Escudo\nTipo harry\npotter",
       "lineHeight": 1.25,
-      "baseline": 74
+      "baseline": 75
     },
     {
       "type": "text",
@@ -19015,8 +19015,8 @@
     },
     {
       "type": "text",
-      "version": 793,
-      "versionNonce": 765031875,
+      "version": 794,
+      "versionNonce": 210416188,
       "isDeleted": false,
       "id": "xg04Az6LXWLMd7uzEu1ii",
       "fillStyle": "solid",
@@ -19038,7 +19038,7 @@
       "frameId": null,
       "roundness": null,
       "boundElements": [],
-      "updated": 1733836413272,
+      "updated": 1734284195905,
       "link": null,
       "locked": false,
       "fontSize": 40.07112928997934,
@@ -19158,7 +19158,7 @@
       "containerId": null,
       "originalText": "REQUISITOS DESEABLES",
       "lineHeight": 1.25,
-      "baseline": 35
+      "baseline": 34
     },
     {
       "type": "arrow",
@@ -19355,7 +19355,7 @@
       "containerId": "QnwsrwczyDKmq35ZsI-kt",
       "originalText": "FILTRAR",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "arrow",
@@ -19599,7 +19599,7 @@
       "containerId": null,
       "originalText": "MAPA",
       "lineHeight": 1.15,
-      "baseline": 32
+      "baseline": 33
     },
     {
       "type": "ellipse",
@@ -19993,7 +19993,7 @@
       "containerId": null,
       "originalText": "PERFIL",
       "lineHeight": 1.15,
-      "baseline": 12
+      "baseline": 13
     },
     {
       "type": "text",
@@ -20100,7 +20100,7 @@
       "containerId": null,
       "originalText": "CONTACTAR",
       "lineHeight": 1.15,
-      "baseline": 12
+      "baseline": 13
     },
     {
       "type": "rectangle",
@@ -20231,7 +20231,7 @@
       "containerId": null,
       "originalText": "PERFIL",
       "lineHeight": 1.15,
-      "baseline": 12
+      "baseline": 13
     },
     {
       "type": "text",
@@ -20338,7 +20338,7 @@
       "containerId": null,
       "originalText": "CONTACTAR",
       "lineHeight": 1.15,
-      "baseline": 12
+      "baseline": 13
     },
     {
       "type": "rectangle",
@@ -20469,7 +20469,7 @@
       "containerId": null,
       "originalText": "PERFIL",
       "lineHeight": 1.15,
-      "baseline": 12
+      "baseline": 13
     },
     {
       "type": "text",
@@ -20576,7 +20576,7 @@
       "containerId": null,
       "originalText": "CONTACTAR",
       "lineHeight": 1.15,
-      "baseline": 12
+      "baseline": 13
     },
     {
       "type": "rectangle",
@@ -20707,7 +20707,7 @@
       "containerId": null,
       "originalText": "PERFIL",
       "lineHeight": 1.15,
-      "baseline": 12
+      "baseline": 13
     },
     {
       "type": "text",
@@ -20814,7 +20814,7 @@
       "containerId": null,
       "originalText": "CONTACTAR",
       "lineHeight": 1.15,
-      "baseline": 12
+      "baseline": 13
     }
   ],
   "appState": {

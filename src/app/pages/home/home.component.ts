@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import {Component, inject, SimpleChanges} from '@angular/core';
 import { MapComponent } from '../../components/map/map.component';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from "@angular/router";
@@ -8,6 +8,7 @@ import { ITeacherInfoInterface } from "../../interfaces/iTeacherInfoInterface";
 import Swal from 'sweetalert2';
 import { TeacherCardComponent } from "../../components/teacher-card/teacher-card.component";
 import { AuthService } from "../../services/auth.service";
+import {IListResponseInterface} from "../../interfaces/iListResponse.interface";
 
 
 @Component({
@@ -28,32 +29,27 @@ export class HomeComponent {
   teachersService = inject(TeachersService);
   authService = inject(AuthService);
 
-  teachers: ITeacherInfoInterface[] = [];
-  city: string = '';  // Definir la propiedad 'city'
+  bestTeachers: ITeacherInfoInterface[] = [];
+  mapTeachers: ITeacherInfoInterface[] = [];
   distance: number = 3;
-  isLoading: boolean = true;
+  latitude: number = 0;
+  longitude: number = 0;
+  position: any = "";
 
   /**
    * Component initialization
    */
   async ngOnInit() {
-    this.fetchBestAverageRatingTeachers();
+    await this.fetchBestAverageRatingTeachers();
+    await this.getTeachers();
   }
 
   /**
    * Loads the best rated teachers from the service
    */
-  fetchBestAverageRatingTeachers(): void {
-    this.teachersService.getBestAverageRatingTeachers(1, 4)
-      .then(response => this.teachers = response.data)
-      .catch(() => Swal.fire({
-        title: 'Ha ocurrido un error',
-        text: 'mientras se cargaban los datos de calificaciones',
-        icon: 'error',
-        background: "#202020",
-        color: "#fff",
-      }))
-      .finally(() => this.isLoading = false);
+  async fetchBestAverageRatingTeachers(): Promise<void> {
+    const response = await this.teachersService.getBestAverageRatingTeachers(1, 4);
+    this.bestTeachers = response.data;
   }
 
   /**
@@ -62,6 +58,24 @@ export class HomeComponent {
    */
   selectDistance(distance: number): void {
     this.distance = distance;
+    this.getTeachers();
+  }
+
+  async getTeachers(): Promise<void> {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.position = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+      this.latitude = position.coords.latitude;
+      this.longitude = position.coords.longitude;
+    })
+    const response: IListResponseInterface = await this.teachersService.getTeachers(1, 40, [], [], [], this.latitude, this.longitude, this.distance);
+    this.mapTeachers = response.data;
+  }
+
+  getPosition(lat: number | undefined, lng: number | undefined): google.maps.LatLng | null {
+    if (lat === undefined || lng === undefined) {
+      return null;
+    }
+    return new google.maps.LatLng(lat, lng);
   }
 }
 

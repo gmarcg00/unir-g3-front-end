@@ -1,0 +1,51 @@
+<div class="perfil-contenedor" style="min-height: 70vh">
+    <!-- Información básica a la izquierda -->
+    <section class="profesor-info" >
+        <div class="w-100" style="height: 25vh;">
+            <img src="{{teacherData?.image}}" class="w-100 h-100 object-fit-contain" alt="Imagen profesor">
+        </div>
+        <h1 *ngIf="teacherData !== undefined" class="profesor-nombre">
+            {{teacherData.name}} {{teacherData.last_names}}
+        </h1>
+
+        <div class="d-flex flex-column gap-2 w-100">
+            <div class="d-flex flex-column gap-2 text-center mb-2">
+                <h3 class="profesor-ramas">
+                    <!-- Mostrar las ramas de conocimiento -->
+                    {{ getKnowledgeBranches().join(", ") }}
+                </h3>
+
+                <p class="profesor-precio">
+                    <strong>Precio por hora:</strong> {{teacherData?.price_hour}}€
+                </p>
+              <p class="profesor-experiencia"><strong>Años de experiencia:</strong> 10 años</p>
+                <p class="profesor-puntuacion">
+                    <strong>Puntuación:</strong> 4.8/5 <!-- Si tienes puntuaciones reales, puedes vinculadas con un valor -->
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detalles adicionales a la derecha -->
+    <section class="profesor-detalles">
+        <!-- Acerca del profesor -->
+        <div class="profesor-descripcion">
+            <h2>Acerca del profesor</h2>
+            <!-- Descripción del profesor -->
+            <p class="descripcion">{{teacherData?.description}}</p> <!-- Puedes agregar una descripción más detallada si es necesario -->
+        </div>
+
+        <!-- Información adicional del profesor -->
+        <div class="profesor-contacto">
+            <h2>Información de contacto</h2>
+            <p><strong>Teléfono:</strong> {{teacherData?.phone}}</p>
+            <p><strong>Email:</strong> {{teacherData?.email}}</p>
+        </div>
+
+        <!-- Mostrar la información de la ubicación -->
+        <div class="profesor-ubicacion">
+            <h2>Ubicación</h2>
+            <app-map [teachers]="teachers" [range]="10" [position]="getPosition(teacherData?.latitude,teacherData?.longitude)" ></app-map>
+        </div>
+    </section>
+</div>
