@@ -10,7 +10,7 @@
           <div *ngFor="let teacher of myTeachers">
               <app-teacher-card [id]="teacher.id" [name]="teacher.name" [lastNames]="teacher.last_names"
                                 [knowledgeBranches]="teacher.knowledge_branches" [price]="teacher.price_hour"
-                                [image]="teacher.image || 'assets/images/default-teacher.png'" class="h-100">
+                                [image]="teacher.image || 'assets/images/default-teacher.png'" [isValorable]="true" class="h-100">
               </app-teacher-card>
           </div>
       </div>

@@ -24,6 +24,7 @@ export class TeacherCardComponent {
   @Input() knowledgeBranches: IData[] = [];
   @Input() price: number = 0;
   @Input() image: string = "";
+  @Input() isValorable: boolean = false;
 
   teachersService = inject(TeachersService);
   authService = inject(AuthService);
