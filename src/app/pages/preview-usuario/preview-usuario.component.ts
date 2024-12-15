@@ -10,8 +10,7 @@ import { ITeacherInfoInterface } from "../../interfaces/iTeacherInfoInterface";
 import { IStudentInfoInterface } from "../../interfaces/iStudentInfo.interface";
 import { NgClass, NgIf, NgForOf } from "@angular/common";
 import { CommonModule } from '@angular/common';
-import { StudentCardComponent } from "../../components/student-card/student-card.component";
-import { TeacherCardComponent } from "../../components/teacher-card/teacher-card.component";
+
 
 @Component({
   selector: 'preview-usuario',
@@ -19,11 +18,8 @@ import { TeacherCardComponent } from "../../components/teacher-card/teacher-card
   imports: [
     NgClass,
     NgIf,
-    NgForOf,
     RouterLink,
     CommonModule,
-    StudentCardComponent,
-    TeacherCardComponent
   ],
   templateUrl: './preview-usuario.component.html',
   styleUrls: ['./preview-usuario.component.css'],

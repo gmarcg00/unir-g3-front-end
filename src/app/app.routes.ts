@@ -42,6 +42,6 @@ export const routes: Routes = [
     {path: 'testimonios', component: TestimoniosComponent },
     {path: 'preguntas-frecuentes', component: PreguntasFrecuentesComponent },
     {path: 'como-funciona', component: ComoFuncionaComponent },
-    {path: '**', component: NotFoundComponent },
-    { path: 'preview-usuario', component: PreviewUsuarioComponent }
+    {path: "preview-usuario", component: PreviewUsuarioComponent },
+    {path: '**', component: NotFoundComponent }
 ];
