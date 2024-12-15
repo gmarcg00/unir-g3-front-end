@@ -26,7 +26,7 @@
             <div class="mb-3">
                 <label for="reviewFormControlText" class="form-label fw-bold">Tu reseña </label>
                 <textarea class="form-control" id="reviewFormControlText" name="reviewText" ngModel rows="3"
-                    value="{{ratingText}}"></textarea>
+                    [(ngModel)]="ratingText"></textarea>
             </div>
 
             <!-- Botones -->

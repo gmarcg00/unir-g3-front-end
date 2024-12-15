@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-student',
@@ -8,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrl: './home-student.component.css'
 })
 export class HomeStudentComponent {
+  router = inject(Router);
+
+  // AQUI ES COMO HACER UN REVIEW DE UN PROFE
+  navigateSnape() {
+    this.router.navigate(['/review'], { state: { teacherId: 26, studentId: 2 } });
+  }
 
 }

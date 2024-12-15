@@ -77,6 +77,14 @@ export class PuntuaProfeComponent {
     resp.then((data) => {
       console.log(data);
       if (data) {
+        Swal.fire({
+          title: 'Review guardada',
+          text: 'Gracias por tu opinion',
+          icon: 'success',
+          background: "#202020",
+          color: "#fff",
+          timer: 1500
+        })
         this.router.navigate(['/teachers']);
       }
     })
