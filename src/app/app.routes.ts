@@ -30,10 +30,10 @@ export const routes: Routes = [
     path: "dashboard", component: DashboardComponent, canActivate: [authGuard], children: [
       { path: "admin", component: HomeAdminComponent },
       { path: "teacher", component: HomeTeacherComponent },
-      { path: "student", component: HomeStudentComponent },
-      { path: "student/reviews", component: PuntuaProfeComponent }
+      { path: "student", component: HomeStudentComponent }
     ]
   },
+  { path: "review", component: PuntuaProfeComponent },
   { path: "sign-in", component: SignInComponent },
   { path: "sign-up", component: SignUpComponent },
   { path: "teachers", component: TeachersComponent },

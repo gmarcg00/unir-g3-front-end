@@ -21,6 +21,10 @@ export class HeaderComponent {
   router = inject(Router);
   activeTeacher: boolean = false;
 
+  navigateSnape() {
+    this.router.navigate(['/review'], { state: { teacherId: 8, studentId: 2 } });
+
+  }
 
   ngOnInit() {
     this.router.events.subscribe(event => {
@@ -44,12 +48,12 @@ export class HeaderComponent {
 
   goHome(): void {
     const token = this.authService.getToken();
-    if(!token) this.router.navigateByUrl("/home");
-    else{
+    if (!token) this.router.navigateByUrl("/home");
+    else {
       const role = this.authService.getRole();
-      if(role === 1) this.router.navigateByUrl("/dashboard/admin");
-      else if(role === 2) this.router.navigateByUrl("/dashboard/teacher");
-      else if(role === 3) this.router.navigateByUrl("/dashboard/student");
+      if (role === 1) this.router.navigateByUrl("/dashboard/admin");
+      else if (role === 2) this.router.navigateByUrl("/dashboard/teacher");
+      else if (role === 3) this.router.navigateByUrl("/dashboard/student");
     }
   }
 
