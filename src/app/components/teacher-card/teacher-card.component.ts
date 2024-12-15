@@ -18,12 +18,15 @@ import { NgIf } from "@angular/common";
   styleUrl: './teacher-card.component.css'
 })
 export class TeacherCardComponent {
+  router = inject(Router);
+
   @Input() id: number = 0;
   @Input() name: string = "";
   @Input() lastNames: string = "";
   @Input() knowledgeBranches: IData[] = [];
   @Input() price: number = 0;
   @Input() image: string = "";
+  @Input() isValorable: boolean = false;
 
   teachersService = inject(TeachersService);
   authService = inject(AuthService);
@@ -55,5 +58,12 @@ export class TeacherCardComponent {
         })
       });
   }
+
+  async reviewTeacher(): Promise<void> {
+    const token = this.authService.getTokenPayload();
+    await this.router.navigate(['/review'], { state: { teacherId: this.id, studentId: token?.id } });
+  }
+
+
 
 }

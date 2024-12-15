@@ -1,9 +1,13 @@
-.card{
+.card {
   background-color: #4C4C6D;
-  color: white ;
+  color: white;
 }
 
-.btn-success{
+.text-muted {
+  color: #D4A017 !important;
+}
+
+.btn-success {
   --bs-btn-color: black;
   --bs-btn-bg: #D4A017;
   --bs-btn-border-color: #D4A017;
@@ -19,19 +23,19 @@
   --bs-btn-disabled-bg: #D4A017;
 }
 
-.btn-success:hover{
+.btn-success:hover {
   filter: brightness(1.3);
 }
 
-.btn{
+.btn {
   border: none;
   font-size: 15px;
   font-family: "Open Sans", sans-serif;
   font-weight: 500;
-  color:#fff ;
+  color: #fff;
 }
 
-.position-button{
+.position-button {
   bottom: 1rem;
   left: 1rem;
   right: 1rem;

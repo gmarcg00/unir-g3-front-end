@@ -9,7 +9,7 @@ body, h1, h2, h3, h4, h5, h6, p, input, button, a {
   border-radius: 20px;
 }
 
-.px-4 h2 { 
+.px-4 h2 {
   font-size: 20px;
   font-weight: 500;
   padding: 0 !important;
@@ -170,3 +170,4 @@ body, h1, h2, h3, h4, h5, h6, p, input, button, a {
     width: auto;
   }
 }
+

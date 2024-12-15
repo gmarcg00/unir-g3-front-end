@@ -22,6 +22,7 @@ export class HeaderComponent {
   activeTeacher: boolean = false;
 
 
+
   ngOnInit() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
@@ -44,12 +45,12 @@ export class HeaderComponent {
 
   goHome(): void {
     const token = this.authService.getToken();
-    if(!token) this.router.navigateByUrl("/home");
-    else{
+    if (!token) this.router.navigateByUrl("/home");
+    else {
       const role = this.authService.getRole();
-      if(role === 1) this.router.navigateByUrl("/dashboard/admin");
-      else if(role === 2) this.router.navigateByUrl("/dashboard/teacher");
-      else if(role === 3) this.router.navigateByUrl("/dashboard/student");
+      if (role === 1) this.router.navigateByUrl("/dashboard/admin");
+      else if (role === 2) this.router.navigateByUrl("/dashboard/teacher");
+      else if (role === 3) this.router.navigateByUrl("/dashboard/student");
     }
   }
 

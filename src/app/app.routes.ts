@@ -20,6 +20,7 @@ import { PreguntasFrecuentesComponent } from "./pages/preguntas-frecuentes/pregu
 import { ComoFuncionaComponent } from "./pages/como-funciona/como-funciona.component";
 import { NotFoundComponent } from "./pages/not-found/not-found.component";
 import { PreviewUsuarioComponent } from './pages/preview-usuario/preview-usuario.component';
+import { PuntuaProfeComponent } from "./pages/puntua-profe/puntua-profe.component";
 
 
 
@@ -33,6 +34,7 @@ export const routes: Routes = [
       { path: "student", component: HomeStudentComponent }
     ]
   },
+  { path: "review", component: PuntuaProfeComponent },
   { path: "sign-in", component: SignInComponent },
   { path: "sign-up", component: SignUpComponent },
   { path: "teachers", component: TeachersComponent },
@@ -45,5 +47,6 @@ export const routes: Routes = [
   { path: 'como-funciona', component: ComoFuncionaComponent },
   { path: 'preview-usuario/:id', component: PreviewUsuarioComponent, canActivate: [authGuard] },
   { path: '**', component: NotFoundComponent }
+
 
 ];
