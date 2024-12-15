@@ -10,6 +10,9 @@ import {ITeacherInfoInterface} from "../interfaces/iTeacherInfoInterface";
   providedIn: 'root'
 })
 export class UserService {
+  getTokenPayload() {
+    throw new Error('Method not implemented.');
+  }
   getPendingTeachers(): ITeacherInfoInterface[] | PromiseLike<ITeacherInfoInterface[]> {
     throw new Error('Method not implemented.');
   }
