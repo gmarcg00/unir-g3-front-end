@@ -1,61 +1,74 @@
-<head>
-  <link href="preview-usuario.component.css" rel="stylesheet">
-</head>
-
-<body>
+<p>Usuaris que quien se pide el preview {{userToPreviewId}}</p>
 <div class="perfil-contenedor">
-  <!-- Información básica a la izquierda -->
-  <section class="profesor-info">
-      <div class="w-100" style="height: 25vh;">
-          <img *ngIf="adminData !== undefined" src="{{adminData.image}}" class="w-100 h-100 object-fit-contain" alt="Imagen administrador">
-          <img *ngIf="teacherData !== undefined" src="{{teacherData.image}}" class="w-100 h-100 object-fit-contain" alt="Imagen profesor">
-          <img *ngIf="studentData !== undefined" src="{{studentData.image}}" class="w-100 h-100 object-fit-contain" alt="Imagen estudiante">
-      </div>
-      <h1 *ngIf="adminData !== undefined" class="profesor-nombre">{{adminData.name}} {{adminData.last_names}}</h1>
-      <h1 *ngIf="teacherData !== undefined" class="profesor-nombre">{{teacherData.name}} {{teacherData.last_names}}</h1>
-      <h1 *ngIf="studentData !== undefined" class="profesor-nombre">{{studentData.name}} {{studentData.last_names}}</h1>
+    <!-- Información básica a la izquierda -->
+    <section class="profesor-info">
+        <div class="w-100" style="height: 25vh;">
+            <!-- <img -->
+        </div>
+        <h1 class="profesor-nombre">Nombres</h1>
 
-      <div *ngIf="isAdmin()" class="d-flex flex-column gap-2 w-100">
-          <div (click)="setMenuOption('info')" [ngClass]="menuOptionSelected === 'info' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
-              <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Información personal</p>
-          </div>
-          <div [routerLink]="['/admin/activate-teachers']" [ngClass]="menuOptionSelected === 'enable-teachers' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
-              <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Profesores en espera</p>
-          </div>
-      </div>
 
-      <div *ngIf="isTeacher()" class="d-flex flex-column gap-2 w-100">
-          <div class="d-flex flex-column gap-2 text-center mb-2">
-              <h3 class="profesor-ramas">{{ getKnowledgeBranches().join(", ")}}</h3>
-              <p class="profesor-precio"><strong>Precio por hora:</strong> {{teacherData?.price_hour}}€</p>
-              <p class="profesor-experiencia"><strong>Años de experiencia:</strong> 10 años</p>
-              <p class="profesor-puntuacion"><strong>Puntuación:</strong> 4.8/5</p>
-          </div>
-          <div (click)="setMenuOption('info')" [ngClass]="menuOptionSelected === 'info' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
-              <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Información personal</p>
-          </div>
-          <div [routerLink]="['/chats']" [ngClass]="menuOptionSelected === 'chats' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
-              <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Mis chats</p>
-          </div>
-      </div>
 
-      <div *ngIf="isStudent()" class="d-flex flex-column gap-2 w-100">
-          <div (click)="setMenuOption('info')" [ngClass]="menuOptionSelected === 'info' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
-              <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Información personal</p>
-          </div>
-          <div [routerLink]="['/chats']" [ngClass]="menuOptionSelected === 'chats' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
-              <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Mis chats</p>
-          </div>
-      </div>
-  </section>
+        <div class="d-flex flex-column gap-2 w-100">
+            <div (click)="setMenuOption('info')"
+                [ngClass]="menuOptionSelected === 'info' ? 'selected-option': 'non-selected-option'"
+                class="w-100 p-3 rounded-2">
+                <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Información
+                    personal
+                </p>
+            </div>
+            <div [routerLink]="['/admin/activate-teachers']"
+                [ngClass]="menuOptionSelected === 'enable-teachers' ? 'selected-option': 'non-selected-option'"
+                class="w-100 p-3 rounded-2">
+                <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Profesores en
+                    espera
+                </p>
+            </div>
+        </div>
 
-  <!-- Detalles adicionales a la derecha -->
-  <section *ngIf="isTeacher()" class="profesor-detalles">
-      <!-- Acerca del profesor -->
-      <div class="profesor-descripcion">
-          <h2>Acerca del profesor:</h2>
-          <p class="descripcion">Descripción del profesor... con más información de su perfil.</p>
-      </div>
-  </section>
+        <div class="d-flex flex-column gap-2 w-100">
+            <div class="d-flex flex-column gap-2 text-center mb-2">
+                <h3 class="profesor-ramas">{{ getKnowledgeBranches().join(", ")}}</h3>
+                <p class="profesor-precio"><strong>Precio por hora:</strong> {{teacherData?.price_hour}}€</p>
+                <p class="profesor-experiencia"><strong>Años de experiencia:</strong> 10 años</p>
+                <p class="profesor-puntuacion"><strong>Puntuación:</strong> 4.8/5</p>
+            </div>
+            <div (click)="setMenuOption('info')"
+                [ngClass]="menuOptionSelected === 'info' ? 'selected-option': 'non-selected-option'"
+                class="w-100 p-3 rounded-2">
+                <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Información
+                    personal
+                </p>
+            </div>
+            <div [routerLink]="['/chats']"
+                [ngClass]="menuOptionSelected === 'chats' ? 'selected-option': 'non-selected-option'"
+                class="w-100 p-3 rounded-2">
+                <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Mis chats</p>
+            </div>
+        </div>
+
+        <div class="d-flex flex-column gap-2 w-100">
+            <div (click)="setMenuOption('info')"
+                [ngClass]="menuOptionSelected === 'info' ? 'selected-option': 'non-selected-option'"
+                class="w-100 p-3 rounded-2">
+                <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Información
+                    personal
+                </p>
+            </div>
+            <div [routerLink]="['/chats']"
+                [ngClass]="menuOptionSelected === 'chats' ? 'selected-option': 'non-selected-option'"
+                class="w-100 p-3 rounded-2">
+                <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Mis chats</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detalles adicionales a la derecha -->
+    <section class="profesor-detalles">
+        <!-- Acerca del profesor -->
+        <div class="profesor-descripcion">
+            <h2>Acerca del profesor:</h2>
+            <p class="descripcion">Descripción del profesor... con más información de su perfil.</p>
+        </div>
+    </section>
 </div>
-</body>

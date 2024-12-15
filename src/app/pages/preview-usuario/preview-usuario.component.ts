@@ -1,7 +1,7 @@
 import { Component, inject, Output } from '@angular/core';
 import { AuthService } from "../../services/auth.service";
 import { UserService } from "../../services/user.service";
-import { RouterLink } from "@angular/router";
+import { ActivatedRoute, RouterLink } from "@angular/router";
 import { TeachersService } from "../../services/teachers.service";
 import { StudentsService } from "../../services/students.service";
 import Swal from "sweetalert2";
@@ -40,38 +40,46 @@ export class PreviewUsuarioComponent {
   // Variables para almacenar los datos de los diferentes tipos de usuario
   teachers: ITeacherInfoInterface[] = [];
   students: IStudentInfoInterface[] = [];
-  userRole: number = 0;
+  userToPreviewId: number = 0;
 
   // Datos de usuario de acuerdo con el rol
   adminData?: IAdminInfoResponseInterface;
   teacherData?: ITeacherInfoInterface;
   studentData?: IStudentInfoInterface;
+  activatedRoute = inject(ActivatedRoute);
+  userRole: number = 0;
+  user_id: number = 0;
 
   async ngOnInit(): Promise<void> {
     // Llamada al método para cargar los datos del usuario
+    this.activatedRoute.params.subscribe(params => {
+      this.userToPreviewId = params['id'];
+    });
+
     await this.loadUserData();
   }
 
   private async loadUserData(): Promise<void> {
     try {
       // Obtiene el rol y el ID del usuario desde el AuthService
-      const token = this.authService.getTokenPayload();  // Asegúrate de que este método existe y es el correcto
-      this.userRole = token?.role ?? 0; // Usamos el valor por defecto 0 si no hay rol
-      const userId = token?.id ?? 0;
+      const token = this.authService.getRole();  // Asegúrate de que este método existe y es el correcto
+      // this.userRole = token?.role ?? 0; // Usamos el valor por defecto 0 si no hay rol
+      this.userRole = 1;
+      const userId = this.user_id;
 
       // Según el rol del usuario, se cargan los datos correspondientes
       switch (this.userRole) {
         case 1:
           // Si es admin, carga los datos del administrador
-          await this.loadAdminData(userId);
+          await this.loadAdminData(this.userToPreviewId);
           break;
         case 2:
           // Si es profesor, carga los datos del profesor
-          await this.loadTeacherData(userId);
+          await this.loadTeacherData(this.userToPreviewId);
           break;
         case 3:
           // Si es estudiante, carga los datos del estudiante
-          await this.loadStudentData(userId);
+          await this.loadStudentData(this.userToPreviewId);
           break;
         default:
           // Si el rol no es válido, muestra un error
