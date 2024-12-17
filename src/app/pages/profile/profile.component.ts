@@ -85,7 +85,7 @@ export class ProfileComponent {
       this.router.navigateByUrl("/home");
     }
 
-    if (this.studentId !== 0) {
+    if (this.studentId !== 0 && this.studentId !== undefined) {
       this.setUserRole(3);
       await this.getData(this.studentId);
     }
