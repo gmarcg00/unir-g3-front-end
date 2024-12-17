@@ -1,6 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
 import { NgIf } from "@angular/common";
-import { RouterLink } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
 import { AuthService } from "../../services/auth.service";
 import Swal from "sweetalert2";
 import { StudentsService } from "../../services/students.service";
@@ -11,7 +11,6 @@ import { StudentsService } from "../../services/students.service";
   standalone: true,
   imports: [
     NgIf,
-    RouterLink
   ],
   templateUrl: './student-card.component.html',
   styleUrl: './student-card.component.css'
@@ -24,7 +23,11 @@ export class StudentCardComponent {
 
   authService = inject(AuthService);
   studentsService = inject(StudentsService);
+  router = inject(Router);
 
+  async navigateToProfile(): Promise<void> {
+    await this.router.navigate(['profile'], { state: { stID: this.id } })
+  }
   deactivateStudent(id: number): void {
     const token = this.authService.getToken();
     this.studentsService.deactivateStudent(token, id)
