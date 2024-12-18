@@ -18,6 +18,14 @@ const TEACHER = 'TEACHER';
 export class SignUpComponent {
   selectedForm: string = STUDENT;
 
+  ngOnInit(): void {
+    this.scrollToTop();
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   selectOption(option: string){
     this.selectedForm = option;
   }

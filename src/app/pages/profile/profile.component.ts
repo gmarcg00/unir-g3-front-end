@@ -14,12 +14,13 @@ import { IStudentInfoInterface } from "../../interfaces/iStudentInfo.interface";
 import { ITeacherInfoInterface } from "../../interfaces/iTeacherInfoInterface";
 import { StudentCardComponent } from "../../components/student-card/student-card.component";
 import { TeacherCardComponent } from "../../components/teacher-card/teacher-card.component";
+import {MapComponent} from "../../components/map/map.component";
 
 @Component({
   selector: 'app-profile',
   standalone: true,
   imports: [NgClass, NgIf,
-    StudentCardComponent, TeacherCardComponent, NgForOf, RouterLink],
+    StudentCardComponent, TeacherCardComponent, NgForOf, RouterLink, MapComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
@@ -39,7 +40,11 @@ export class ProfileComponent {
   onlyStudentInfo: boolean = false;
 
   teachers: ITeacherInfoInterface[] = [];
+  teachersProfile: ITeacherInfoInterface[] = [];
   students: IStudentInfoInterface[] = [];
+  latitude: number = 0;
+  longitude: number = 0;
+  position: any = "";
 
 
 
@@ -93,6 +98,7 @@ export class ProfileComponent {
       await this.getData(this.studentId);
     }
     else {
+      if(this.teacherData) this.teachersProfile.push(this.teacherData)
       this.onlyStudentInfo = false;
       this.setUserRole(token?.role || 0);
       await this.getData(token?.id || 0);
@@ -148,8 +154,8 @@ export class ProfileComponent {
       title: 'Hasta la proxima !!',
       text: 'Saliste con exito.',
       icon: 'success',
-      background: "#202020",
-      color: "#fff",
+      background: "#740001",
+      color: "#D4A017",
       showConfirmButton: false,
       timer: 1000
     })
@@ -158,6 +164,13 @@ export class ProfileComponent {
 
   scrollToTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  getPosition(lat: number | undefined, lng: number | undefined): google.maps.LatLng | null {
+    if (lat === undefined || lng === undefined) {
+      return null;
+    }
+    return new google.maps.LatLng(lat, lng);
   }
 
 }

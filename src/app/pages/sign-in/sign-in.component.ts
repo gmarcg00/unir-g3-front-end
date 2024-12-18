@@ -10,4 +10,11 @@ import { SignInFormComponent } from "../../components/forms/sign-in-form/sign-in
 })
 export class SignInComponent {
 
+  ngOnInit(): void {
+    this.scrollToTop();
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

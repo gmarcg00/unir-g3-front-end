@@ -44,9 +44,9 @@ export class TeacherCardComponent {
         await Swal.fire({
           title: 'Activado !!',
           text: 'El profesaro a sido activado con exito',
-          icon: 'error',
-          background: "#202020",
-          color: "#fff"
+          icon: 'success',
+          background: "#740001",
+          color: "#D4A017"
         })
         window.location.reload();
       })

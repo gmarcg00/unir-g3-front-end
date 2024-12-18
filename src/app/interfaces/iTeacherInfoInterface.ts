@@ -15,4 +15,5 @@ export interface ITeacherInfoInterface {
   price_hour: number;
   knowledge_branches: IData[];
   active: boolean;
+  average_rating: number;
 }

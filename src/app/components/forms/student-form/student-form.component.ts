@@ -71,7 +71,15 @@ export class StudentFormComponent {
     try {
       const response = await this.authService.studentSignUp(name, lastNames, phone, this.selectedImageBase64, username, email, password, this.latitude, this.longitude);
       localStorage.setItem("token", response.token);
-      await Swal.fire("Éxito", "Ha iniciado sesión correctamente.", "success");
+      await Swal.fire({
+        title: 'Bienvenido!!',
+        text: 'Te has unido a la escuela de magia y hechicería',
+        icon: 'success',
+        background: "#740001",
+        color: "#D4A017",
+        showConfirmButton: false,
+        timer: 1000
+      })
       await this.router.navigateByUrl("/dashboard");
     } catch (error: any) {
       if (error.status === 409) {

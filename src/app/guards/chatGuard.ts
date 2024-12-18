@@ -14,16 +14,12 @@ export const chatGuard: CanActivateFn = (route, state) => {
   if (token) {
     try {
       const data = authService.getTokenPayload() as ICustomTokenPayload;
-
       if (data.role === 3 || data.role === 2) {
         return true;
       }
     } catch (error) {}
   }
 
-  Swal.fire('Error', 'You must be signed in to access this page.', 'warning').then(() => {
-    router.navigateByUrl('/sign-in');
-  });
-
+  router.navigateByUrl('/sign-in');
   return false;
 };

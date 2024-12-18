@@ -55,6 +55,14 @@ export class PuntuaProfeComponent {
     })
   }
 
+  ngOnInit(): void {
+    this.scrollToTop();
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   selectRating(rating: number): void {
     this.selectedRating = rating;
     console.log(this.selectedRating)
