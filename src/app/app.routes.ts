@@ -40,6 +40,7 @@ export const routes: Routes = [
   { path: "teachers", component: TeachersComponent },
   { path: "chats", component: ChatsComponent, canActivate: [chatGuard] },
   { path: "profile", component: ProfileComponent, canActivate: [authGuard] },
+  { path: "profile/:id", component: ProfileComponent, canActivate: [authGuard] },
   { path: "admin/activate-teachers", component: ActiveTeachersComponent, canActivate: [authGuard] },
   { path: "admin/student-list", component: StudentsComponent, canActivate: [authGuard] },
   { path: 'testimonios', component: TestimoniosComponent },

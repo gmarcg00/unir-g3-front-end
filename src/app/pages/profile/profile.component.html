@@ -1,205 +1,219 @@
 <head>
-    <link src="profile.component.css" rel="stylesheet">
+  <link src="profile.component.css" rel="stylesheet">
 </head>
 
 <body>
-<div class="perfil-contenedor">
+  <div class="perfil-contenedor">
     <!-- Información básica a la izquierda -->
     <section class="profesor-info">
-        <div class="w-100" style="height: 25vh;">
-          <img *ngIf="adminData !== undefined" src="{{adminData.image}}" class="w-100 h-100 object-fit-contain" alt="Imagen administrador">
-          <img *ngIf="teacherData !== undefined" src="{{teacherData.image}}" class="w-100 h-100 object-fit-contain" alt="Imagen profesor">
-          <img *ngIf="studentData !== undefined" src="{{studentData.image}}" class="w-100 h-100 object-fit-contain" alt="Imagen estudiante">
-        </div>
-        <h1 *ngIf="adminData !== undefined" class="profesor-nombre">{{adminData.name}} {{adminData.last_names}}</h1>
-        <h1 *ngIf="teacherData !== undefined" class="profesor-nombre">{{teacherData.name}} {{teacherData.last_names}}</h1>
-        <h1 *ngIf="studentData !== undefined" class="profesor-nombre">{{studentData.name}} {{studentData.last_names}}</h1>
+      <div class="w-100" style="height: 25vh;">
+        <img *ngIf="adminData !== undefined" src="{{adminData.image}}" class="w-100 h-100 object-fit-contain"
+          alt="Imagen administrador">
+        <img *ngIf="teacherData !== undefined" src="{{teacherData.image}}" class="w-100 h-100 object-fit-contain"
+          alt="Imagen profesor">
+        <img *ngIf="studentData !== undefined" src="{{studentData.image}}" class="w-100 h-100 object-fit-contain"
+          alt="Imagen estudiante">
+      </div>
+      <h1 *ngIf="adminData !== undefined" class="profesor-nombre">{{adminData.name}} {{adminData.last_names}}</h1>
+      <h1 *ngIf="teacherData !== undefined" class="profesor-nombre">{{teacherData.name}} {{teacherData.last_names}}</h1>
+      <h1 *ngIf="studentData !== undefined" class="profesor-nombre">{{studentData.name}} {{studentData.last_names}}</h1>
 
-        <div *ngIf="isAdmin()" class="d-flex flex-column gap-2 w-100">
-          <div (click)="setMenuOption('info')" [ngClass]="menuOptionSelected === 'info' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
-            <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Información personal</p>
-          </div>
-          <div [routerLink]="['/admin/activate-teachers']" [ngClass]="menuOptionSelected === 'enable-teachers' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
-            <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Profesores en espera</p>
-          </div>
-          <div (click)="signOut()" [ngClass]="menuOptionSelected === 'sign-out' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
-            <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Cerrar sesión</p>
-          </div>
+      <div *ngIf="isAdmin()" class="d-flex flex-column gap-2 w-100">
+        <div (click)="setMenuOption('info')"
+          [ngClass]="menuOptionSelected === 'info' ? 'selected-option': 'non-selected-option'"
+          class="w-100 p-3 rounded-2">
+          <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Información personal</p>
         </div>
+        <div [routerLink]="['/admin/activate-teachers']"
+          [ngClass]="menuOptionSelected === 'enable-teachers' ? 'selected-option': 'non-selected-option'"
+          class="w-100 p-3 rounded-2">
+          <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Profesores en espera</p>
+        </div>
+        <div (click)="signOut()"
+          [ngClass]="menuOptionSelected === 'sign-out' ? 'selected-option': 'non-selected-option'"
+          class="w-100 p-3 rounded-2">
+          <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Cerrar sesión</p>
+        </div>
+      </div>
 
-        <div *ngIf="isTeacher()" class="d-flex flex-column gap-2 w-100">
-          <div class="d-flex flex-column gap-2 text-center mb-2">
-            <h3 class="profesor-ramas">{{ getKnowledgeBranches().join(", ")}}</h3>
-            <p class="profesor-precio"><strong>Precio por hora:</strong> {{teacherData?.price_hour}}€</p>
-            <p class="profesor-experiencia"><strong>Años de experiencia:</strong> 10 años</p>
-            <p class="profesor-puntuacion"><strong>Puntuación:</strong> 4.8/5</p>
-          </div>
-          <div (click)="setMenuOption('info')" [ngClass]="menuOptionSelected === 'info' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
-            <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Información personal</p>
-          </div>
-          <div [routerLink]="['/chats']" [ngClass]="menuOptionSelected === 'chats' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
-            <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Mis chats</p>
-          </div>
-          <div (click)="signOut()" [ngClass]="menuOptionSelected === 'sign-out' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
-            <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Cerrar sesión</p>
-          </div>
+      <div *ngIf="isTeacher()" class="d-flex flex-column gap-2 w-100">
+        <div class="d-flex flex-column gap-2 text-center mb-2">
+          <h3 class="profesor-ramas">{{ getKnowledgeBranches().join(", ")}}</h3>
+          <p class="profesor-precio"><strong>Precio por hora:</strong> {{teacherData?.price_hour}}€</p>
+          <p class="profesor-experiencia"><strong>Años de experiencia:</strong> 10 años</p>
+          <p class="profesor-puntuacion"><strong>Puntuación:</strong> 4.8/5</p>
         </div>
+        <div (click)="setMenuOption('info')"
+          [ngClass]="menuOptionSelected === 'info' ? 'selected-option': 'non-selected-option'"
+          class="w-100 p-3 rounded-2">
+          <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Información personal</p>
+        </div>
+        <div [routerLink]="['/chats']"
+          [ngClass]="menuOptionSelected === 'chats' ? 'selected-option': 'non-selected-option'"
+          class="w-100 p-3 rounded-2">
+          <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Mis chats</p>
+        </div>
+        <div (click)="signOut()"
+          [ngClass]="menuOptionSelected === 'sign-out' ? 'selected-option': 'non-selected-option'"
+          class="w-100 p-3 rounded-2">
+          <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Cerrar sesión</p>
+        </div>
+      </div>
 
-        <div *ngIf="isStudent()" class="d-flex flex-column gap-2 w-100">
-          <div (click)="setMenuOption('info')" [ngClass]="menuOptionSelected === 'info' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
-            <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Información personal</p>
-          </div>
-          <div [routerLink]="['/chats']" [ngClass]="menuOptionSelected === 'chats' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
-            <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Mis chats</p>
-          </div>
-          <div (click)="signOut()" [ngClass]="menuOptionSelected === 'sign-out' ? 'selected-option': 'non-selected-option'" class="w-100 p-3 rounded-2">
-            <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Cerrar sesión</p>
-          </div>
+      <div *ngIf="isStudent()" class="d-flex flex-column gap-2 w-100">
+        <div (click)="setMenuOption('info')"
+          [ngClass]="menuOptionSelected === 'info' ? 'selected-option': 'non-selected-option'"
+          class="w-100 p-3 rounded-2">
+          <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Información personal</p>
         </div>
+        @if (!onlyStudentInfo){
+        <div [routerLink]="['/chats']"
+          [ngClass]="menuOptionSelected === 'chats' ? 'selected-option': 'non-selected-option'"
+          class="w-100 p-3 rounded-2">
+          <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Mis chats</p>
+        </div>
+        <div (click)="signOut()"
+          [ngClass]="menuOptionSelected === 'sign-out' ? 'selected-option': 'non-selected-option'"
+          class="w-100 p-3 rounded-2">
+          <p style="font-size: 18px; font-weight: 700 ; cursor: pointer" class="text-white">Cerrar sesión</p>
+        </div>
+        }
+      </div>
     </section>
 
 
     <!-- Detalles adicionales a la derecha -->
     <section *ngIf="isTeacher()" class="profesor-detalles">
-        <!-- Acerca del profesor -->
-        <div  class="profesor-descripcion">
-            <h2>Acerca del Profesor</h2>
-            <p>Apasionado por la enseñanza con amplia experiencia en ciencias exactas, ayudo a los estudiantes a desarrollar un entendimiento profundo en matemáticas y física. Con metodologías efectivas y prácticas, logro que el aprendizaje sea accesible y estimulante para todos mis alumnos.</p>
-        </div>
+      <!-- Acerca del profesor -->
+      <div class="profesor-descripcion">
+        <h2>Acerca del Profesor</h2>
+        <p>Apasionado por la enseñanza con amplia experiencia en ciencias exactas, ayudo a los estudiantes a desarrollar
+          un entendimiento profundo en matemáticas y física. Con metodologías efectivas y prácticas, logro que el
+          aprendizaje sea accesible y estimulante para todos mis alumnos.</p>
+      </div>
 
-        <!-- Métodos de enseñanza -->
-        <div class="profesor-metodos">
-            <h2>Acerca de las Clases</h2>
-            <p>Utilizo métodos personalizados, ajustando el contenido a las necesidades de cada estudiante. Mis clases incluyen:</p>
-            <ul>
-                <li>Enfoque en problemas prácticos y ejercicios.</li>
-                <li>Explicaciones visuales para facilitar la comprensión.</li>
-                <li>Evaluación y retroalimentación constante.</li>
-                <li>Material de apoyo y ejercicios para casa.</li>
-            </ul>
-        </div>
+      <!-- Métodos de enseñanza -->
+      <div class="profesor-metodos">
+        <h2>Acerca de las Clases</h2>
+        <p>Utilizo métodos personalizados, ajustando el contenido a las necesidades de cada estudiante. Mis clases
+          incluyen:</p>
+        <ul>
+          <li>Enfoque en problemas prácticos y ejercicios.</li>
+          <li>Explicaciones visuales para facilitar la comprensión.</li>
+          <li>Evaluación y retroalimentación constante.</li>
+          <li>Material de apoyo y ejercicios para casa.</li>
+        </ul>
+      </div>
 
-        <!-- Calificaciones recientes -->
-        <div class="profesor-calificaciones">
-            <h2>Calificaciones Recientes</h2>
-            <div class="calificacion">
-                <p><strong>Juan Pérez:</strong> "Excelente profesor, explica de forma clara y sencilla." ★★★★★</p>
-            </div>
-            <div class="calificacion">
-                <p><strong>Laura Martínez:</strong> "Muy profesional y paciente, altamente recomendable." ★★★★★</p>
-            </div>
-            <div class="calificacion">
-                <p><strong>Andrés Gómez:</strong> "Me ayudó mucho con mis dudas de física." ★★★★☆</p>
-            </div>
-            <div class="calificacion">
-                <p><strong>Claudia Torres:</strong> "Buen profesor, aunque podría dar más ejemplos." ★★★★☆</p>
-            </div>
-            <div class="calificacion">
-                <p><strong>Sofía Rivas:</strong> "Gran metodología y enfoque en resultados." ★★★★★</p>
-            </div>
+      <!-- Calificaciones recientes -->
+      <div class="profesor-calificaciones">
+        <h2>Calificaciones Recientes</h2>
+        <div class="calificacion">
+          <p><strong>Juan Pérez:</strong> "Excelente profesor, explica de forma clara y sencilla." ★★★★★</p>
         </div>
+        <div class="calificacion">
+          <p><strong>Laura Martínez:</strong> "Muy profesional y paciente, altamente recomendable." ★★★★★</p>
+        </div>
+        <div class="calificacion">
+          <p><strong>Andrés Gómez:</strong> "Me ayudó mucho con mis dudas de física." ★★★★☆</p>
+        </div>
+        <div class="calificacion">
+          <p><strong>Claudia Torres:</strong> "Buen profesor, aunque podría dar más ejemplos." ★★★★☆</p>
+        </div>
+        <div class="calificacion">
+          <p><strong>Sofía Rivas:</strong> "Gran metodología y enfoque en resultados." ★★★★★</p>
+        </div>
+      </div>
     </section>
 
     <section *ngIf="isAdmin()" class="profesor-detalles">
       <!-- Acerca del profesor -->
       <div *ngIf="menuOptionSelected === 'info'" class="profesor-descripcion">
-          <h2>Acerca del Administrador</h2>
-            <p>El profesor es un experto en su área, comprometido con el desarrollo académico y personal de los estudiantes. A través de su conocimiento y dedicación, inspira y guía a los alumnos a alcanzar su máximo potencial. Su rol es fundamental en la creación de un ambiente de aprendizaje dinámico y colaborativo.</p>
+        <h2>Acerca del Administrador</h2>
+        <p>El profesor es un experto en su área, comprometido con el desarrollo académico y personal de los estudiantes.
+          A través de su conocimiento y dedicación, inspira y guía a los alumnos a alcanzar su máximo potencial. Su rol
+          es fundamental en la creación de un ambiente de aprendizaje dinámico y colaborativo.</p>
       </div>
 
-      <div  *ngIf="menuOptionSelected === 'info'" class="profesor-descripcion">
+      <div *ngIf="menuOptionSelected === 'info'" class="profesor-descripcion">
         <h2>información personal</h2>
         <div *ngIf="adminData">
           <p><strong>Nombre:</strong> {{ adminData.name }} {{ adminData.last_names }}</p>
           <p><strong>Número de teléfono:</strong> {{ adminData.phone }}</p>
           <p><strong>Email:</strong> {{ adminData.email }}</p>
         </div>
-    </div>
-    <div  *ngIf="menuOptionSelected === 'info'" class="profesor-descripcion">
-      <h2>Función principal</h2>
-      <div *ngIf="adminData">
-        <p><strong>Administrar solicitudes de profesores:</strong> Revisar y aprobar las solicitudes de nuevos profesores.</p>
-         <p><strong>Gestión de alumnos:</strong> Dar de baja o asignar estudiantes a clases.</p>
-        <p><strong>Supervisión de recursos:</strong> Gestionar y distribuir recursos educativos dentro de la plataforma.</p>
       </div>
+      <div *ngIf="menuOptionSelected === 'info'" class="profesor-descripcion">
+        <h2>Función principal</h2>
+        <div *ngIf="adminData">
+          <p><strong>Administrar solicitudes de profesores:</strong> Revisar y aprobar las solicitudes de nuevos
+            profesores.</p>
+          <p><strong>Gestión de alumnos:</strong> Dar de baja o asignar estudiantes a clases.</p>
+          <p><strong>Supervisión de recursos:</strong> Gestionar y distribuir recursos educativos dentro de la
+            plataforma.</p>
+        </div>
+      </div>
+
+      <div *ngIf="menuOptionSelected === 'enable-teachers'">
+        <h2>Profesores en espera</h2>
+        <div *ngFor="let teacher of teachers">
+          <app-teacher-card [id]="teacher.id" [name]="teacher.name" [lastNames]="teacher.last_names"
+            [knowledgeBranches]="teacher.knowledge_branches" [price]="teacher.price_hour"
+            [image]="teacher.image"></app-teacher-card>
+        </div>
+      </div>
+
+      <div *ngIf="menuOptionSelected === 'disable-students'">
+        <h2>Dar de baja a alumnos</h2>
+        <div *ngFor="let student of students">
+          <app-student-card [id]="student.id" [name]="student.name" [lastNames]="student.last_names"
+            [image]="student.image">
+          </app-student-card>
+        </div>
+      </div>
+    </section>
+
+    <section *ngIf="isStudent()" class="profesor-detalles">
+      <!-- Acerca del profesor -->
+      <div *ngIf="menuOptionSelected === 'info'" class="profesor-descripcion">
+        <h2>Acerca de mi</h2>
+        <p>Soy alumno de la escuela Hogwarts, mis pardres también asistiendo a esta escula y estoy feliz de tomar
+          classes online, esto si es mágia.</p>
+      </div>
+
+      <div *ngIf="menuOptionSelected === 'info'" class="profesor-descripcion">
+        <h2>información personal</h2>
+        <div *ngIf="studentData">
+          <p><strong>Nombre:</strong> {{ studentData.name }} {{ studentData.last_names }}</p>
+          <p><strong>Número de teléfono:</strong> {{ studentData.phone }}</p>
+          <p><strong>Email:</strong> {{ studentData.email }}</p>
+        </div>
+      </div>
+      <div *ngIf="menuOptionSelected === 'info'" class="profesor-descripcion">
+        <h2>Información adicional</h2>
+        <div *ngIf="studentData">
+          <p><strong>Soy un buen jugador de Quidditch</strong> Revisar y aprobar las solicitudes de nuevos
+            profesores.</p>
+        </div>
+      </div>
+
+      <div *ngIf="menuOptionSelected === 'enable-teachers'">
+        <h2>Profesores en espera</h2>
+        <div *ngFor="let teacher of teachers">
+          <app-teacher-card [id]="teacher.id" [name]="teacher.name" [lastNames]="teacher.last_names"
+            [knowledgeBranches]="teacher.knowledge_branches" [price]="teacher.price_hour"
+            [image]="teacher.image"></app-teacher-card>
+        </div>
+      </div>
+
+      <div *ngIf="menuOptionSelected === 'disable-students'">
+        <h2>Dar de baja a alumnos</h2>
+        <div *ngFor="let student of students">
+          <app-student-card [id]="student.id" [name]="student.name" [lastNames]="student.last_names"
+            [image]="student.image">
+          </app-student-card>
+        </div>
+      </div>
+    </section>
   </div>
-
-  <div  *ngIf="menuOptionSelected === 'enable-teachers'">
-    <h2>Profesores en espera</h2>
-    <div *ngFor="let teacher of teachers">
-      <app-teacher-card
-        [id]="teacher.id"
-        [name]="teacher.name"
-        [lastNames]="teacher.last_names"
-        [knowledgeBranches]="teacher.knowledge_branches"
-        [price]="teacher.price_hour"
-        [image]="teacher.image"
-      ></app-teacher-card>
-    </div>
-  </div>
-
-  <div  *ngIf="menuOptionSelected === 'disable-students'">
-    <h2>Dar de baja a alumnos</h2>
-    <div *ngFor="let student of students">
-      <app-student-card
-              [id]="student.id"
-              [name]="student.name"
-              [lastNames]="student.last_names"
-              [image]="student.image">
-      </app-student-card>
-  </div>
-  </div>
-  </section>
-
-  <section *ngIf="isStudent()" class="profesor-detalles">
-    <!-- Acerca del profesor -->
-    <div *ngIf="menuOptionSelected === 'info'" class="profesor-descripcion">
-      <h2>Acerca de mi</h2>
-      <p>El profesor es un experto en su área, comprometido con el desarrollo académico y personal de los estudiantes. A través de su conocimiento y dedicación, inspira y guía a los alumnos a alcanzar su máximo potencial. Su rol es fundamental en la creación de un ambiente de aprendizaje dinámico y colaborativo.</p>
-    </div>
-
-    <div  *ngIf="menuOptionSelected === 'info'" class="profesor-descripcion">
-      <h2>información personal</h2>
-      <div *ngIf="studentData">
-        <p><strong>Nombre:</strong> {{ studentData.name }} {{ studentData.last_names }}</p>
-        <p><strong>Número de teléfono:</strong> {{ studentData.phone }}</p>
-        <p><strong>Email:</strong> {{ studentData.email }}</p>
-      </div>
-    </div>
-    <div  *ngIf="menuOptionSelected === 'info'" class="profesor-descripcion">
-      <h2>Función principal</h2>
-      <div *ngIf="studentData">
-        <p><strong>Administrar solicitudes de profesores:</strong> Revisar y aprobar las solicitudes de nuevos profesores.</p>
-        <p><strong>Gestión de alumnos:</strong> Dar de baja o asignar estudiantes a clases.</p>
-        <p><strong>Supervisión de recursos:</strong> Gestionar y distribuir recursos educativos dentro de la plataforma.</p>
-      </div>
-    </div>
-
-    <div  *ngIf="menuOptionSelected === 'enable-teachers'">
-      <h2>Profesores en espera</h2>
-      <div *ngFor="let teacher of teachers">
-        <app-teacher-card
-          [id]="teacher.id"
-          [name]="teacher.name"
-          [lastNames]="teacher.last_names"
-          [knowledgeBranches]="teacher.knowledge_branches"
-          [price]="teacher.price_hour"
-          [image]="teacher.image"
-        ></app-teacher-card>
-      </div>
-    </div>
-
-    <div  *ngIf="menuOptionSelected === 'disable-students'">
-      <h2>Dar de baja a alumnos</h2>
-      <div *ngFor="let student of students">
-        <app-student-card
-          [id]="student.id"
-          [name]="student.name"
-          [lastNames]="student.last_names"
-          [image]="student.image">
-        </app-student-card>
-      </div>
-    </div>
-  </section>
-</div>
 </body>

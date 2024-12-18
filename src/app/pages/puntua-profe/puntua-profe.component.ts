@@ -39,8 +39,6 @@ export class PuntuaProfeComponent {
     const studentStrId = navigation?.extras.state?.['studentId'] || null;
     console.log("recibiendo student ID", studentStrId);
     this.studentId = Number(studentStrId);
-    // Deberiamos hacer comprobaciones para ver que el alumno esta validado.
-    // Lo dejo para el final si me da tiempo.
     const resp = this.teachersService.getTeacherInfo(this.teacherId);
     resp.then((data) => {
       this.teacherData = data;
