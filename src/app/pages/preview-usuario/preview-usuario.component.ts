@@ -35,6 +35,7 @@ export class PreviewUsuarioComponent {
   teachers: ITeacherInfoInterface[] = [];
 
   async ngOnInit(): Promise<void> {
+    this.scrollToTop();
     this.activatedRoute.params.subscribe(params => {
       this.userId= params['id'];
     });
@@ -68,5 +69,9 @@ export class PreviewUsuarioComponent {
       return null;
     }
     return new google.maps.LatLng(lat, lng);
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

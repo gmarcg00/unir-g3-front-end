@@ -70,6 +70,7 @@ export class ProfileComponent {
   }
 
   async ngOnInit() {
+    this.scrollToTop();
     this.activatedRoute.params.subscribe(params => {
       this.studentId = params['id'];
     });
@@ -153,6 +154,10 @@ export class ProfileComponent {
       timer: 1000
     })
     await this.router.navigateByUrl("/home");
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
 }

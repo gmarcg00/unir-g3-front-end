@@ -21,6 +21,11 @@
         (click)="reviewTeacher()"
         class="btn btn-lg btn-success"
       > VALORAR</button>
+      <button
+        *ngIf="isContactable"
+        (click)="contactTeacher()"
+        class="btn btn-lg btn-success"
+      > CONTACTAR</button>
     </div>
   </div>
 </div>

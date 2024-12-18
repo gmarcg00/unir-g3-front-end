@@ -6,6 +6,7 @@ import { AuthService } from "../../services/auth.service";
 import { Router } from "@angular/router";
 import Swal from "sweetalert2";
 import { NgIf } from "@angular/common";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-teacher-card',
@@ -27,6 +28,7 @@ export class TeacherCardComponent {
   @Input() price: number = 0;
   @Input() image: string = "";
   @Input() isValorable: boolean = false;
+  @Input() isContactable: boolean = false;
 
   teachersService = inject(TeachersService);
   authService = inject(AuthService);
@@ -62,6 +64,28 @@ export class TeacherCardComponent {
   async reviewTeacher(): Promise<void> {
     const token = this.authService.getTokenPayload();
     await this.router.navigate(['/review'], { state: { teacherId: this.id, studentId: token?.id } });
+  }
+
+  async contactTeacher(): Promise<void> {
+    const token = this.authService.getTokenPayload();
+    try {
+      await this.teachersService.contact(token?.id, this.id);
+    }catch (error){
+      if(error instanceof HttpErrorResponse){
+        if(error.status === 400){
+          await Swal.fire({
+            title: 'Ya has contactado a este profesor',
+            text: 'Dirigite a la seccion de chats para continuar la conversacion',
+            icon: 'info',
+            background: "#740001",
+            color: "#D4A017"
+          })
+      }
+    }
+
+    }
+
+    await this.router.navigate(['/chats']);
   }
 
 

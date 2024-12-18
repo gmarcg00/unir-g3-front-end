@@ -13,6 +13,7 @@ export class TeachersService {
 
   private httpClient = inject(HttpClient);
   private teachersUrl = `${environment.API_URL}/teachers`;
+  private chatsUrl = `${environment.API_URL}/chats`;
   private knowledgeBranchesUrl = `${environment.API_URL}/knowledge-branches`;
   private apiUrl: string = `${environment.API_URL}/teachers`;
 
@@ -61,6 +62,10 @@ export class TeachersService {
 
   getTeacherInfo(id: number): Promise<ITeacherInfoInterface> {
     return firstValueFrom(this.httpClient.get<ITeacherInfoInterface>(`${this.teachersUrl}/${id}/info`));
+  }
+
+  contact(studentId: number | undefined, teacherId: number) {
+    return firstValueFrom(this.httpClient.post(`${this.chatsUrl}`,{student_id: studentId, teacher_id: teacherId}));
   }
 
 }

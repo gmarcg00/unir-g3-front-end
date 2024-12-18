@@ -51,6 +51,7 @@ export class TeachersComponent {
   pages: number[] = [];
 
   ngOnInit() {
+    this.scrollToTop();
     this.getKnowledgeBranches();
     this.getTeachers().then(() => {
       this.updatePages()
@@ -129,6 +130,10 @@ export class TeachersComponent {
     this.getTeachers().then(() => {
       this.updatePages()
     });
+  }
+
+  scrollToTop(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
 
