@@ -74,14 +74,9 @@ export class PuntuaProfeComponent {
     if (review === "") {
       review = this.ratingText;
     }
-    console.log("texto review:", review);
     const rating = this.selectedRating;
-    console.log(typeof review, typeof rating);
-    console.log(this.studentId, this.teacherId, rating, review);
     const resp = this.reviewsService.insertReview(this.studentId, this.teacherId, rating, review);
-    // validar que son correctos los datos ...
     resp.then((data) => {
-      console.log(data);
       if (data) {
         Swal.fire({
           title: 'Review guardada',
@@ -91,7 +86,7 @@ export class PuntuaProfeComponent {
           color: "#fff",
           timer: 1500
         })
-        this.router.navigate(['/teachers']);
+        this.router.navigate(['/dashboard/student']);
       }
     })
   }
