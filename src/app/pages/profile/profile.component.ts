@@ -36,14 +36,12 @@ export class ProfileComponent {
   studentsService = inject(StudentsService);
   activatedRoute = inject(ActivatedRoute);
   studentId: number = 0;
+  onlyStudentInfo: boolean = false;
 
   teachers: ITeacherInfoInterface[] = [];
   students: IStudentInfoInterface[] = [];
 
-  constructor() {
-    const navigation = this.router.getCurrentNavigation();
-    this.studentId = navigation?.extras.state?.['stID'];
-  }
+
 
   getTeachers(): void {
     this.teachersService.getNonActiveTeachers(1, 8)
@@ -72,6 +70,9 @@ export class ProfileComponent {
   }
 
   async ngOnInit() {
+    this.activatedRoute.params.subscribe(params => {
+      this.studentId = params['id'];
+    });
     console.log(this.studentId);
     const token = this.authService.getTokenPayload();
     if (!token) {
@@ -86,10 +87,12 @@ export class ProfileComponent {
     }
 
     if (this.studentId !== 0 && this.studentId !== undefined) {
+      this.onlyStudentInfo = true;
       this.setUserRole(3);
       await this.getData(this.studentId);
     }
     else {
+      this.onlyStudentInfo = false;
       this.setUserRole(token?.role || 0);
       await this.getData(token?.id || 0);
     }

@@ -10,7 +10,7 @@ import { StudentsService } from "../../services/students.service";
   selector: 'app-student-card',
   standalone: true,
   imports: [
-    NgIf,
+    NgIf, RouterLink
   ],
   templateUrl: './student-card.component.html',
   styleUrl: './student-card.component.css'
