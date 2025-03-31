@@ -91,7 +91,7 @@ export class PuntuaProfeComponent {
           color: "#fff",
           timer: 1500
         })
-        this.router.navigate(['/teachers']);
+        this.router.navigate(['/dashboard']);
       }
     })
   }
